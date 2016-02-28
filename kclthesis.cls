@@ -49,9 +49,8 @@
 \RequirePackage[paper=a4paper]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{framed}
-
-
-
+\RequirePackage{tikz}
+\usetikzlibrary{arrows}
 
 %%%% VARIABLES
 \newcommand*{\modulecode}[1]{\gdef\@modulecode{#1}}
