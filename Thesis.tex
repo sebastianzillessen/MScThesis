@@ -8,6 +8,10 @@
 % glossaries
 \usepackage[toc, acronym]{glossaries} 
 
+\usepackage{enumitem}
+\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+
+
 
 % customize your general setup here
 \title{Automated Small Datanalyst}
@@ -63,6 +67,14 @@
 \renewcommand{\footrulewidth}{0.0pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\S}{\mathcal{S}}
+\renewcommand{\D}{\mathcal{D}}
+
+\newcommand{\low}[1]{$_{\text{\tiny{#1}}}$}
+
+
+
 %%%%%% Main content
 \pagenumbering{arabic}
 \include{contents/introduction}
@@ -82,7 +94,8 @@
 %%%%%
 %\bibliographystyle{kclharvardv1}
 
-\bibliography{bibs/sample1, bibs/sample2, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern,bibs/modgil, bibs/amgoud} 
+\bibliography{bibs/sassoon, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern, bibs/modgil, bibs/amgoud, bibs/reiter, bibs/bench, bibs/amgoud98} 
+
 %%%%% Declaration
 \include{structure/declaration}
 %%%%% Appendix 

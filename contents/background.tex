@@ -1,88 +1,14 @@
-\section{Background research} 
+\section{Background research}
 
-\subsection{Argumentation Theory: General introduction}
-This section is mostly based on Dung's theory of argumentation \cite{Dung1995321}. 
+Understanding human argumentation has proven as important topic regarding recent developments in \Gls{AI} and Agent-based systems. Applications such as belief revision, decision-making, inter-agent communication, medical reasoning, semantic web reasoning and trust computing rely on the ability to deal with uncertainty, incompletness and inconsistency of information \cite{liao,Bench2007}.
 
-\begin{definition}
-	An argumentation framework is a tuple $AF = \langle S, R \rangle$ where $S$ is a set of arguments and $ R \subseteq S \times S$. $R$ is called the attack relation.
-\end{definition}
+Non-monotonic argumentation (as proposed in \cite{dung1995, liao}) and monotonic (classical) logic \cite{Reiter1980} are different approaches to deal with reasoning for that kind of applications. Recent research is focusing on dialogue based approaches which are mostly based on non-monotonic argumentation, as this is an emerging topic in the world of agents and multi-agent systems \cite{parsons2000,Walton1995}.
 
-An (abstract) argumentation framework can be represented as a directed graph, nodes being arguments, arrows between node $A$ and $B$ representing an attack from argument $A$ to $B$. \autoref{fig:small_af} represents an argumentation framework with the definition $AF = \langle \{A, B, C\}, \{(A,B), (A, C), (B, A), (B, B), (B, C) \}\rangle$.
-
-\begin{notation}
-In this paper we use capital letters $A, B, $ to denote arguments. $AB$ denotes an attack from $A$ to $B$ ($(A,B) \in R$).	
-\end{notation}
-
-For the following definitions let $AF=\langle S, R \rangle, S' \subseteq S$.
-
-\begin{definition}
- A subset $S'$ is \textbf{conflict free} iff $ \forall A, B \in S': (A, B) \notin R$ \textit{(the subset has not attacks between its arguments)}.
-\end{definition}
-
-\begin{definition}
-A set $ S' \subseteq S$ \textbf{defends} an argument $A \in S$ iff $\forall B \in S; (B, A) \in R \Rightarrow \exists C \in S': (C, B) \in R$ \textit{(a set $S'$ defends an argument $B \in S$ iff for every argument $B \in S$ that attacks $A$ there is an element $C \in S'$ such that $C$ attacks $B$).}
-\end{definition}
+In this background research a general overview over an argumentation frameworks definition will be given. Furthermore this will be extended to reason about preferences in argumentation frameworks \cite{Modgil2009}. In addition a summary based on \cite{sassoon2014} of the problem of selecting statistical models by clinicians will be given. Finally a short overview on related work will be presented.
 
 
-\begin{definition}
-$A$ is \textbf{acceptable} with respect to a subset $S'$ iff  $\forall B \in S: (B, A) \in R \Rightarrow \exists C \in S': (C, B) \in R$ \textit{(an argument $A$ is acceptable under a subset $S'$ if for each attacker of $A$ there is an argument in $S'$ that attacks these attackers of $A$)}.
-\end{definition}
-
-\begin{definition}
-	A set $S' \subseteq S$ is \textbf{admissable} if $A$ is conflict-free and defends all of its arguments.
-\end{definition}
-
-
-
-\begin{definition}
-complete extension	
-\end{definition}
-
-\begin{definition}
-grounded extension	
-\end{definition}
-
-\begin{definition}
-prefered extension	
-\end{definition}
-
-\begin{definition}
-stable extension	
-\end{definition}
-
-\begin{definition}
-	Acaptability of arguments under an extension
-\end{definition}
-
-
-
-\begin{figure}[h]
-\centering
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
-
-  \node[main node] (A) {A};
-  \node[main node] (B) [below left of=A] {B};
-  \node[main node] (C) [below right of=A] {C};
-  
-  \path[every node/.style={font=\sffamily\small}]
-    (A) edge [bend right] node [left] {} (B)
-        edge node [left] {} (C)
-    (B) edge [bend right] node [left] {} (A)
-        edge node [left] {} (C)
-        edge [loop left] node {} (B)
-     ;
-\end{tikzpicture}
-\caption{Small example argumentation framework}
-\label{fig:small_af}
-\end{figure}
-
-
-
-
-
-
-
+\input{contents/literatur_general}
+\input{contents/literatur_preferences}
 
 %%%%%%%%%%%%%%%%%%
 \bigskip
@@ -91,17 +17,17 @@ stable extension
 
 
 
-Fundamental mechanism, humans use in argumentation, and exploring ways to implement this mechanism on computers. 
+%Fundamental mechanism, humans use in argumentation, and exploring ways to implement this mechanism on computers. 
 \begin{itemize}
-	\item developing a theory for argumentation (central notion is the acceptability of arguments) \cite{Dung1995321}, \cite{Modgil2009}
-	\item correctness of this theory ( most approaches to nonmonotonic reasoning in AI and logic programming are special forms of this theory of argumentation)
-	\item appropriateness of this theory (illustrates how our theory can be used to investigate the logical structure of many practical problems)
+	%\item developing a theory for argumentation (central notion is the acceptability of arguments) \cite{dung1995}, \cite{Modgil2009}
+	\item \todo{correctness of this theory ( most approaches to nonmonotonic reasoning in AI and logic programming are special forms of this theory of argumentation)}
 \end{itemize}
-Mostly based on Dung\cite{Dung1995321}. Biggest difference: we argue with inconsistent SKB so defeasible argumentation. 
 
-Liao \cite[Chapter 2]{liao} provides the same semantic of argumenatation. Just introducing extension based and labelling based approach. Pointing out differences.
 
-\subsection{Argumentation Theory - Working with Preferences in AF}
+??? Other approaches to non-monotonic reasoning in \Gls{AI} and logic programming are specialised forms of this theory of argumentation.???
+
+
+\subsection{Argumentation Theory - Working with Preferences in $AF$}
 Based on Isabel's second paper\cite{sassoon2016}, based on Extended Argumentation Framework\cite{Modgil2009}, using preferences as arguments for attacks on the attack-relation in the original argumentation.
 Distinguishing to Amgouds's\cite{amgoud}  Preference based Argumentation Framework.
 
@@ -112,7 +38,7 @@ Short summary of Isabels paper \cite{sassoon2014}. Focus on argumentation theory
 \begin{itemize}
 	\item Argumentation for Aggregating Clinical Evidence \cite{hunter}: multiple outcome indicators, checks only old date, not supposed data for recommendation, focuses on generation of arguments out of evidence
 	\item An argument-based approach to reasoning with clinical knowledge\cite{Gorogiannis20091}: Focus on simple language representing the results of clinical trials, doesn't deal with preferences of different priorities.
-	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the AF is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
+	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the $AF$ is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
 \end{itemize}
 
 

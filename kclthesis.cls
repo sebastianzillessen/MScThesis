@@ -51,6 +51,7 @@
 \RequirePackage{framed}
 \RequirePackage{tikz}
 \usetikzlibrary{arrows}
+\usetikzlibrary{calc}
 
 %%%% VARIABLES
 \newcommand*{\modulecode}[1]{\gdef\@modulecode{#1}}
