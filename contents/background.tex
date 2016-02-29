@@ -28,6 +28,7 @@ In this background research a general overview over an argumentation frameworks 
 
 
 \subsection{Argumentation Theory - Working with Preferences in $AF$}
+
 Based on Isabel's second paper\cite{sassoon2016}, based on Extended Argumentation Framework\cite{Modgil2009}, using preferences as arguments for attacks on the attack-relation in the original argumentation.
 Distinguishing to Amgouds's\cite{amgoud}  Preference based Argumentation Framework.
 
@@ -38,6 +39,7 @@ Short summary of Isabels paper \cite{sassoon2014}. Focus on argumentation theory
 \begin{itemize}
 	\item Argumentation for Aggregating Clinical Evidence \cite{hunter}: multiple outcome indicators, checks only old date, not supposed data for recommendation, focuses on generation of arguments out of evidence
 	\item An argument-based approach to reasoning with clinical knowledge\cite{Gorogiannis20091}: Focus on simple language representing the results of clinical trials, doesn't deal with preferences of different priorities.
+
 	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the $AF$ is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
 \end{itemize}
 
@@ -90,4 +92,5 @@ The data makes use of a small data set used to illustrate the use of survival an
 				- $A_q$: queries are assumptions that are assessed by asking the clinician for an opinion.
 			})
 	\item R-Code (execution in Ruby possible \cite{rinRuby}  \insertref{https://github.com/clbustos/rinruby} \footnote{\texttt{rinruby} is a gem, that enables evaluation of R code in ruby}) and required outcomes for it decide, whether this model $m_i$ is possible or not. 
+	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the AF is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
 \end{itemize}
