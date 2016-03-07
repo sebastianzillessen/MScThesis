@@ -1,22 +1,21 @@
 \subsection{Argumentation Theory: General introduction}
 In the following section a general overview on argumentation frameworks will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for argumentation frameworks.
 \begin{definition}
-	An argumentation framework is a tuple $AF = \langle S, R \rangle$ where $S$ is a set of arguments and $ R \subseteq S \times S$. $R$ is a binary relation and called attack relation.
+	An argumentation framework is a tuple $AF = \langle \S, \R \rangle$ where $\S$ is a set of arguments and $ \R \subseteq \S \times \S$. $\R$ is a binary relation and called attack relation.
 \end{definition}
 
 
 An (abstract) argumentation framework can be represented as a directed graph where nodes are arguments and arrows between node $A$ and $B$ represent an attack from argument $A$ against $B$.
 
 \begin{exa}
- \autoref{fig:small_af} represents an argumentation framework with the definition $AF = \langle \{A, B, C, D, E\}, \{(A,B), (B, C), (B, E), (C, B), (D,C), (D,D)\}\rangle$. This framework will be used as example for the following definitions
-	
+ \autoref{fig:small_af} represents an argumentation framework with the definition $AF = \langle \{A, B, C, D, E\}, \{(A,B), (B, C), (B, E), (C, B), (D,C), (D,D)\}\rangle$. This framework will be used as an example for the following definitions.
 \end{exa}
 
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+                    thick]
 
   \node[main node] (A) {A};
   \node[main node] (B) [right of=A] {B};
@@ -39,31 +38,31 @@ An (abstract) argumentation framework can be represented as a directed graph whe
 
 
 \begin{notation}
-In this paper we use capital letters $\{A, B, ...\}$ to denote arguments. $AB$ or $(A, B)$ denotes an attack from $A$ to $B$ ($(A,B) \in R$).	
+In this paper we use capital letters $\{A, B, ...\}$ to denote arguments. $AB$ or $(A, B)$ denotes an attack from $A$ to $B$ ($(A,B) \in \R$).	
 \end{notation}
 
-For the following definitions let $AF=\langle S, R \rangle, S' \subseteq S$.
+For the following definitions let $AF=\langle \S, \R \rangle, S' \subseteq \S$.
 
 \begin{definition}
- A subset $S'$ is \textbf{conflict-free} iff $ \forall A, B \in S': (A, B) \notin R$ \textit{(the subset has no attacks between its arguments)}.
+ A subset $S'$ is \textbf{conflict-free} iff $ \forall A, B \in S': (A, B) \notin \R$ \textit{(the subset has no attacks between its arguments)}.
 \end{definition}
 \begin{exa}
 Conflict-free subsets in the provided example are $\emptyset, \{A\}, \{B\}, \{C, E\}, ...$. The sets $\{D\}, \{A, B\}, \{B, C\}$ are not conflict-free.
 \end{exa}
 
 \begin{definition}
-$A$ is \textbf{acceptable} with respect to a subset $S'$ iff  $\forall B \in S: (B, A) \in R \Rightarrow \exists C \in S': (C, B) \in R$ \textit{(an argument $A$ is acceptable with respect to a subset $S'$ iff for each attacker $C$ of $A$ there is an argument in $S'$ that attacks this attacker of $A$). }
+$A$ is \textbf{acceptable} w.r.t. a subset $S'$ iff  $\forall B \in \S: (B, A) \in \R \Rightarrow \exists C \in S': (C, B) \in \R$ \textit{(an argument $A$ is acceptable with respect to a subset $S'$ iff for each attacker $C$ of $A$ there is an argument in $S'$ that attacks this attacker of $A$). }
 \end{definition}
 
 \begin{exa}
-The set $\{A\}$ defends $E$ ($E$ is acceptable with respect to $\{A\}$). $A$ is acceptable with respect to $\emptyset$.
+In  \autoref{fig:small_af} the set $\{A\}$ defends $E$ ($E$ is acceptable with respect to $\{A\}$). $A$ is acceptable with respect to $\emptyset$.
 \end{exa}
 
 
 \begin{definition}
 The \textbf{characteristic function} of an argumentation framework $AF$ (denoted as $F_{AF}$) is defined by the following:
 	\begin{align*}
-		&F_{AF}: 2^{S} \rightarrow 2^S &\\
+		&F_{AF}: 2^{\S} \rightarrow 2^\S &\\
 		&F_{AF}(S') = \{A | A~\text{is acceptable with respect to}~S'\} &
 	\end{align*}
 \end{definition}
@@ -73,11 +72,11 @@ The \textbf{characteristic function} of an argumentation framework $AF$ (denoted
 
 
 \begin{definition}
-	A conflict-free set $S' \subseteq S$ is \textbf{admissible} iff $S'$ defends all of its arguments (\textit{each argument in $S'$ is acceptable with respect to $S'$}) or $S' \subseteq F_{AF}(S')$.
+	A conflict-free set $S' \subseteq \S$ is \textbf{admissible} iff $S'$ defends all of its arguments (\textit{each argument in $S'$ is acceptable with respect to $S'$}) or $S' \subseteq F_{AF}(S')$.
 \end{definition}
 
 \begin{exa}
-The sets $\{A\}, \{A, E\}$ are admissible. The set $\{B\}$ is conflict-free but not admissible, since $B$ is not acceptable with respect to $\{B\}$.
+In the given example in \autoref{fig:small_af} sets $\{A\}, \{A, E\}$ are admissible, and $\{B\}$ is conflict-free but not admissible, since $B$ is not acceptable with respect to $\{B\}$.
 \end{exa}
 
 \begin{definition}
@@ -105,13 +104,13 @@ A grounded extension ($GE_{AF}$) of an argumentation framework $AF$ is the minim
 
 
 \begin{definition}
-A preferred extension of an argumentation framework $AF$ is a maximal (with respect to set inclusion) admissible set of $AF$.
+A preferred extension of an argumentation framework $AF$ is a maximised (with respect to set inclusion) admissible set of $AF$.
 \end{definition}
 
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+                    thick]
 
   \node[main node] (A) {A};
   \node[main node] (B) [right of=A] {B};
@@ -137,7 +136,7 @@ The preferred extensions in \autoref{fig:pref_af} are $\{A, C\}$ and $\{A, D\}$.
 \end{exa}
 
 \begin{definition}
-A conflict-free set of arguments $S' \subseteq S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument which does not belong to $S'$.
+A conflict-free set of arguments $S' \subseteq \S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument which does not belong to $S'$.
 \end{definition}
 \begin{exa}
 The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}$ is a preferred, but not a stable extension.
@@ -145,7 +144,7 @@ The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}
 
 
 \begin{remark}
-The different extensions of a $AF = \langle S, R \rangle$ have the following relations between each other:
+The different extensions of a $AF = \langle \S, \R \rangle$ have the following relations between each other:
 
 \begin{itemize} 
 	\item Each preferred extension is as well a complete extension.
@@ -159,17 +158,17 @@ The different extensions of a $AF = \langle S, R \rangle$ have the following rel
 \end{remark}
 
 \begin{definition}
-An argument is regarded as \textbf{sceptically accepted under a semantic} if it is accepted in all extensions of this semantic (complete, grounded, preferred, stable). An argument is regarded as \textbf{credulously accepted under a semantic} if it accepted in at least one, but not all, extensions of this semantic. 	
+An argument is regarded as \textbf{sceptically accepted under a semantic}, iff it is accepted in all extensions of this semantic (complete, grounded, preferred, stable). An argument is regarded as \textbf{credulously accepted under a semantic}, iff it accepted in at least one, but not all, extensions of this semantic. 	
 \end{definition}
 
 \begin{exa}
-In \autoref{fig:pref_af} $A$ is sceptically accepted under each semantic. $C$ and $D$ are credulously accepted under the preferred semantic. $D$ is as well accepted sceptically under the stable semantic (as there is only one stable extension and $D$ is part of each of it).
+In \autoref{fig:pref_af} $\{A\}$ is sceptically accepted under each semantic. $\{C, D\}$ are credulously accepted under the preferred semantic. $\{D\}$ is as well accepted sceptically under the stable semantic.
 \end{exa}
 
 
 Furthermore \cite{dung1995} introduces \textit{well-founded argumentation frameworks} (having exactly one extension which is grounded, preferred and stable), \textit{uncontroversial argumentation frameworks} and \textit{coherent argumentation frameworks} (each preferred extension of an $AF$ is stable). Regarding the problem we are looking at, defeasible argumentation is really important, as we are dealing with inconsistent \glspl{SKB}. Hence these restricted argumentation frameworks will not be used in this project, therefore they are not discussed any further.
 
-In extension to the discussed extension-based semantics, \cite{liao} introduces a so called \textit{labelling-based approaches} where there are usually three labels: IN (accepted argument), OUT (rejected argument) and UNDEC (undecided opinion wether this argument is accepted or rejected) and a labelling function $\lambda: S \rightarrow \{IN, OUT, UNDEC\}$.
+In extension to the discussed extension-based semantics, \cite{liao} introduces a so called \textit{labelling-based approach} where there are usually three labels: \texttt{IN} (accepted argument), \texttt{OUT} (rejected argument) and \texttt{UNDEC} (undecided whether this argument is accepted or rejected) and a labelling function $\lambda: \S \rightarrow \{IN, OUT, UNDEC\}$.
 
-By defining legally labelled arguments definitions for \textit{conflict-free labelings},~\textit{admissible labelings} and \textit{complete/grounded/preferred labelings} can be derived. As they can be easily transferred to the extension-based semantics already introduced in this section (there exists a bijective correspondence), we will use both semantic and labelling and not define them any further.
+By defining legally labelled arguments, definitions for \textit{conflict-free labelings},~\textit{admissible labelings} and \textit{complete/grounded/preferred labelings} can be derived. As there exists a bijective projection, they can be easily transferred to the extension-based semantics already introduced in this section.
 

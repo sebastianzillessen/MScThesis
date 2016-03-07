@@ -7,19 +7,12 @@
 
 % glossaries
 \usepackage[toc, acronym]{glossaries} 
+\usepackage{float}
 
 \usepackage{enumitem}
-\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
+\usetikzlibrary{shapes}
 
-% customize your general setup here
-\title{Automated Small Datanalyst}
-\author{Sebastian Zillessen}
-\modulecode{7CCSMPRJ}
-\submissiontitle{Individual Project Submission 2015/16}
-\studentnumber{\#1564629}
-\programme{MSc Web Intelligence MSc}
-\supervisor{Jeroen Keppens}
-%\wordcount{XXXXXXX}
+\setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
 
 
 % customize your general setup here
@@ -79,20 +72,32 @@
 \renewcommand{\S}{\mathcal{S}}
 \renewcommand{\D}{\mathcal{D}}
 
-\newcommand{\low}[1]{$_{\text{\tiny{#1}}}$}
+\newcommand{\low}[1]{{\tiny $_{#1}$}}
+\newcommand{\tbd}[1]{\todo{TBD}{\color{gray} #1}}
+
+\tikzstyle{n_fill_green}=[circle,draw,fill=green!20]
+\tikzstyle{n_fill_red}=[circle,draw,fill=red!20]
+\tikzstyle{n_fill_gray}=[circle,draw,fill=gray!20]
+\tikzstyle{main node}=[circle, draw]
+\tikzstyle{small}=[circle, draw, inner sep=1pt,minimum size=20pt]
 
 
+
+\newfloat{AS}{hbtp}{lop}
 
 %%%%%% Main content
 \pagenumbering{arabic}
 \include{contents/introduction}
 \include{contents/background}
+\include{contents/softwaredesignprocess}
+\include{contents/involved_data}
 %\include{contents/main}
 %\include{contents/conclusion}
 
 \include{contents/nomenclature}
 %%%%% References
-\bibliographystyle{ieeetr}
+%\bibliographystyle{ieeetr}
+\bibliographystyle{kclharvardv1}
 %%%%% Use King's College Harvard V1 style
 % If you want to use a bibliography style that is quite close to 
 % the King's College Harvard V1 style (http://libguides.kcl.ac.uk/reference/KingsHarvardV1): 
@@ -102,7 +107,7 @@
 %%%%%
 %\bibliographystyle{kclharvardv1}
 
-\bibliography{bibs/sassoon, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern, bibs/modgil, bibs/amgoud, bibs/reiter, bibs/bench, bibs/amgoud98} 
+\bibliography{bibs/sassoon, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern, bibs/modgil, bibs/amgoud, bibs/reiter, bibs/bench, bibs/amgoud98,bibs/tandf_tncl207_25} 
 
 %%%%% Declaration
 \include{structure/declaration}

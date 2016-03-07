@@ -1,96 +1,24 @@
 \section{Background research}
 
-Understanding human argumentation has proven as important topic regarding recent developments in \Gls{AI} and Agent-based systems. Applications such as belief revision, decision-making, inter-agent communication, medical reasoning, semantic web reasoning and trust computing rely on the ability to deal with uncertainty, incompletness and inconsistency of information \cite{liao,Bench2007}.
+Understanding human argumentation has proven as an important topic regarding recent development in \Gls{AI} and Agent-based systems. Applications such as belief revision, decision-making, inter-agent communication, medical reasoning, semantic web reasoning and trust computing rely on the ability to deal with uncertainty, incompletness and inconsistency of information \cite{liao,Bench2007}.
 
-Non-monotonic argumentation (as proposed in \cite{dung1995, liao}) and monotonic (classical) logic \cite{Reiter1980} are different approaches to deal with reasoning for that kind of applications. Recent research is focusing on dialogue based approaches which are mostly based on non-monotonic argumentation, as this is an emerging topic in the world of agents and multi-agent systems \cite{parsons2000,Walton1995}.
+Non-monotonic argumentation (as proposed in \cite{liao,dung1995}) and monotonic (classic) logic (as proposed in \cite{Reiter1980}) are different approaches to deal with reasoning for that kind of applications. Recent research is focusing on dialogue based approaches which are mostly based on non-monotonic argumentation, as this is an emerging topic in the world of agents and multi-agent systems \cite{parsons2000,Walton1995}.
 
-In this background research a general overview over an argumentation frameworks definition will be given. Furthermore this will be extended to reason about preferences in argumentation frameworks \cite{Modgil2009}. In addition a summary based on \cite{sassoon2014} of the problem of selecting statistical models by clinicians will be given. Finally a short overview on related work will be presented.
+In this background research a general overview on argumentation frameworks will be given. Furthermore an extension to reason about preferences will be presented. In addition a summary of Sassoon \textit{et al.} \cite{sassoon2014} on the problem of finding applicable and choosing preferred models by clinicians for a given research question is presented. This is followed by a short overview on related work.
 
 
 \input{contents/literatur_general}
 \input{contents/literatur_preferences}
+\input{contents/other_af}
+\input{contents/summary_sassoon}
 
 %%%%%%%%%%%%%%%%%%
-\bigskip
-\hrule	
-\bigskip
+\tbd{
+	\subsection{Related work regarding clinical data analysis}
+	\begin{itemize}
+		\item Argumentation for Aggregating Clinical Evidence \cite{hunter}: multiple outcome indicators, checks only old date, not supposed data for recommendation, focuses on generation of arguments out of evidence
+		\item An argument-based approach to reasoning with clinical knowledge\cite{Gorogiannis20091}: Focus on simple language representing the results of clinical trials, doesn't deal with preferences of different priorities.
 
-
-
-%Fundamental mechanism, humans use in argumentation, and exploring ways to implement this mechanism on computers. 
-\begin{itemize}
-	%\item developing a theory for argumentation (central notion is the acceptability of arguments) \cite{dung1995}, \cite{Modgil2009}
-	\item \todo{correctness of this theory ( most approaches to nonmonotonic reasoning in AI and logic programming are special forms of this theory of argumentation)}
-\end{itemize}
-
-
-??? Other approaches to non-monotonic reasoning in \Gls{AI} and logic programming are specialised forms of this theory of argumentation.???
-
-
-\subsection{Argumentation Theory - Working with Preferences in $AF$}
-
-Based on Isabel's second paper\cite{sassoon2016}, based on Extended Argumentation Framework\cite{Modgil2009}, using preferences as arguments for attacks on the attack-relation in the original argumentation.
-Distinguishing to Amgouds's\cite{amgoud}  Preference based Argumentation Framework.
-
-\subsection{Source paper}
-Short summary of Isabels paper \cite{sassoon2014}. Focus on argumentation theory behind it and model selection process. Preferences expressed as attacks on the attacks between the arguments for models.
-
-\subsection{Related work}
-\begin{itemize}
-	\item Argumentation for Aggregating Clinical Evidence \cite{hunter}: multiple outcome indicators, checks only old date, not supposed data for recommendation, focuses on generation of arguments out of evidence
-	\item An argument-based approach to reasoning with clinical knowledge\cite{Gorogiannis20091}: Focus on simple language representing the results of clinical trials, doesn't deal with preferences of different priorities.
-
-	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the $AF$ is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
-\end{itemize}
-
-
-\section{Design process - Use Cases}
-Taken from Ivar Jacobson, see \autoref{fig:usecase20:flow}.\insertref{UseCase2.0}
-\begin{itemize}
-	\item popular MoSCoW (Must, Should, Could, Would) prioritization scheme
-	\item Use Case on one card (Priority, Release, Size, Complexity)
-	\item Use Case Slices generated from use case (Flows, Tests, Estimation)
-	\item Find Actors and Use Cases (slice them subsequently)
-	\item Prepare Use Case Slices by describing related stories (use-case narrative) and defining test cases
-	\item Analyse Use Case Slices (check how the system elements will interact to perform the use case)
-	\item Implement Use Case Slice
-	\item Test Use Case Slice
-	\item Inspect and Adapt
-	\item Test System
-\end{itemize}
-
-
-
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/uc20_flow}
-\caption{Use-case 2.0 activities for iterative development approaches}
-\label{fig:usecase20:flow}
-\end{figure}
-
-
-\section{Involved Data}
-\subsection{Actual data}
-The data makes use of a small data set used to illustrate the use of survival analysis methodologies when teaching the subject. The data set is called ovarian and contains the survival in a randomised trial comparing two treatments for ovarian cancer. This has 26 cases and the following columns:
-\begin{itemize}
-\item futime: survival\footnote{Survival in days while not observing the event} or censoring time\footnote{Patient left the observation after this amount of time and the event didnt take place}\item fustat: censoring status (1: survival, 0: censored\todo{Is this like this?})\item age: of the patient in years\item resid.ds: residual disease present (1=no,2=yes) 
-\item rx: treatment group (integers)
-\item ecog.ps: ECOG performance status (see \autoref{tab:ecog})
-\end{itemize}
-
-\subsection{Statistical Knowledge Base}
-\begin{itemize}
-	\item Models are suitable for research questions
-	\item models have critical assumptions
-	\item Models have non-critical assumptions (might be violated and can still be alright to use
-	\item \texttt{m2 must fulfil the following critical assumptions ["a1", "a2"], ... }\insertref{Isabels follow up paper of example and data and models}
-	\item \texttt{ Survival can be achieved by using the following model \{"m1"=>"a1", "m2"=>["a1", "a2"], "m3" =>["a1", "a3"]\}}
-	\item Assumptions met given ($a_i$). Then we use AS1 ($m_i$ is a possible model if 
-			\footnote{
-				- Model $m_i$ achieves objective $o_c$\\				- The data set meets the set of assumptions $A_t' = A_t (m_i)$\\				- The research project meets the set of assumptions $A'_q = A_q (m_i)$\\				- $A_c(m_i) \subseteq A_t' \cup A_q'$\\
-				- $A_t$: Tests are assumptions that are assessed by applying a test on the available data set \\
-				- $A_q$: queries are assumptions that are assessed by asking the clinician for an opinion.
-			})
-	\item R-Code (execution in Ruby possible \cite{rinRuby}  \insertref{https://github.com/clbustos/rinruby} \footnote{\texttt{rinruby} is a gem, that enables evaluation of R code in ruby}) and required outcomes for it decide, whether this model $m_i$ is possible or not. 
-	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the AF is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
-\end{itemize}
+		\item \cite{Atkinson2006} an approach based on \gls{VAF}.
+	\end{itemize}
+}

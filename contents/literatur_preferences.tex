@@ -1,21 +1,33 @@
-\subsection{Argumentation Theory - Working with Preferences in $AF$}
 
-A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. This approach does not take in account, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, taking into account that because of personal preferences, contextual requirements or additional information one argument might have a higher priority and is preferred over another. This order of preferences is often itself defeasible and conflicting and therefor subject to argumentation \cite{Modgil2009}.
-
-\newacronym{PAF}{PAF}{Preference-based argumentation framework}
-\newacronym{VAF}{VAF}{Value-based argumentation framework}
 \newacronym{EAF}{EAF}{Extended argumentation framework}
+\glsreset{EAF}
+\subsection{\gls{EAF} - Working with Preferences in $AF$}
 
-\begin{figure}[h]
+A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others. This order of preferences is often itself defeasible and conflicting and therefore subject to argumentation \cite{Modgil2009}.
+
+
+
+In this paper the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences regardless whether they are defeasible or conflicting. In addition it provides a really user-friendly way to consider preferences which will improve the understandability for clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
+\autoref{fig:eaf_intro} which is taken from \cite{Modgil2009} shows an example for a \gls{EAF} representing the following arguments:
+
+\begin{itemize}
+	\item $A$: "Today will be dry in London since the BBC forecast sunshine"
+	\item $B$: "Today will be wet in London since CNN forecast rain"
+	\item $C$: "But I think the BBC are more trustworthy than CNN"
+	\item $D$: "However, statistically CNN are more accurate forecasters than the BBC"
+	\item $E$: "Basing on a comparison on statistics is more rigorous and rational than basing a comparison on your instincts about their relative trustworthiness"
+\end{itemize}
+
+\begin{figure}[b!]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+                    thick]
 
   \node[main node] (A) {A};
-  \node[main node] (B) [left of=A] {B};
-  \node[main node] (C) [above right of=A] {C};
+  \node[small,n_fill_green] (B) [left of=A] {B};
+  \node[small,n_fill_green] (C) [above right of=A] {C};
   \node[main node] (D) [below right of=A] {D};
-  \node[main node] (E) [below right =0.8cm and 1.6cm of C] {E};
+  \node[small,n_fill_green] (E) [right=3cm of A] {E};
   
   \path[every node/.style={font=\sffamily\small}]
     (A) edge [bend right, dashed] coordinate [pos=0.5] (AB) node [left] {} (B)
@@ -29,24 +41,10 @@ A Dung's argumentation framework is based on logical theory which is transformed
    (E) edge [->>] node [left] {} (DC)
    ;
 \end{tikzpicture}
-\caption{\gls{EAF} with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks.}
+\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension.}
 \label{fig:eaf_intro}
 \end{figure}
 
-Other approaches to deal with preferences in argumentation frameworks have been proposed by \cite{amgoud,amgoud1998,Bench2003}. A \gls{PAF} defined in \cite{amgoud1998} is  a triple $\langle A, R, Pref \rangle$ where $Pref$ is a (partial of complete) order preordering on $A \times A$. The difference between this approach and the one we use is mostly the requirement of a strict ordering that has to be associated with $Pref$ and must be explicitly defined.
-
-\glspl{VAF} as proposed in \cite{Bench2003} define an argumentation framework as a 5-tuple: $\langle S, R, V, val, P \rangle$ ($S$: Arguments, $R$: Attack relation, $V$: nonempty set of values, $val(\cdot): S \rightarrow V$: value mapping function, $P$: possible set of audiences). The set of audiences $P$ is introduced to be able to make use of preferences between values in $V$, so we might have as many audiences as there are orderings on $V$. The new definition of an argument that defeats another argument takes in account the audience $a$ and the $val(\cdot)$ of both arguments to define successful attacks. This approach requires an in our case unknown value mapping function $val(\cdot)$ and doesn't argue with preferences in a natural way.
-
-However, we decided to go with the \gls{EAF} approach introduced in \cite{Modgil2009}, as it provides a useful meta-level on preferences between other arguments, by extending the basic framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders of preferences or value-evaluation functions and enables us to argue about preferences regardless wether they are defeasible or conflicting. \autoref{fig:eaf_intro} shows an example for a \gls{EAF} representing the following arguments (taken from \cite{Modgil2009}):
-\begin{itemize}
-	\item $A$: "Today will be dry in London since the BBC forecast sunshine"
-	\item $B$: "Today will be wet in London since CNN forecast rain"
-	\item $C$: "But I think the BBC are more trustworthy than CNN"
-	\item $D$: "However, statistically CNN are more accurate forecasters than the BBC"
-	\item $E$: "Basing on a comparison on statistics is more rigorous and rational than basing a comparison on your instincts about their relative trustworthiness"
-\end{itemize}
-
-The default argumentation framework by \cite{dung1995} has been extended in \cite{Modgil2009} with a meta-level argumentation layer that claims preferences between other arguments. In the following section a short introduction to this framework extension will be given. 
 
 \glsreset{EAF}
 \begin{definition}
@@ -73,17 +71,17 @@ For the rest of the document $A \rightarrow^{S'} B$ denotes that $A$ defeats\low
 \end{notation}
 
 
-By using this definition, similar properties as in Dung's argumentation framework can be introduced and defined.
+By using this definition, similar properties (e.g. conflict-free and admissible sets, acceptability of an argument, sceptically/credulously accepted arguments, extensions) as in Dung's argumentation framework can be introduced and defined.
 
 \begin{definition}
-	$S'$ is \textbf{conflict free} iff $\forall A, B \in S': (A, B) \in \R \Rightarrow (B, A) \notin \R \wedge \exists C \in S': (C, (A, B)) \in \D$ (a subset is only conflict free, if for every attack within the subset there is no counter attack and the attack itself is canceled out by an attack on this attack from an argument that is part of the subset as well).
+	$S'$ is \textbf{conflict free} iff $\forall A, B \in S': (A, B) \in \R \Rightarrow (B, A) \notin \R \wedge \exists C \in S': (C, (A, B)) \in \D$ \textit{(a subset is only conflict free, if for every attack within the subset there is no counter attack and the attack itself is canceled out by an attack on this attack from an argument that is part of the subset as well)}.
 \end{definition}
 
 
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+                    thick]
 
   \node[main node] (C) [above right of=A] {C};
   \node[main node] (A) [below left of=C]{A};
@@ -112,9 +110,178 @@ Let $S'$ be a conflict-free subset of $\S$ in $\langle \S, \R, \D \rangle$. Then
 $R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$), iff:
 \begin{itemize}
 	\item $C \rightarrow^{S'} B \in R_{S'}$,
-	\item for i=1 ... n, $X_i \in S'$,
-	\item $\forall X \rightarrow^{S'} Y \in R_{S'}, \forall Y' s.t. (Y', (X, Y))\in \D$, there is a $X' \rightarrow^{S'} Y' \in R_{S'}$.
+	\item $\forall_{i=1}^n X_i \in S'$,
+	\item $\forall X \rightarrow^{S'} Y \in R_{S'}, \forall Y': (Y', (X, Y)) \in \D$, there is a $X' \rightarrow^{S'} Y' \in R_{S'}$.
 \end{itemize}
 \end{definition}
+
+The acceptability of an argument can now be formally defined based on the reinstatement set.
+
+\begin{definition}
+$A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
+\end{definition}
+
+
+\begin{figure}[h]
+	\centering
+	\subfigure[0.3\textwidth][$A_1$ is not acceptable w.r.t $S' = \{A_1, A_2\}$]{
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,thin]
+		
+		  \node[n_fill_red,small] (A1) [] {$A_1$};
+		  \node[n_fill_gray,small] (A2) [right of=A1]{$A_2$};
+		  \node[small] (B1) [below of=A1] {$B_1$};
+		  \node[small] (B2) [below of=A2] {$B_2$};
+		  \node[small] (B3) [right of=B2] {$B_3$};
+		      
+		  \path[every node/.style={font=\sffamily\small}]
+		    (A1) edge [bend left] coordinate [pos=0.5] (A1B1) node [left] {} (B1)
+		    (B1) edge [bend left] coordinate [pos=0.5] (B1A1) node [left] {} (A1)
+			(A2) edge [] coordinate [pos=0.5] (A2B2) node [left] {} (B2)
+		    ;
+		   \path [every node/.style={red}] 
+		   (B2) edge [->>] node [left] {} (A1B1)
+		   (B3) edge [->>] node [left] {} (A2B2)
+		   ;
+		\end{tikzpicture}
+		\label{fig:eaf_not_acceptable}
+	}
+	\hfill
+	\subfigure[0.3\textwidth][$C$ is acceptable w.r.t $S' = \{A_1, A_2, A_3\}$]{
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
+		                    thin]
+		
+		  \node[n_fill_gray,small] (A1) [] {$A_1$};
+		  \node[n_fill_gray,small] (A2) [right of=A1]{$A_2$};
+		  \node[n_fill_gray,small] (A3) [right of=A2]{$A_3$};
+		  \node[small] (B1) [below of=A1] {$B_1$};
+		  \node[small] (B2) [below of=A2] {$B_2$};
+		  \node[small] (B3) [below of=A3] {$B_3$};
+		  \node[n_fill_green,small] (C) [left of=B1] {$C$};      
+		
+		  \path[every node/.style={font=\sffamily\small}]
+		    (A1) edge [] coordinate [pos=0.5] (A1B1) node [left] {} (B1)
+		    (A2) edge [] coordinate [pos=0.5] (A2B2) node [left] {} (B2)
+		    (A3) edge [] coordinate [pos=0.5] (A3B3) node [left] {} (B3)
+			(A2) edge [] coordinate [pos=0.5] (A2B2) node [left] {} (B2)
+			(B1) edge [] coordinate [pos=0.5] (B1C) node [left] {} (C)
+		    ;
+		   \path [every node/.style={red}] 
+		   (B2) edge [->>] node [left] {} (A1B1)
+		   (B2) edge [->>] node [left] {} (A3B3)
+		   (B3) edge [->>] node [left] {} (A2B2)
+		   ;
+		\end{tikzpicture}
+		\label{fig:eaf_acceptable}
+	}
+	\hfill
+	\subfigure[0.3\textwidth][$C$ is not acceptable w.r.t $S' = \{A_1, A_2, A_3\}$]{
+		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
+		                    thin]
+		
+		  \node[n_fill_gray,small] (A1) [] {$A_1$};
+		  \node[n_fill_gray,small] (A2) [right of=A1]{$A_2$};
+		  \node[n_fill_gray,small] (A3) [right of=A2]{$A_3$};
+		  \node[small] (B1) [below of=A1] {$B_1$};
+		  \node[small] (B2) [below of=A2] {$B_2$};
+		  \node[small] (B3) [below of=A3] {$B_3$};
+		  \node[small] (B4) [right of=B3] {$B_4$};
+		  \node[n_fill_red,small] (C) [left of=B1] {$C$};      
+		
+		  \path[every node/.style={font=\sffamily\small}]
+		    (A1) edge [] coordinate [pos=0.5] (A1B1) node [left] {} (B1)
+		    (A2) edge [] coordinate [pos=0.5] (A2B2) node [left] {} (B2)
+		    (A3) edge [] coordinate [pos=0.5] (A3B3) node [left] {} (B3)
+			(A2) edge [] coordinate [pos=0.5] (A2B2) node [left] {} (B2)
+			(B1) edge [] coordinate [pos=0.5] (B1C) node [left] {} (C)
+		    ;
+		   \path [every node/.style={red}] 
+		   (B2) edge [->>] node [left] {} (A1B1)
+		   (B2) edge [->>] node [left] {} (A3B3)
+		   (B3) edge [->>] node [left] {} (A2B2)
+		   (B4) edge [->>] node [left] {} (A3B3)
+		   ;
+		\end{tikzpicture}
+		\label{fig:eaf_not_acceptable_big}
+	}
+	\caption{\glspl{EAF} with acceptable and not acceptable sets $S'$. $A_x$ are elements of $S'$.}
+\end{figure}
+
+\begin{exa}
+	In Figure \autoref{fig:eaf_not_acceptable} $S'=\{A_1, A_2\}$ is not admissible since $A_1$ is not acceptable w.r.t. $S'$. In Figure \autoref{fig:eaf_acceptable} $C$ is acceptable w.r.t $S' = \{A_1, A_2, A_3\}$ as there is a reinstatement set $\{A_1 \rightarrow^{S'} B_1, A_2 \rightarrow^{S'} B_2, A_3 \rightarrow^{S'} B_3\}$ for $A_1 \rightarrow^{S'} B_1$. In Figure \autoref{fig:eaf_not_acceptable_big} there is an additional argument $B_4$ such that $B_4 \rightarrow (C_3 \rightarrow B_3)$ and no argument in $S'$ that defeats\low{S'} $B_4$, then no reinstatement set for $A_1 \rightarrow^{S'} B_1$ would exist, hence $C$ is not acceptable w.r.t. $S'$.
+\end{exa}
+
+Similar to Dung's theory, admissible, preferred, complete and stable extensions of an \gls{EAF} can now be defined.
+
+
+\begin{definition}
+	Let $S'$ be a \textbf{conflict free} subset of $\S$ in $\langle \S, \R, \D \rangle$. Then:
+	\begin{itemize}
+		\item $S'$ is an \textbf{admissible} extension iff every argument in $S'$ is acceptable w.r.t $S'$.
+		\item $S'$ is a \textbf{preferred} extension iff $S'$ is (w.r.t. set inclusion) a maximal admissible extension.
+		\item $S'$ is a \textbf{complete} extension iff each argument which is acceptable w.r.t. $S'$ is in $S'$.
+		\item $S'$ is a \textbf{stable} extension iff $\forall B \notin S', \exists A \in S'$ such that $A$ defeats\low{S'} $B$.
+	\end{itemize}
+\end{definition}
+
+
+By using this definition, we can define again \textbf{sceptically}, respectively \textbf{credulously}, accepted arguments under the semantic $ s \in $\{preferred, complete, stable\} iff $A$ is in every (at least one) $s$ extension. 
+\begin{exa}
+	The example given in \autoref{fig:eaf_intro} has only the single preferred, complete and stable extension $\{B, C, E\}$. \autoref{fig:eaf_small} has the admissible sets $\{A\}, \{A, C\}, \{A, B, C\}$. $\{A, B, C\}$ is the only preferred extension which is as well stable.
+\end{exa}
+
+\begin{lemma}
+	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable w.r.t. $S'$. Then:
+	\begin{itemize}
+		\item $S'' = S' \cup \{A\}$ is admissible.
+		\item $A'$ is acceptable w.r.t. $S''$.
+	\end{itemize}	
+\end{lemma}
+
+\begin{lemma}
+	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}. 
+	\begin{itemize}
+		\item The set of all admissible extensions of $\Delta$ form a complete partial order w.r.t. set inclusion.
+		\item For each admissible extension $E$ of $\Delta$ there exists a preferred extension $E'$ such that $E\subseteq E'$.
+	\end{itemize}
+	\label{lem:eaf:partialorder}
+\end{lemma}
+
+The definition of the characteristic function for an \gls{EAF} is similar but not equal to Dung's definition. 
+
+\begin{definition}
+	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'\subseteq \S$, and $2^{\S_C}$ denote the set of all conflict free subsets of $\S$. The \textbf{characteristic function} $F_\Delta$ of $\Delta$ is defined as follows:
+	\begin{itemize}
+		\item $F_\Delta: 2^{\S_C} \rightarrow 2^{\S}$
+		\item $F_\Delta(S') = \{A | A~\text{is acceptable w.r.t.~}S'\}$.
+	\end{itemize}
+\end{definition}
+
+From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable w.r.t $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable w.r.t. the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
+\begin{lemma}
+Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\forall i, F^i \subseteq F^{i+1}$ and $F^i$ is conflict free.
+\end{lemma}
+
+
+\begin{definition}
+	$\Delta = \langle \S, \R, \D \rangle$ is a \textbf{finitary} \gls{EAF} iff $\forall A \in \S$, the set $\{B | (B, A) \in \R\}$ is finite and $\forall (A, B) \in \R$, the set $\{C | (C, (A, B))\in \D\}$ is finite.
+\end{definition}
+
+\begin{definition}
+	Let $\Delta$ be a finitary \gls{EAF} and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\cup_{i=0}^\infty(F^i)$ is the \textbf{grounded extension} $GE(\Delta)$ of $\Delta$.
+\end{definition}
+
+
+\begin{remark}
+Similar to Dung's framework we can state the following relations between different extensions:
+\begin{itemize}
+	\item Every \gls{EAF} has at least one preferred extension (implied by \autoref{lem:eaf:partialorder} as $\emptyset$ is an admissible extension for every \gls{EAF}).
+	\item Every stable extension of an \gls{EAF} is a preferred extension.
+	\item The grounded extension for \gls{EAF} is not defined over the least fix point of the characteristic function $F$, but can be defined for finitary \glspl{EAF} over the union of all characteristic functions $F^i$.
+\end{itemize}	
+\end{remark}
+
+In addition Modgil \textit{et al.} introduce in \cite{Modgil2009} the concept of a special class of \glspl{EAF}, \textit{hiearchical \glspl{EAF}}, which are defined by the existence of a partition of $\Delta$ into multiple regular Dung argumentation frameworks. Due to this restriction it is possible to define a least fix point of the characteristic function $F$, hence defining the grounded extension $GE(\Delta)$ in the same way as it has been defined in Dung's framework.
+
+Furthermore \cite{Modgil2009} presents as well the concept of \textbf{Preference symmetric extended argumentation frameworks}. This extension limits the attacks on attacks (so the set $\D$) only on attacks between symmetrically attacking arguments. However, this is a to narrow restriction for our purposes, therefore this will not be described here. 
 
 
