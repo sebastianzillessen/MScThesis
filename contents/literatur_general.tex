@@ -1,11 +1,13 @@
 \subsection{Argumentation Theory: General introduction}
+\todo{Make sure your use of capital letter is consistent throughout the document.}
+\todo{Some parts of the text are in italic.  Why is this? If you are quoting text, you should surround the quoted text by quotation marks and cite the source.}
 In the following section a general overview on argumentation frameworks will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for argumentation frameworks.
 \begin{definition}
 	An argumentation framework is a tuple $AF = \langle \S, \R \rangle$ where $\S$ is a set of arguments and $ \R \subseteq \S \times \S$. $\R$ is a binary relation and called attack relation.
 \end{definition}
 
 
-An (abstract) argumentation framework can be represented as a directed graph where nodes are arguments and arrows between node $A$ and $B$ represent an attack from argument $A$ against $B$.
+An (abstract) argumentation framework can be represented as a directed graph where nodes are arguments and an arrow from a node $A$ to a node $B$ represents an attack from argument $A$ against $B$.
 
 \begin{exa}
  \autoref{fig:small_af} represents an argumentation framework with the definition $AF = \langle \{A, B, C, D, E\}, \{(A,B), (B, C), (B, E), (C, B), (D,C), (D,D)\}\rangle$. This framework will be used as an example for the following definitions.
@@ -44,6 +46,7 @@ In this paper we use capital letters $\{A, B, ...\}$ to denote arguments. $AB$ o
 For the following definitions let $AF=\langle \S, \R \rangle, S' \subseteq \S$.
 
 \begin{definition}
+\todo{add an intuitive explanation of why conflict free sets of arguments are of interest.}
  A subset $S'$ is \textbf{conflict-free} iff $ \forall A, B \in S': (A, B) \notin \R$ \textit{(the subset has no attacks between its arguments)}.
 \end{definition}
 \begin{exa}
@@ -51,10 +54,12 @@ Conflict-free subsets in the provided example are $\emptyset, \{A\}, \{B\}, \{C,
 \end{exa}
 
 \begin{definition}
+\todo{Definition 2.4: add an intuitive explanation of what the concept of an "acceptable argument" models}
 $A$ is \textbf{acceptable} w.r.t. a subset $S'$ iff  $\forall B \in \S: (B, A) \in \R \Rightarrow \exists C \in S': (C, B) \in \R$ \textit{(an argument $A$ is acceptable with respect to a subset $S'$ iff for each attacker $C$ of $A$ there is an argument in $S'$ that attacks this attacker of $A$). }
 \end{definition}
 
 \begin{exa}
+\todo{Example 2.3: Rephrase in terms of "acceptable argument" or state what it means for one argument to defend another.}
 In  \autoref{fig:small_af} the set $\{A\}$ defends $E$ ($E$ is acceptable with respect to $\{A\}$). $A$ is acceptable with respect to $\emptyset$.
 \end{exa}
 
@@ -80,6 +85,8 @@ In the given example in \autoref{fig:small_af} sets $\{A\}, \{A, E\}$ are admiss
 \end{exa}
 
 \begin{definition}
+\todo{Definition 2.8: "each argument, which is acceptable" --> "each argument that is acceptable".  Also, add an intuitive explanation of a complete extension.
+}
 $S'$ is a complete extension iff  $S'$ is admissible and each argument, which is acceptable with respect to $S'$ (which is defended by $S'$) belongs to $S'$.
 \end{definition}
 
@@ -94,6 +101,7 @@ A grounded extension ($GE_{AF}$) of an argumentation framework $AF$ is the minim
 \end{definition}
 
 \begin{remark}
+\todo{Remark 2.10: This is good, but it does not cover the fact that a grounded extension is minimal.}
 	The grounded extension can be understand as the set of arguments an rational agent can accept without doubts. 
 \end{remark}
 
@@ -145,7 +153,7 @@ The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}
 
 \begin{remark}
 The different extensions of a $AF = \langle \S, \R \rangle$ have the following relations between each other:
-
+\todo{Remark 2.13: Good summary, but add a source.}
 \begin{itemize} 
 	\item Each preferred extension is as well a complete extension.
 	\item Each stable extension is as well a preferred extension.
@@ -162,6 +170,7 @@ An argument is regarded as \textbf{sceptically accepted under a semantic}, iff i
 \end{definition}
 
 \begin{exa}
+\todo{Example 2.9: "the preferred semantic": should this not be "a preferred semantic"?}
 In \autoref{fig:pref_af} $\{A\}$ is sceptically accepted under each semantic. $\{C, D\}$ are credulously accepted under the preferred semantic. $\{D\}$ is as well accepted sceptically under the stable semantic.
 \end{exa}
 

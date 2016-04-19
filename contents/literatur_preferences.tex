@@ -3,12 +3,13 @@
 \glsreset{EAF}
 \subsection{\gls{EAF} - Working with Preferences in $AF$}
 
-A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others. This order of preferences is often itself defeasible and conflicting and therefore subject to argumentation \cite{Modgil2009}.
+A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. \todo{"This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others.": ok, but this sentence is quite long.  Consider splitting it.
+}This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others. This order of preferences is often itself defeasible and conflicting and therefore subject to argumentation \cite{Modgil2009}.
 
 
 
-In this paper the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences regardless whether they are defeasible or conflicting. In addition it provides a really user-friendly way to consider preferences which will improve the understandability for clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
-\autoref{fig:eaf_intro} which is taken from \cite{Modgil2009} shows an example for a \gls{EAF} representing the following arguments:
+In this thesis the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences regardless whether they are defeasible or conflicting. In addition it provides a really user-friendly way to consider preferences which will improve the understandability for clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
+\autoref{fig:eaf_intro}, which is taken from \cite{Modgil2009}, shows an example for a \gls{EAF} representing the following arguments:
 
 \begin{itemize}
 	\item $A$: "Today will be dry in London since the BBC forecast sunshine"
@@ -48,6 +49,7 @@ In this paper the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} w
 
 \glsreset{EAF}
 \begin{definition}
+\todo{Definition 2.15: State more explicitly in your definition that this relationship consists of attacks by arguments on other attacks.}
 	An \gls{EAF} is a triple $\langle \S, \R, \D \rangle$ with $\S$ being a set of arguments and:
 	\begin{itemize}
 		\item $\R \subseteq \S \times \S$: attack relation.
@@ -57,6 +59,7 @@ In this paper the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} w
 \end{definition}
 
 \begin{remark}
+\todo{Remark 2.16: OK, but it would be better to state this in your own words rather than use a quote.}
 "If $A$ attacks $(B, C) \in \R$ then $A$ expresses, that $C$ is preferred to $B$. If $A'$ attacks $(C, B)$, then $A'$ expresses that $B$ is preferred to $C$. Hence \glspl{EAF} are required to conform to the constraint that any such arguments expressing contradictory preferences must attack each other."\cite{Modgil2009}.
 \end{remark}
 
@@ -107,6 +110,8 @@ Let $S'$ be a conflict-free subset of $\S$ in $\langle \S, \R, \D \rangle$. Then
 \end{lemma}
 
 \begin{definition}
+\todo{Definition 2.21: Add an intuitive explanation of what a "reinstatement set" is.
+You should explain how the concepts discussed in 2.2 apply to your work!}
 $R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$), iff:
 \begin{itemize}
 	\item $C \rightarrow^{S'} B \in R_{S'}$,
