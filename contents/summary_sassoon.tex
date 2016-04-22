@@ -1,5 +1,5 @@
-\subsection{Statistical model selection via argumentation}
-\todo{This section is written well but the discussion of the statistical knowledge base could be shortened.}
+\subsection{Statistical Model Selection via Argumentation}
+\todo{Shorten discussion on Statiscial model selection.}
 The foundation of this MSc Project is the paper \cite{sassoon2014}. 
 The goal of this project is to use Argumentation Theory for Statistical Model Selection in mostly clinical environments. The demand into systems that support clinicians in the analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of datasets available for clinicians, and raising awareness on evidence based decision making extend). In the following section a short summary on the paper will be given. More details can be found in the following parts of the paper.
 
@@ -10,10 +10,8 @@ Furthermore  Sassoon \textit{et al.} \cite{sassoon2014} addresses the problem of
 The \textit{knowledge base} is used to instantiate the \textit{argumentation schemes}. The knowledge base itself defines how research objectives can be achieved through different statistical models considering their given assumptions. \textit{Research objectives} are defined as different 'families' of analysis (e.g. survival analysis or categorical outcome variable analysis).
 
 
-\newacronym{SKB}{SKB}{statistical knowledge base}
-
 \glsreset{SKB}
-\subsubsection*{\Gls{SKB}}
+\subsubsection*{Statistical Knowledge Base}
 
 
 The \gls{SKB} consists of objectives $O=\{o_1, ..., o_u\}$, models $M=\{m_1, ..., m_v\}$ and assumptions $A = \{a_1, ..., a_w\}$. Objectives correspond to different types of research questions answerable by means of statistical analysis techniques. Models represent statistical analysis techniques employable to answer a research question. Assumptions are conditions that ought to be met to employ a model.
@@ -85,7 +83,7 @@ The \autoref{fig:skb_example} shows the structure between \textit{objectives}, \
 
 
 
-\subsubsection*{Different processes to instantiate arguments from the knowledge base}
+\subsubsection*{Different Processes to instantiate Arguments from the Knowledge Base}
 
 To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing their critical assumptions $A_c(m_i)$ are met. The process of instantiating the arguments can be seen in AS\autoref{as:1}. Note that there might be multiple possible models evaluated by AS\ref{as:1} to be acceptable. To elaborate one model $m_i$ which is preferred over the other possible models we define a Model Preference as depicted in AS\ref{as:2}.
 

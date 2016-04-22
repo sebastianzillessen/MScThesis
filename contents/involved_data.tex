@@ -1,9 +1,9 @@
 {\color{gray}
 \section{Involved Data}
-\subsection{Actual data}
+\subsection{Actual Data}
 The data makes use of a small data set used to illustrate the use of survival analysis methodologies when teaching the subject. The data set is called ovarian and contains the survival in a randomised trial comparing two treatments for ovarian cancer. This has 26 cases and the following columns:
 \begin{itemize}
-\item futime: survival\footnote{Survival in days while not observing the event} or censoring time\footnote{Patient left the observation after this amount of time and the event didnt take place}\item fustat: censoring status (1 indicates that the event has been observed at time $futime$, 0 represents that the event has not been observed until $futime$)\item age: of the patient in years\item resid.ds: residual disease present (1=no,2=yes) 
+\item futime: survival\footnote{Survival in days while not observing the event} or censoring time\footnote{Patient left the observation after this amount of time and the event didnt take place}\item fustat: censoring status \footnote{"1" indicates that the event has been observed at time $futime$, "0" that the event has not been observed until $futime$}\item age: of the patient in years\item resid.ds: residual disease present (1=no, 2=yes) 
 \item rx: treatment group (integers)
 \item ecog.ps: ECOG performance status (see \autoref{tab:ecog})
 \end{itemize}
@@ -15,12 +15,7 @@ The data makes use of a small data set used to illustrate the use of survival an
 	\item Models have non-critical assumptions (might be violated and can still be alright to use
 	\item \texttt{m2 must fulfil the following critical assumptions ["a1", "a2"], ... }\insertref{Isabels follow up paper of example and data and models}
 	\item Survival can be achieved by using the following model \texttt{\{"m1"=>"a1", "m2"=>["a1", "a2"], "m3" =>["a1", "a3"]\}}
-	\item Assumptions met given ($a_i$). Then we use AS1 ($m_i$ is a possible model if 
-			\footnote{
-				- Model $m_i$ achieves objective $o_c$\\				- The data set meets the set of assumptions $A_t' = A_t (m_i)$\\				- The research project meets the set of assumptions $A'_q = A_q (m_i)$\\				- $A_c(m_i) \subseteq A_t' \cup A_q'$\\
-				- $A_t$: Tests are assumptions that are assessed by applying a test on the available data set \\
-				- $A_q$: queries are assumptions that are assessed by asking the clinician for an opinion.
-			})
+	\item Assumptions met given ($a_i$). Then we use AS1 (see \autoref{as:1})
 	\item R-Code (execution in Ruby possible \cite{rinRuby}  \insertref{https://github.com/clbustos/rinruby} \footnote{\texttt{rinruby} is a gem, that enables evaluation of R code in ruby}) and required outcomes for it decide, whether this model $m_i$ is possible or not. 
 	\item In Argumentation for Decision Support\cite{Atkinson2006} an approach using values in the AF is presented, where $A2$ defeats $A1$ iff $A2$ attacks $A1$ and $val(A2) \ngtr_a val(A1)$ which is not applicable as no strict partial order given.
 \end{itemize}

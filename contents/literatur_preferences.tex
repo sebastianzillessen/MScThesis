@@ -1,10 +1,8 @@
-
-\newacronym{EAF}{EAF}{Extended argumentation framework}
 \glsreset{EAF}
-\subsection{\gls{EAF} - Working with Preferences in $AF$}
+\subsection{Extended Argumentation Framework - Working with Preferences in $AF$}
 
-A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. \todo{"This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others.": ok, but this sentence is quite long.  Consider splitting it.
-}This approach does not consider, that for practical reasons and in some applications only one unique set of accepted arguments has to be determined, where personal preferences, contextual requirements or additional information might result in some arguments having a higher priority compared to others. This order of preferences is often itself defeasible and conflicting and therefore subject to argumentation \cite{Modgil2009}.
+A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. By applying the different extensions on the created argumentation framework accepted arguments can be evaluated. 
+However for practical reasons and in some applications only one unique set of accepted arguments has to be determined. In addition personal preferences, contextual requirements or additional information might result in some arguments having a higher priority than others. The order of preferences is often itself defeasible and conflicting and therefore subject to argumentation. These aspects have not been considered in Dung's approach \cite{Modgil2009}.
 
 
 
@@ -49,18 +47,16 @@ In this thesis the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} 
 
 \glsreset{EAF}
 \begin{definition}
-\todo{Definition 2.15: State more explicitly in your definition that this relationship consists of attacks by arguments on other attacks.}
 	An \gls{EAF} is a triple $\langle \S, \R, \D \rangle$ with $\S$ being a set of arguments and:
 	\begin{itemize}
 		\item $\R \subseteq \S \times \S$: attack relation.
-		\item $\D \subseteq \S \times \R$: new attack relation on attacks.
+		\item $\D \subseteq \S \times \R$: new attack relation of arguments on attacks.
 		\item $\{(A, (B, C)), (A', (C, B))\} \subseteq \D \rightarrow \{(A, A'), (A', A)\} \subseteq \R$ (any arguments expressing contradictory preferences must attack each other).
 	\end{itemize}
 \end{definition}
 
 \begin{remark}
-\todo{Remark 2.16: OK, but it would be better to state this in your own words rather than use a quote.}
-"If $A$ attacks $(B, C) \in \R$ then $A$ expresses, that $C$ is preferred to $B$. If $A'$ attacks $(C, B)$, then $A'$ expresses that $B$ is preferred to $C$. Hence \glspl{EAF} are required to conform to the constraint that any such arguments expressing contradictory preferences must attack each other."\cite{Modgil2009}.
+To be able to express a preference between $C$ and $B$ by an additional argument $A$ it is required, that the arguments $B, C$ express contradictory preferences. This can be achieved, if $A$ defines a preference of $C$ over $B$ and the \gls{EAF} contains $\{(B, C), (C, B)\} \in \R$ and $(A, (B, C)) \in \D$. 
 \end{remark}
 
 Let $\Delta = \langle \S, \R, \D \rangle$ be a \gls{EAF} and $S' \subseteq \S$ for the following definitions.
@@ -110,19 +106,20 @@ Let $S'$ be a conflict-free subset of $\S$ in $\langle \S, \R, \D \rangle$. Then
 \end{lemma}
 
 \begin{definition}
-\todo{Definition 2.21: Add an intuitive explanation of what a "reinstatement set" is.
-You should explain how the concepts discussed in 2.2 apply to your work!}
+\todo{You should explain how the concepts discussed in 2.2 apply to your work! \autoref{fig:eaf_intro}}
 $R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$), iff:
 \begin{itemize}
 	\item $C \rightarrow^{S'} B \in R_{S'}$,
 	\item $\forall_{i=1}^n X_i \in S'$,
 	\item $\forall X \rightarrow^{S'} Y \in R_{S'}, \forall Y': (Y', (X, Y)) \in \D$, there is a $X' \rightarrow^{S'} Y' \in R_{S'}$.
 \end{itemize}
+\textit{(A set of attacks is called a reinstatement set (for a particular attack $C \rightarrow^{S'} B$), if for every attack relation in $R_{S'}$, which is attacked from another argument $Y'$, there is a attack relation in $R_{S'}$ that attacks this argument $Y'$ again and ensures the attack on the argument to hold. So a reinforcement sets guaranties that an attack on an argument is successfully performed, nevertheless what other attacks in the system exist. Hence these reinforcement sets can be used to define acceptability of arguments as seen in \autoref{def:eaf:acceptable}.)}
 \end{definition}
 
 The acceptability of an argument can now be formally defined based on the reinstatement set.
 
 \begin{definition}
+\label{def:eaf:acceptable}
 $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
 \end{definition}
 

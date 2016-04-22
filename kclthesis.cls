@@ -77,13 +77,14 @@
 \newfam\msbfam
 \def\Bbb#1{\fam\msbfam\relax#1}
 
+
+\theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{exa}{Example}[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{notation}[theorem]{Notation}
