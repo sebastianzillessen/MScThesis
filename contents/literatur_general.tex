@@ -1,5 +1,5 @@
 \subsection{Argumentation Theory: General introduction}
-
+\label{sub:dung}
 In the following section a general overview on \glspl{AF} will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for argumentation frameworks.
 \begin{definition}
 	An argumentation framework is a tuple $AF = \langle \S, \R \rangle$ where $\S$ is a set of arguments and $ \R \subseteq \S \times \S$. $\R$ is a binary relation and called attack relation.
@@ -9,7 +9,7 @@ In the following section a general overview on \glspl{AF} will be given. The not
 An (abstract) argumentation framework can be represented as a directed graph where nodes are arguments and an arrow from a node $A$ to a node $B$ represents an attack from argument $A$ against $B$.
 
 \begin{exa}
- \autoref{fig:small_af} represents an \gls{AF} with the definition $AF = \langle \{A, B, C, D, E\}, \{(A,B), (B, C), (B, E), (C, B), (D,C), (D,D)\}\rangle$. This framework will be used as an example for the following definitions.
+ \autoref{fig:small_af} represents an \gls{AF} with the definition $AF = \langle \{A, B, C, D, E\}, \allowbreak \{(A,B), (B, C),\allowbreak (B, E), (C, B),\allowbreak (D,C), (D,D)\} \rangle $. This framework will be used as an example for the following definitions.
 \end{exa}
 
 
