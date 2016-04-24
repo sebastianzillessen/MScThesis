@@ -1,5 +1,5 @@
 %&latexf
-\documentclass[isdraft]{kclthesis}  % notes see below
+\documentclass[releaseproject]{kclthesis}  % notes see below
 									% [releaseproject] will check release,
 							 		% [notreleaseproject] will check not release.
 							 		% [isdraft] provides background water mark "DRAFT"
@@ -10,6 +10,7 @@
 \usepackage{float}
 
 \usepackage{enumitem}
+\usepackage{pdfpages}
 \usetikzlibrary{shapes}
 
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
@@ -19,10 +20,12 @@
 \title{Automated Small Datanalyst}
 \author{Sebastian Zillessen}
 \modulecode{7CCSMPRJ}
-\submissiontitle{Individual Project Submission 2015/16}
+%\submissiontitle{Individual Project Submission 2015/16}
+\submissiontitle{Preliminary Project Report}
 \studentnumber{\#1564629}
 \programme{MSc Web Intelligence MSc}
 \supervisor{Jeroen Keppens}
+\cosupervisor{Isabel Sassoon}
 \department{Department of Informatics}
 %\wordcount{XXXXXXX}
 
@@ -31,6 +34,7 @@
 \makeglossaries
 
 
+\pretocmd{\section}{\glsresetall}{}{}
 
 
 \begin{document}
@@ -47,7 +51,13 @@
 \mbox{}
 \newpage
 %%%%%% Abstract
-\include{contents/abstract}
+\todo{re-enable word count}
+\todo{reset title}
+\todo{remove releaseproject}
+
+
+\todo{include abstract}
+%\include{contents/abstract}
 %%%%%% Table of contents
 
 \pagenumbering{roman}
@@ -56,16 +66,8 @@
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{structure/figures_tables}
-\include{structure/acknowledgements}
-\fancyhead{}
-\fancyfoot{}
-\pagestyle{fancy} 
-%\fancyhead{\sffamily\small \thepage}
-%\fancyhead{\sffamily\small \nouppercase{\rightmark}}
-\fancyhead[RO,LE]{\sffamily\small \thepage}
-\fancyhead[LO,RE]{\sffamily\small \nouppercase{\rightmark}}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.0pt}
+\todo{include acknowledgements}
+%\include{structure/acknowledgements}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\R}{\mathcal{R}}
@@ -89,8 +91,10 @@
 \pagenumbering{arabic}
 \include{contents/introduction}
 \include{contents/background}
-\include{contents/softwaredesignprocess}
-\include{contents/involved_data}
+\include{contents/projectplan} 
+\todo{include softwaredesign, data and main, conclusion}
+%\include{contents/softwaredesignprocess}
+%\include{contents/involved_data}
 %\include{contents/main}
 %\include{contents/conclusion}
 
@@ -110,16 +114,12 @@
 \bibliography{bibs/sassoon, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern, bibs/modgil, bibs/amgoud, bibs/reiter, bibs/bench, bibs/amgoud98,bibs/tandf_tncl207_25} 
 
 %%%%% Declaration
-\include{structure/declaration}
+\todo{Include declaration}
+%\include{structure/declaration}
 %%%%% Appendix 
-\appendix
-\include{appendix/app_1}
+%\appendix
+%\include{appendix/app_1}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \end{document}

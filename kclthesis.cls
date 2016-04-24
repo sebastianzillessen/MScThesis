@@ -24,6 +24,9 @@
 	\RequirePackage{draftwatermark}
 	\SetWatermarkText{DRAFT}
 	\SetWatermarkScale{8}
+	\RequirePackage[textsize=tiny,figwidth=8cm]{todonotes}
+\else
+	\RequirePackage[disable]{todonotes}
 \fi
 
 \ifkclthesis@kclharvardbib
@@ -42,7 +45,9 @@
 \RequirePackage{hyperref}
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
-\RequirePackage[textsize=tiny,figwidth=8cm]{todonotes}
+\RequirePackage{rotating}
+
+% reset glossaries per section
 
 % Cover Page
 \RequirePackage{graphicx}
@@ -66,6 +71,7 @@
 \newcommand*{\@programme}{\red{Missing Program}}
 \newcommand*{\supervisor}[1]{\gdef\@supervisor{#1}}
 \newcommand*{\@supervisor}{\red{Missing supervisor}}
+\newcommand*{\cosupervisor}[1]{\gdef\@cosupervisor{#1}}
 \newcommand*{\wordcount}[1]{\gdef\@wordcount{#1}}
 \newcommand*{\@wordcount}{\red{Missing wordcount}}
 \newcommand*{\signdate}[1]{\gdef\@signdate{#1}}
@@ -110,6 +116,18 @@
 \newcommand{\askfeedback}[1]{\todo[color=blue!40]{Feedback Required: #1}}
 
 
+
+\fancyhead{}
+\fancyfoot[]{}
+\pagestyle{fancy} 
+%\fancyhead{\sffamily\small \thepage}
+%\fancyhead{\sffamily\small \nouppercase{\rightmark}}
+\fancyhead[RO,LE]{\sffamily\small \thepage}
+\fancyhead[LO,RE]{\sffamily\small \nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
 \renewcommand*{\maketitle}{
 \begin{titlepage}
 
@@ -151,12 +169,26 @@
 
 \begin{minipage}{0.3\textwidth}
 	\begin{flushleft}
-	\textbf{Name:\\Student Number:\\Degree Programme:\\Project Title:\\ Supervisor:\\ Word Count:\\}
+	\textbf{
+		Name:\\
+		Student Number:\\
+		Degree Programme:\\
+		Project Title:\\ 
+		Supervisor:\\
+		Scientific Assistant:\\
+	 	%Word Count:\\
+	 	}
 	\end{flushleft}
 \end{minipage}%
 \begin{minipage}{0.7\textwidth}
 	\begin{flushleft}
-	\@author \\ \@studentnumber \\ \@programme \\ \@title \\ \@supervisor \\ \@wordcount
+		\@author \\ 
+		\@studentnumber \\ 
+		\@programme \\ 
+		\@title \\ 
+		\@supervisor \\ 
+		\@cosupervisor\\
+		%\@wordcount
 	\end{flushleft}
 \end{minipage}
 }
@@ -230,6 +262,7 @@ United Kingdom
 \leaders\vrule width \textwidth\vskip0.4pt % or other desired thickness
 \vskip\bigskipamount % ditto
 \nointerlineskip
+\@submissiontitle
 \end{center}
 
 \vspace{0.2cm}
@@ -242,7 +275,8 @@ Course: \@programme
 
 \vspace{1.2cm}
 \begin{center}
-\bf{Supervisor:} \@supervisor
+{\bf Supervisor:} \@supervisor \\
+%Scientific Assistant: \@cosupervisor
 \end{center}
 
 \vspace{1cm}

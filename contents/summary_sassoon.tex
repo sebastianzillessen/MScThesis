@@ -1,9 +1,9 @@
 \subsection{Statistical Model Selection via Argumentation}
-\todo{Shorten discussion on Statiscial model selection.}
+\label{sub:statistical_model_selection}
 The foundation of this MSc Project is the paper \cite{sassoon2014}. 
-The goal of this project is to use Argumentation Theory for Statistical Model Selection in mostly clinical environments. The demand into systems that support clinicians in the analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of datasets available for clinicians, and raising awareness on evidence based decision making extend). In the following section a short summary on the paper will be given. More details can be found in the following parts of the paper.
+The goal of this project is to use Argumentation Theory for Statistical Model Selection in mostly clinical environments. The demand into systems that support clinicians in the analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of datasets available for clinicians, and raising awareness on evidence based decision making extend). In the following section a short summary on the paper will be given. 
 
-To overcome the issue of clinicians analysing data and models on their compatibility \cite{sassoon2014} proposes an approach of an intelligent model selection system which is capable of suggesting appropriate model(s) to a clinician during the design stage of a study, taking in account the research question, the clinical data and any external relevant input and preferences. In addition this system should be able of supporting its decision by providing the argumentation for and against a model to the user. As clinicians might not always be qualified to perform the statistical analysis required for their research question, the process of designing models, specifying its requirements and providing the arguments for or agains these models should be separated from the actual design process and be done by a statistician. The statistician is thereby  charge of understanding the data in the context of the research question and provide arguments that are able to recommend the best suited statistical analysis for a particular research question. 
+To overcome the issue of clinicians analysing data and models on their compatibility \cite{sassoon2014} proposes an approach of an intelligent model selection system which is capable of suggesting appropriate model(s) to a clinician during the design stage of a study, taking in account the research question, the clinical data and any external relevant input and preferences. In addition this system should be able to support its decision by providing the argumentation for and against a model to the user. As clinicians might not always be qualified to perform the statistical analysis required for their research question, the process of designing models, specifying its requirements and providing the arguments for or agains these models should be separated from the actual design process and be done by a statistician. The statistician is thereby  charge of understanding the data in the context of the research question and provide arguments that are able to recommend the best suited statistical analysis for a particular research question. 
 
 Furthermore  Sassoon \textit{et al.} \cite{sassoon2014} addresses the problem of defeasible knowledge, as the (counter)arguments for a model are often contradicting and the system, the clinician and the statistician might have some preferences for one or the other model. Therefore Sassoon \textit{et al.} propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences.
 
@@ -14,7 +14,8 @@ The \textit{knowledge base} is used to instantiate the \textit{argumentation sch
 \subsubsection*{Statistical Knowledge Base}
 
 
-The \gls{SKB} consists of objectives $O=\{o_1, ..., o_u\}$, models $M=\{m_1, ..., m_v\}$ and assumptions $A = \{a_1, ..., a_w\}$. Objectives correspond to different types of research questions answerable by means of statistical analysis techniques. Models represent statistical analysis techniques employable to answer a research question. Assumptions are conditions that ought to be met to employ a model.
+The \gls{SKB} consists of objectives $O=\{o_1, ..., o_u\}$ (different types of research questions), models $M=\{m_1, ..., m_v\}$ and assumptions $A = \{a_1, ..., a_w\}$. Models represent statistical analysis techniques employable to answer a research question. Assumptions are conditions that ought to be met to employ a model.
+
 \begin{definition}
 	Let $R_{OM}: O \times M$ be a m:n\footnote{Each objective can be achieved by one or more models, each model can answer one or more objectives.}-relationship such that $(o_i, m_j)\in R_{OM}$ implies objective $o_i$ can be achieved by means of model $m_j$. 
 \end{definition}
@@ -85,7 +86,7 @@ The \autoref{fig:skb_example} shows the structure between \textit{objectives}, \
 
 \subsubsection*{Different Processes to instantiate Arguments from the Knowledge Base}
 
-To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing their critical assumptions $A_c(m_i)$ are met. The process of instantiating the arguments can be seen in AS\autoref{as:1}. Note that there might be multiple possible models evaluated by AS\ref{as:1} to be acceptable. To elaborate one model $m_i$ which is preferred over the other possible models we define a Model Preference as depicted in AS\ref{as:2}.
+To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing their critical assumptions $A_c(m_i)$ are met. The process of instantiating the arguments can be seen in AS\autoref{as:1}. To elaborate one model $m_i$ which is preferred over the other possible models we define a Model Preference as depicted in AS\ref{as:2}.
 
 \begin{AS}[h]
 \centering
@@ -102,7 +103,7 @@ To achieve an objective $o_c$ (which has been selected by the clinician) a numbe
 	\end{minipage}}
 \end{AS}
 
-Depending on the purposes of models and on the reasons for preferring one model over another there are different ways of implementing the $(\ast)$ in the generic definition provided in AS\ref{as:2}. These different reasons to prefer one model over another depend on the context and on the application, however \cite{sassoon2014} proposes different approaches to express the preference of one model over another. The essential idea of these preferences is based on the number and importance of violated assumptions or the total number of satisfied assumptions. 
+Depending on the purposes of models and on the reasons for preferring one model over another there are different ways of implementing $(\ast)$ in the generic definition provided in AS\ref{as:2}. These different reasons to prefer one model over another depend on the context and on the application, however \cite{sassoon2014} proposes different approaches to express the preference of one model over another.  
 
 \begin{AS}[h]
 \centering
@@ -119,8 +120,6 @@ Depending on the purposes of models and on the reasons for preferring one model 
 
 \end{AS}
 
-To express the preferences for one model over another, Sassoon \textit{et al.} \cite{sassoon2016} propose to use \gls{EAF} \cite{Modgil2009} in combination with \gls{PAF} \cite{amgoud,amgoud2000} approaches, both been presented earlier in this paper. These modifications enable argumentation on preferences which are encapsulated as arguments, therefore we will be able to consider conflicting preferences in our system and ensure scalability. By doing so we can as well express orders of importance between statistical reasons to prefer one model over another and clinician's preferences in specific contexts.
+To express the preferences for one model over another, Sassoon \textit{et al.} \cite{sassoon2016} propose to use \gls{EAF} \cite{Modgil2009} in combination with \gls{PAF} \cite{amgoud,amgoud2000} approaches, both been presented earlier in this paper. These modifications enable argumentation on preferences which are encapsulated as arguments, therefore we will be able to consider conflicting preferences in our system and ensure scalability and express orders of importance between statistical reasons to prefer one model over another and clinician's preferences in specific contexts.
 
-
-The paper by Sassoon \textit{et al.} forms the basic requirements for the content of this project and will be regarded as specification for the project, hence the following chapters will base on it.
 

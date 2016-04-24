@@ -1,14 +1,13 @@
 \section{Background Research}
+\label{sec:background}
+The following section provides an introduction on \glspl{AF} and \glspl{EAF}. The approach for a statistical model selection proposed in \cite{sassoon2014} is based on computational models of argumentation. Usually multiple assumptions have to be fulfilled for statistical models to be applicable on a dataset. These assumptions are defeasible and may lead to multiple possible models, which requires argumentation over assumptions and models to provide a reasonable statistical model selection. An introduction to \glspl{AF} is given in \autoref{sub:dung}. 
 
-\todo{The first three paragraphs lacks coherence because it lists a range of generic and specific issues.  You should instead simple state what the background research will cover and establish why this is to be reviewed in the context of your project.  You probably want to explain that Isabel's work is based on computational models of argumentation and why this is so.}
+Non-monotonic argumentation (as proposed in \cite{liao,dung1995}) and monotonic (classic) logic (as proposed in \cite{Reiter1980}) are in general different approaches to deal with reasoning. However, recent research is focusing on dialogue based approaches which are mostly based on non-monotonic argumentation \cite{parsons2000,Walton1995}. 
+Nevertheless Sassoon \textit{et al.} propose to employ preferences by using \glspl{EAF} to reason about the order of applicable models and to deliver a final statistical model which should be used. 
 
-%Understanding human argumentation has proven as an important topic regarding recent development in \gls{AI} and agent-based systems. Applications such as belief revision, decision-making, inter-agent communication, medical reasoning, semantic web reasoning and trust computing rely on the ability to deal with uncertainty, incompletness and inconsistency of information \cite{liao,Bench2007}.
+To understand this approach, an extension to the standard framework to reason over preferences is presented later in this chapter (see \autoref{sub:eaf}). Other possible solutions to argue over preferences are explained in \autoref{sub:paf}.
 
-
-Non-monotonic argumentation (as proposed in \cite{liao,dung1995}) and monotonic (classic) logic (as proposed in \cite{Reiter1980}) are different approaches to deal with reasoning for that kind of applications. Recent research is focusing on dialogue based approaches which are mostly based on non-monotonic argumentation, as this is an emerging topic in the world of agents and multi-agent systems \cite{parsons2000,Walton1995}.
-
-In this background research a general overview on argumentation frameworks will be given. Furthermore an extension to reason about preferences will be presented. In addition a summary of Sassoon \textit{et al.} \cite{sassoon2014} on the problem of finding applicable and choosing preferred models by clinicians for a given research question is presented. This is followed by a short overview on related work.
-
+Finally, a summary of Sassoon \textit{et al.} \cite{sassoon2014} on the problem of finding applicable and choosing preferred models by clinicians for a given research question is provided in \autoref{sub:statistical_model_selection}.
 
 \input{contents/literatur_general}
 \input{contents/literatur_preferences}
