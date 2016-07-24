@@ -23,3 +23,5 @@ tm
 *.synctex.gz
 .texpadtmp/
 Thesis.pdf
+.bash_history
+*.sum

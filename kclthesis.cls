@@ -30,7 +30,7 @@
 \fi
 
 \ifkclthesis@kclharvardbib
-	\RequirePackage{natbib}
+	\RequirePackage[numbers]{natbib}
 	\RequirePackage[UKenglish]{isodate}
 \fi
 
@@ -42,7 +42,11 @@
 %Additional Packages
 \RequirePackage{color}
 \RequirePackage[nottoc,notlot,notlof]{tocbibind}
-\RequirePackage{hyperref}
+\RequirePackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
 \RequirePackage{rotating}
@@ -96,6 +100,13 @@
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\remarkautorefname}{Remark}
+\newcommand{\definitionautorefname}{Definition}
+\newcommand{\notationautorefname}{Notation}
+\newcommand{\assumptionautorefname}{Assumption}
+\newcommand{\asautorefname}{AS}
+\newcommand{\algorithmautorefname}{Algorithm}
 
 \newcommand{\ind}{1\hspace{-2.1mm}{1}} %Indicator Function
 \newcommand{\I}{\mathtt{i}}
@@ -176,7 +187,7 @@
 		Project Title:\\ 
 		Supervisor:\\
 		Scientific Assistant:\\
-	 	%Word Count:\\
+	 	Word Count:\\
 	 	}
 	\end{flushleft}
 \end{minipage}%
@@ -188,7 +199,7 @@
 		\@title \\ 
 		\@supervisor \\ 
 		\@cosupervisor\\
-		%\@wordcount
+		\@wordcount\\
 	\end{flushleft}
 \end{minipage}
 }
@@ -276,7 +287,7 @@ Course: \@programme
 \vspace{1.2cm}
 \begin{center}
 {\bf Supervisor:} \@supervisor \\
-%Scientific Assistant: \@cosupervisor
+{\bf Scientific Assistant:} \@cosupervisor\\
 \end{center}
 
 \vspace{1cm}

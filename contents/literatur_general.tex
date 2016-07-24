@@ -1,12 +1,17 @@
 \subsection{Argumentation Theory: General introduction}
 \label{sub:dung}
-In the following section a general overview on \glspl{AF} will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for argumentation frameworks.
+In the following section a general overview on \glspl{AF} will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for argumentation frameworks and the main sources of this dissertation \cite{sassoon2014,sassoon2016CD,Modgil2009} are based on this approach.
 \begin{definition}
 	An argumentation framework is a tuple $AF = \langle \S, \R \rangle$ where $\S$ is a set of arguments and $ \R \subseteq \S \times \S$. $\R$ is a binary relation and called attack relation.
 \end{definition}
 
 
 An (abstract) argumentation framework can be represented as a directed graph where nodes are arguments and an arrow from a node $A$ to a node $B$ represents an attack from argument $A$ against $B$.
+
+\begin{remark}
+	Later in this dissertation assumptions that need to hold for a specific model are introduced. They are as well represented as a directed graph, but here an edge from assumption $A$ to model $B$ denotes that the assumption $A$ needs to hold so that $B$ is a possible model. However, the difference will be determinable from the context.
+\end{remark}
+
 
 \begin{exa}
  \autoref{fig:small_af} represents an \gls{AF} with the definition $AF = \langle \{A, B, C, D, E\}, \allowbreak \{(A,B), (B, C),\allowbreak (B, E), (C, B),\allowbreak (D,C), (D,D)\} \rangle $. This framework will be used as an example for the following definitions.
@@ -186,5 +191,5 @@ Furthermore \cite{dung1995} introduces \textit{well-founded argumentation framew
 
 In extension to the discussed extension-based semantics, \cite{liao} introduces a so called \textit{labelling-based approach} where there are usually three labels: \texttt{IN} (accepted argument), \texttt{OUT} (rejected argument) and \texttt{UNDEC} (undecided whether this argument is accepted or rejected) and a labelling function $\lambda: \S \rightarrow \{IN, OUT, UNDEC\}$.
 
-By defining legally labelled arguments, definitions for \textit{conflict-free labelings},~\textit{admissible labelings} and \textit{complete/grounded/preferred labelings} can be derived. As there exists a bijective projection, they can be easily transferred to the extension-based semantics already introduced in this section.
+By defining legally labelled arguments, definitions for \textit{conflict-free labelings},~\textit{admissible labelings} and \textit{complete/grounded/preferred labelings} can be derived. As there exists a bijective projection, they can be easily transferred to the extension-based semantics already introduced in this section. This labelling based approach has been used to implement the solving algorithm described in \cite{Modgil2009Labellings} later in this thesis (see \autoref{sub:eaf_algorithm}).
 

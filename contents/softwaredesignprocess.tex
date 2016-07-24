@@ -1,11 +1,13 @@
 {\color{gray}
-\section{Design Process - Use Cases}
+\section{Software Design Process}
+\label{sec:design}
+\subsection{Use Cases}
 Taken from Ivar Jacobson, see \autoref{fig:usecase20:flow} \cite{jacobson2011usecase}.
 \begin{itemize}
 	\item popular MoSCoW (Must, Should, Could, Would) prioritization scheme
-	\item Use Case on one card (Priority, Release, Size, Complexity)
-	\item Use Case Slices generated from use case (Flows, Tests, Estimation)
-	\item Find Actors and Use Cases (slice them subsequently)
+	\item \gls{use_case} on one card (Priority, Release, Size, Complexity)
+	\item \glspl{use_case_slice} generated from use case (Flows, Tests, Estimation)
+	\item Find Actors and \glspl{use_case} (slice them subsequently)
 	\item Prepare Use Case Slices by describing related stories (use-case narrative) and defining test cases
 	\item Analyse Use Case Slices (check how the system elements will interact to perform the use case)
 	\item Implement Use Case Slice
@@ -14,24 +16,24 @@ Taken from Ivar Jacobson, see \autoref{fig:usecase20:flow} \cite{jacobson2011use
 	\item Test System
 \end{itemize}
 
-\subsection{Introduction to Use-Cases, Use-Case Flows and Use-Case Slices}
+\subsubsection{Introduction to Use-Cases, Use-Case Flows and Use-Case Slices}
 
-\textbf{Use-Cases} are the general tasks the system and the actors will perform. They are big, not thought completely through and do not contain directly implementable tasks.
+\textbf{\glspl{use_case}} are the general tasks the system and the actors will perform. They are big, not thought completely through and do not contain directly implementable tasks.
 
-\textbf{Use-Case Flows} are the different flows, how the interaction between actors and the system take place. Usually there is a standard flow, and alternative (error / exception handling) flows. These will be specified later when we go deeper into the analysis. In the state of Use Case Flows we will as well generate Test Cases for the flows. 
+\textbf{\glspl{use_case_flow}} are the different flows, how the interaction between actors and the system take place. Usually there is a standard flow, and alternative (error / exception handling) flows. These will be specified later when we go deeper into the analysis. In the state of Use Case Flows we will as well generate Test Cases for the flows. 
 
-\textbf{Use-Case slices} are the final development tasks. They will be generated out of the Use Case Flows and can be independently implemented as a single iteration step. They are bases on the Flows and Test Cases. Further Test Cases are usually generated during the implementation react on system specific scenarios.
+\textbf{\glspl{use_case_slice}} are the final development tasks. They will be generated out of the Use Case Flows and can be independently implemented as a single iteration step. They are bases on the Flows and Test Cases. Further Test Cases are usually generated during the implementation react on system specific scenarios.
 
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/uc20_flow}
-\caption{Use-case 2.0 activities for iterative development approaches}
+\caption{\gls{use_case} 2.0 activities for iterative development approaches}
 \label{fig:usecase20:flow}
 \end{figure}
 
 
-\subsection{Actors in this System}
+\subsubsection{Actors in this System}
 \label{sub:sassoon:actors}
 \begin{itemize}
 	\item \textbf{Clinician}: main user of the system, does the actual lookup for an applicable model.
@@ -42,8 +44,14 @@ Taken from Ivar Jacobson, see \autoref{fig:usecase20:flow} \cite{jacobson2011use
 \end{itemize}
 }
 
-\subsection{Use-Cases}
+\subsubsection{Use-Cases}
 
-\subsection{Use-Case Flows}
+\subsubsection{Use-Case Flows}
 
-\subsection{Use-Case Slices}
+\subsubsection{Use-Case Slices}
+
+\subsection{Test Plan}
+
+\subsection{Test Report}
+
+

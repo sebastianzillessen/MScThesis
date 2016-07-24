@@ -17,6 +17,11 @@ In this thesis the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} 
 	\item $E$: "Basing on a comparison on statistics is more rigorous and rational than basing a comparison on your instincts about their relative trustworthiness"
 \end{itemize}
 
+\bigskip
+
+\Glspl{EAF} have to be considered, as Sassoon \textit{et al.} defined the defeasible knowledge over possible models in there latest paper \cite{sassoon2016CD} by using this approach. It is reasonable to consider an order of importance for different preferences (e.g. preferences based on statistical knowledge should be regarded as more important than the clinicians personal preference). As this can be easily achieved in \glspl{EAF} by applying the preferences one by one related to their \glspl{CD}, this approach is in favour.
+
+Hence, a brief introduction to the definition of \glspl{EAF} is presented in the following chapter.
 \begin{figure}[b!]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
@@ -40,7 +45,7 @@ In this thesis the \gls{EAF} approach introduced by Modgil in \cite{Modgil2009} 
    (E) edge [->>] node [left] {} (DC)
    ;
 \end{tikzpicture}
-\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension.}
+\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension}
 \label{fig:eaf_intro}
 \end{figure}
 
@@ -93,7 +98,7 @@ By using this definition, similar properties (e.g. conflict-free and admissible 
    (C) edge [->>] node [left] {} (AB)
    ;
 \end{tikzpicture}
-\caption{\gls{EAF} with $\langle \S, \R, \D \rangle = \langle \{A, B, C\}, \{(A, B)\}, \{(C, (A, B))\} \rangle$.}
+\caption{\gls{EAF} with $\langle \S, \R, \D \rangle = \langle \{A, B, C\}, \{(A, B)\}, \{(C, (A, B))\} \rangle$}
 \label{fig:eaf_small}
 \end{figure}
 
@@ -106,7 +111,7 @@ Let $S'$ be a conflict-free subset of $\S$ in $\langle \S, \R, \D \rangle$. Then
 \end{lemma}
 
 \begin{definition}
-\todo{You should explain how the concepts discussed in 2.2 apply to your work! \autoref{fig:eaf_intro}}
+
 $R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$), iff:
 \begin{itemize}
 	\item $C \rightarrow^{S'} B \in R_{S'}$,
@@ -282,8 +287,6 @@ Similar to Dung's framework we can state the following relations between differe
 \end{itemize}	
 \end{remark}
 
-In addition Modgil \textit{et al.} introduce in \cite{Modgil2009} the concept of a special class of \glspl{EAF}, \textit{hiearchical \glspl{EAF}}, which are defined by the existence of a partition of $\Delta$ into multiple regular Dung argumentation frameworks. Due to this restriction it is possible to define a least fix point of the characteristic function $F$, hence defining the grounded extension $GE(\Delta)$ in the same way as it has been defined in Dung's framework.
-
-Furthermore \cite{Modgil2009} presents as well the concept of \textbf{Preference symmetric extended argumentation frameworks}. This extension limits the attacks on attacks (so the set $\D$) only on attacks between symmetrically attacking arguments. However, this is a to narrow restriction for our purposes, therefore this will not be described here. 
+In addition Modgil \textit{et al.} introduce in \cite{Modgil2009} the concept of a special class of \glspl{EAF}, \textit{hiearchical \glspl{EAF}}, which are defined by the existence of a partition of $\Delta$ into multiple regular Dung argumentation frameworks. Due to this restriction it is possible to define a least fix point of the characteristic function $F$, hence defining the grounded extension $GE(\Delta)$ in the same way as it has been defined in Dung's framework. However, this is a to narrow restriction for our purposes, therefore this will not be described here. 
 
 

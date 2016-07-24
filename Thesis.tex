@@ -1,4 +1,5 @@
 %&latexf
+
 \documentclass[isdraft]{kclthesis}  % notes see below
 									% [releaseproject] will check release,
 							 		% [notreleaseproject] will check not release.
@@ -9,8 +10,16 @@
 \usepackage[toc, acronym]{glossaries} 
 \usepackage{float}
 
+% Run texcount on tex-file and write results to a sum-file
+\immediate\write18{texcount \jobname.tex -merge -total | grep "Words in text: " | cut -d" " -f4 > \jobname.sum}
+% Define macro \wordcountsum for including the counts
+\newcommand\wordcountsum{\input{\jobname.sum}}
+
 \usepackage{enumitem}
 \usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usetikzlibrary{shapes}
 
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
@@ -27,55 +36,23 @@
 \supervisor{Jeroen Keppens}
 \cosupervisor{Isabel Sassoon}
 \department{Department of Informatics}
-%\wordcount{XXXXXXX}
+\wordcount{ \wordcountsum }
+% 15000 words (excluding Cover page, Acknowledgement, Table of contents, Nomenclature, List of figures and tables, References, Appendix)
 
 
-%\makenomenclature
-\makeglossaries
-
-
-\pretocmd{\section}{\glsresetall}{}{}
-
-
-\begin{document}
-\pagenumbering{gobble}
-
-
-%%%%%% depends what you like, might try out the other frontpage as well
-\maketitle 		% official styled layout
-\maketitleTwo 	% adapted layout which looks nicer from my point of view.
-
-%%%%%% empty page after main page.
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
-%%%%%% Abstract
-\todo{re-enable word count}
-\todo{reset title}
-\todo{remove releaseproject}
-
-
-\todo{include abstract}
-%\include{contents/abstract}
-%%%%%% Table of contents
-
-\pagenumbering{roman}
-\setcounter{tocdepth}{4}
-\tableofcontents
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{structure/figures_tables}
-\todo{include acknowledgements}
-\include{structure/acknowledgements}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\R}{\mathcal{R}}
 \renewcommand{\S}{\mathcal{S}}
 \renewcommand{\D}{\mathcal{D}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\C}{\mathcal{C}}
 
 \newcommand{\low}[1]{{\tiny $_{#1}$}}
 \newcommand{\tbd}[1]{\todo{TBD}{\color{gray} #1}}
+
+
 
 \tikzstyle{n_fill_green}=[circle,draw,fill=green!20]
 \tikzstyle{n_fill_red}=[circle,draw,fill=red!20]
@@ -87,41 +64,83 @@
 
 \newfloat{AS}{hbtp}{lop}
 
+
+%\makenomenclature
+\makeglossaries
+
+
+\pretocmd{\section}{\glsresetall}{}{}
+
+
+\begin{document}
+
+
+\pagenumbering{gobble}
+
+%TC:ignore 
+%%%%%% depends what you like, might try out the other frontpage as well
+\maketitle 		% official styled layout
+\maketitleTwo 	% adapted layout which looks nicer from my point of view.
+
+%%%%%% empty page after main page.
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+%%%%%% Abstract
+\todo{remove releaseproject}
+
+%TC:endignore 
+
+%TC:break Abstract
+\include{contents/abstract}
+%TC:ignore 
+
+\include{structure/acknowledgements}
+
+%%%%%% Table of contents
+
+\pagenumbering{roman}
+\setcounter{tocdepth}{4}
+\tableofcontents
+\newpage
+
+\include{contents/nomenclature}
+\include{structure/figures_tables}
+
+%TC:endignore
+%TC:break _main_
 %%%%%% Main content
+
 \pagenumbering{arabic}
+\wordcountsum
 \include{contents/introduction}
 \include{contents/background}
 \include{contents/summary_isabel}
 \include{contents/projectplan} 
-\todo{include softwaredesign, data and main, conclusion}
+\include{contents/specification}
+\include{contents/main_result}
 \include{contents/softwaredesignprocess}
+\include{contents/implementation}
+
 \include{contents/involved_data}
+
 %\include{contents/main}
 \include{contents/conclusion}
 
-\include{contents/nomenclature}
-%%%%% References
-\bibliographystyle{ieeetr}
-%\bibliographystyle{kclharvardv1}
-%%%%% Use King's College Harvard V1 style
-% If you want to use a bibliography style that is quite close to 
-% the King's College Harvard V1 style (http://libguides.kcl.ac.uk/reference/KingsHarvardV1): 
-% 1. Remove or comment the line "\bibliography{ieeetr}" above.
-% 2. Provide "kclharvardbib" as a document class parameter in the beginning of this file.
-% 3. Uncomment the line "\bibliographystyle{kclharvardv1}" below.
-%%%%%
 
+%TC:ignore
 
-\bibliography{bibs/sassoon, bibs/dung, bibs/hunter_a, bibs/Gorogiannis2009, bibs/dexa06, bibs/Ai-Modern, bibs/modgil, bibs/amgoud, bibs/reiter, bibs/bench, bibs/amgoud98,bibs/tandf_tncl207_25} 
+\include{contents/bibs}
 
 %%%%% Declaration
 \todo{Include declaration}
-%\include{structure/declaration}
+\include{structure/declaration}
 %%%%% Appendix 
-%\appendix
-%\include{appendix/app_1}
+\appendix
+\include{appendix/app_1}
 
-
+%TC:endignore 
 
 \end{document}
 
