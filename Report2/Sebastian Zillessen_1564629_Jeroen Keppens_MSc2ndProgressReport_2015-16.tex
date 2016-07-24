@@ -1,0 +1,77 @@
+\documentclass[11pt,twocolumn]{article}
+%\usepackage[margin=0.7in]{geometry}
+\usepackage[inner=1.6cm,outer=1.6cm,top=2cm]{geometry}
+\setlength{\columnsep}{0.8cm}
+\usepackage{titling}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+            
+\usepackage[dvipsnames]{xcolor}
+\RequirePackage{graphicx}
+\usepackage{listings}
+\lstloadlanguages{Ruby}
+\lstset{%
+basicstyle=\ttfamily\color{black},
+commentstyle = \ttfamily\color{red},
+keywordstyle=\ttfamily\color{blue},
+stringstyle=\color{orange}}
+
+\setlength{\droptitle}{-5em}   % This is your set screw
+
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=3pt,parsep=0pt,partopsep=0pt}
+    
+\begin{document}
+\title{
+Small Data Analyst 
+\protect\\ 
+2. MSc Project Progress Report
+}
+\author{
+Author:  \hfill Sebastian Zillessen \thanks{\href{mailto:sebastian.zillessen@kcl.ac.uk}{sebastian.zillessen@kcl.ac.uk}}\\
+Supervisor: \hfill Jeroen Keppens \thanks{\href{mailto:jeroen.keppens@kcl.ac.uk}{jeroen.keppens@kcl.ac.uk}}\\
+Product Owner: \hfill Isabel Sassoon \thanks{\href{mailto:isabel.sassoon@kcl.ac.uk}{isabel.sassoon@kcl.ac.uk}}
+}
+\date{\today}
+\maketitle
+
+
+\section{Introduction}
+This second project report summarises the progress made so far in the MSc Project "Small Data Analyst". The project is supervised by Jeroen \mbox{Keppens} and the requirements for the software have been closely evaluated and defined together with Isabel Sassoon, author of the underlying paper \cite{sassoon2014}. This project report builds up on the first progress report which has been handed in on June 24th. 
+
+\section{ Use Case Implementation}
+At the current situation, all initially required Use Cases have been implemented and RC4 is right now in the feedback loop. The only Use Case not implemented (which was as well marked as a \texttt{would} in the initial \textit{MuSCoW} prioritisation scheme) relates to in-depth analysis about the algorithms performance, as this is not really relevant, as the argumentation frameworks in place are rather small, the only "big data" we have to deal with are the datasets, but this is well handled in \texttt{R}.
+
+\section{ RC 2 \& Demo}
+\texttt{RC 2}'s has been successfully implemented and presented to the supervisors. The overall impression was good, the project met its requirements until that point. Major features implemented were Login/Authentication, Adding of Assumptions, R-Code execution, Initialisation of possible models after AS1.
+\section{ RC 3 \& Demo}
+\texttt{RC 3} focused on the implementation of the preferences between different models if certain assumptions hold [UC \href{https://trello.com/c/1s656fA9}{10}, \href{https://trello.com/c/Ca9mA3uA}{9-1}, \href{https://trello.com/c/bZHdWpkt}{19}]. 
+
+In addition the user management has been extended [UC \href{https://trello.com/c/xUDStSOK}{11}] and adding new research question [UC \href{https://trello.com/c/Hv2xe2UW}{17}] has been implemented.
+
+The feedback on \texttt{RC 3} was good, however we decided to make the implementation of the preferences even more intuitive by moving it from a hard-coded approach into a UI/database approach. This was then done in \texttt{RC 4}.
+\section{ RC 4 \& Demo}
+\texttt{RC 4} focused on the implementation of UI features. First of all, the preferences over models have been implemented as UI solution, so a user is now able to enter preferences on the website. This involves assumption assignment and specifying the order of models in certain scenarios by drag \& drop.
+
+In addition a plotting functionality for the generated Argumentation Frameworks has been implemented [UC \href{https://trello.com/c/BOUu2hKN}{15}]. \cite{Dunne10computationin} was used as a source for the algorithm to check if an argument is acceptable w.r.t a subset of holding arguments.
+
+Compared to the initial idea, we moved from using the argumentation based approach Sassoon proposed in \cite{sassoon2014}, to the more recent approach involving different context domains and preferences expressed by relative orders in these context domains if they are applicable as Sassoon proposed in \cite{sassoon2016CD}. Personal preferences entered by a clinician [UC \href{https://trello.com/c/NcV3lo4w}{14}] have been realised by using \texttt{cancancan}\footnote{\href{https://github.com/CanCanCommunity/cancancan}{https://github.com/CanCanCommunity/cancancan}} and personalised abilities. 
+
+In addition to these planned features, the requirement for presenting plots to the user to ask him if this plot satisfies some condition was raised (this is e.g. required in the Weibul model \cite{sassoon2016CD}). To satisfy this need, an additional specialisation of the \texttt{QueryAssumption} has been implemented, which takes \texttt{R-Code} to generate a plot out of the dataset defined for the analysis. This plot is then presented to the user and she/he has the option to answer with yes/no. The influence of these \texttt{QueryTestAssumptions} are the same as \texttt{QueryAssumptions} the only difference is, that these assumptions contain a dynamic plot related to the dataset written in \texttt{R} [UC \href{https://trello.com/c/VThxB5aS}{20}].
+
+Furthermore some UI improvements have been applied. The final version was presented as playable demo to the supervisors at July 25th. 
+\section{ Project Plan Updates}
+
+There have been no significant changes to the Project Plan, as the project is running on track. In fact the completion of RC 4 was done earlier, and the additional time was used to implement another feature, called the \texttt{TestQueryAssumptions} (see above).
+
+The coding of the web application is hereby finished (except for minor changes that might arise during the final feedback loop starting this week) and the remaining time is intended to be used for the dissertation itself. 
+
+% bibis 
+\bibliographystyle{acm}
+\bibliography{../bibs/sassoon, ../bibs/dung, ../bibs/hunter_a, ../bibs/Gorogiannis2009, ../bibs/dexa06, ../bibs/Ai-Modern, ../bibs/modgil, ../bibs/amgoud, ../bibs/reiter, ../bibs/bench, ../bibs/amgoud98,../bibs/tandf_tncl207_25} 
+
+
+\end{document}

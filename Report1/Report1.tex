@@ -40,28 +40,28 @@ Product Owner: \hfill Isabel Sassoon \thanks{\href{mailto:isabel.sassoon@kcl.ac.
 
 
 \section{Introduction}
-This first project progress report summarises the progress made so far in the MSc Project "Small Data Analyst" and amendments to the original outline and project plan. The project is supervised by Jeroen Keppens and the requirements for the software have been closely evaluated and defined together with Isabel Sassoon, author of the underlying paper \cite{sassoon2014}. 
+This first project report summarises the progress made so far in the MSc Project "Small Data Analyst". The project is supervised by Jeroen \mbox{Keppens} and the requirements for the software have been closely evaluated and defined together with Isabel Sassoon, author of the underlying paper \cite{sassoon2014}. 
 
-\section{ Literatur Analysis}
-To start with the project, a background research has been done. The main focus is Argumentation Theory \cite{dung1995} and different ways of extending Argumentation Frameworks to work with preferences in conflicting argumentation frameworks \cite{Modgil2009,amgoud,amgoud1998,pollock1987}, as this will be an important aspect of the software. These extensions have been quickly reviewed and the chapter on the literature review is almost finished.
+\section{ Literature Analysis}
+To start with the project, a background research has been done. The main focus is Argumentation Theory \cite{dung1995} and different ways of extending Argumentation Frameworks to work with preferences in conflicting argumentation frameworks \cite{Modgil2009,amgoud,amgoud1998,pollock1987}, as this will be an important aspect of the software. These extensions have been quickly reviewed and the chapter on the literature review is nearly completed.
 
 However, it has been decided to postpone the further writing of the final report, as I would like to finish the implementation part first. This is reflected in the updated project plan, attached to this report.
 
 \section{ Use Case Specification and Refinement}
 
-To understand and to specify all requirements, a Use Case 2.0 \cite{jacobson2011usecase} analysis has been performed. These where discussed and approved by Isabel Sassoon to meet the requirements of the theoretical underlying work of statistical model selection. In addition these Use Cases have been grouped, ranked and rated according to the popular MuSCoW (\textbf{mu}st, \textbf{s}hould, \textbf{co}uld, \textbf{w}ould) prioritisation scheme. The Use Cases have been grouped in four Release Candidates (RC 1 - 4). 
+To understand and specify all requirements, a Use Case 2.0 \cite{jacobson2011usecase} analysis has been performed. These were discussed and approved by Isabel Sassoon in order to meet the requirements of the underlying theoretical work of statistical model selection. In addition, these Use Cases have been grouped, ranked and rated according to the popular MuSCoW (\textbf{mu}st, \textbf{s}hould, \textbf{co}uld, \textbf{w}ould) prioritisation scheme. The Use Cases have been grouped in four Release Candidates (RC 1 - 4). 
 
 \section{ RC 1 and Prototype Demo}
 \textbf{RC 1} includes the core functionality to perform an analysis on research questions and their possible models by using critical assumptions that are evaluated on the datasets. This involves as well the following Use Cases: 
 \begin{itemize}
-	\item Entering two default models into the system including definition of critical / non-critical assumptions [UC \href{https://trello.com/c/KEOokZp9}{1}\footnote{The Use Cases are described as Trello cards. The progress of the }]
+	\item Entering two default models into the system including definition of critical / non-critical assumptions [UC \href{https://trello.com/c/KEOokZp9}{1}\footnote{The Use Cases are described as Trello cards. }]
 \item  Selection of a research question and performing an analysis of possible models with the selected dataset (AS1) [UC \href{https://trello.com/c/ebVrFdA5}{2},\href{https://trello.com/c/7NINsfz8}{4},\href{https://trello.com/c/22JGne3r}{5}]
 \end{itemize}
 
-In addition to these Use Cases, the setup of the infrastructure has been done in RC 1 as well. The final application will be developed as a web application and be hosted on \href{http://heroku.com}{Heroku}. 
-One of the biggest challenges during RC 1 was the ability to execute \texttt{R-Scripts} in Ruby on Rails [\href{https://trello.com/c/dpLHOxbB}{UC 18}]. For this purpose the Gem \href{https://github.com/sebastianzillessen/rinruby}{\texttt{rinruby}} has been used and slightly modified to ensure compatibility with \texttt{ruby 2.2.4}. In addition a \href{https://travis-ci.org/sebastianzillessen/rinruby}{\texttt{TravisCI}} environment has been setup for this fork of the gem to ensure correctness and to improve code quality. 
+Additional to these Use Cases, the setup of the infrastructure has been done in RC 1 as well. The final application will be developed as a web application and be hosted on \href{http://heroku.com}{Heroku}. 
+One of the biggest challenges during RC 1 was the ability to execute R-Scripts in Ruby on Rails [\href{https://trello.com/c/dpLHOxbB}{UC 18}]. For this purpose the Gem \href{https://github.com/sebastianzillessen/rinruby}{\texttt{rinruby}} has been used and slightly modified to ensure compatibility with \texttt{ruby 2.2.4}. In addition a \href{https://travis-ci.org/sebastianzillessen/rinruby}{TravisCI} environment has been set up for this fork of the gem to ensure correctness and to improve code quality. 
 
-A continuous integration environment has been setup for the further progress of this project including \href{https://github.com/}{Github}, a \href{https://travis-ci.com}{Travis-CI} instance to ensure that all test are always green and an auto-deployment feature to continuously deploy tested code versions to Heroku. 
+A continuous integration environment has been set up for the further progress of this project including \href{https://github.com/}{Github}, a \href{https://travis-ci.com}{Travis-CI} instance to ensure that all tests are always green and an auto-deployment feature to continuously deploy tested code versions to Heroku. 
 
 Despite the original schedule, RC 1 includes two additional Use Cases that were planned for later releases ([\href{https://trello.com/c/ORRBjISQ}{UC 2-1}]: Store completed analyses, [\href{https://trello.com/c/Hv2xe2UW}{UC 17}]: Enter additional research questions into the system, [\href{https://trello.com/c/be2088JH}{UC 8}]: See assumptions that hold and that do not hold during the analysis). 
 
@@ -70,13 +70,13 @@ From these Use Cases various other tasks have been derived and implemented in RC
 \section{ Current Status of RC2}
 RC 2 is building up on RC 1 and will include the following new aspects:
 \begin{itemize}
-	\item Authentication support. [UC \href{https://trello.com/c/CVGBVWID}{6}, \href{https://trello.com/c/pId27kJM}{6-1}, \href{https://trello.com/c/pQ98qgSL}{6-2}, \href{https://trello.com/c/mvxBeNSR}{6-3}]
+	\item Authentication support [UC \href{https://trello.com/c/CVGBVWID}{6}, \href{https://trello.com/c/pId27kJM}{6-1}, \href{https://trello.com/c/pQ98qgSL}{6-2}, \href{https://trello.com/c/mvxBeNSR}{6-3}]
 	\item Ability to add new assumptions online [UC \href{https://trello.com/c/2V6Cl65u}{12-1}, \href{https://trello.com/c/OwM2Z7wt}{12-2}, \href{https://trello.com/c/Rg6GPnNE}{12-5}]
 	\item Upload functionality for datasets [UC \href{https://trello.com/c/DidVQKAS}{7}]
 	\item Detailed reports of assumptions that hold and those that do not hold and therefore cause a model not to be possible [UC \href{https://trello.com/c/be2088JH}{8}]
 \end{itemize}
 
-In addition the first required code parts for the analysis of the possible models using an argumentation framework will done in RC 2 (although this was initially planned to be part of RC 3, but after receiving the first feedback on RC 1 this change seems reasonable). This will enable us to perform first analyses of the Argumentation Framework describe as AS 2 in \cite{sassoon2014}. Furthermore access to a big dataset for testing the application has been granted.
+Furthermore the first required code parts for the analysis of the possible models using an argumentation framework will done in RC 2 (although this was initially planned to be part of RC 3, but after receiving the first feedback on RC 1 this change seems reasonable). This will enable us to perform first analyses of the Argumentation Framework described as AS 2 in \cite{sassoon2014}. 
 
 \section{ Project Plan Updates}
 
@@ -85,9 +85,9 @@ The original project plan as proposed in the Preliminary Report has been slightl
 First of all, the different project phases have changed: The writing of the final thesis has been postponed and the focus on the development has been increased during the first months. 
 In addition as a learning from RC 1, the duration of the different release candidates have been reduced to iterate faster. A buffer of approximately 4 weeks has been integrated into the planning to be able to react flexible on problems that might occur during the development. 
 
-Furthermore the feedback times have been decoupled from the remaining development process, as we decided to have short demo sessions immediately after each release candidate, so the feedback process is reduced to a minimum. The updated project plan can be found at \href{https://trello.com/c/ZQKwDSvG}{Trello} and the most current version is \href{https://trello-attachments.s3.amazonaws.com/56c4a277153128da8ebc828c/2215x1098/9ad8a2d9dd43f6fe0c54597f0a8b7a4f/Projectplan_v5.png}{Projectplan\_v5}.
+Other than that the feedback times have been decoupled from the remaining development process, as we decided to have short demo sessions immediately after each release candidate, therefore the feedback process is reduced to a minimum. The updated project plan can be found at \href{https://trello.com/c/ZQKwDSvG}{Trello} and the most current version is \href{https://trello-attachments.s3.amazonaws.com/56c4a277153128da8ebc828c/2215x1098/9ad8a2d9dd43f6fe0c54597f0a8b7a4f/Projectplan_v5.png}{Projectplan\_v5}.
 
-
+The project is overall on a good pace and meets the planned progress in an satisfactory way.
 
 
 
