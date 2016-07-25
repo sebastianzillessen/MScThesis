@@ -14,23 +14,22 @@
 
 \section{Introduction}
 
-\todo{The technical background of the project, including appropriate references to the technical literature.}
 \todo{Specific objectives of the project.}
 \todo{Project Aims, Objectives and Introduction: It gives a basic background of the work.  The problems and project objectives should be clearly stated.  The techniques and approaches used to deal with the problem should be stated with reasons, and the contributions and main results achieved should be stated clearly.  The structure of the report can be described briefly at the end.}
 
 Nowadays data collection is omnipresent and the buzzword \textit{big data}\footnote{Big data is often described by the five V's: Volume, Variety, Velocity, Variability, Veracity \cite{Hilbert2015}}. However, most of the research is done on the extraction of information from large datasets (so called Big Data Analysis). Therefore small datasets collected in day-to-day practice of professionals is often overlooked. 
 
-Clinicians and hospitals collect a lot of data on their patients, the used therapies and the outcomes. Unfortunately this data is often not used to inform future practice. This project aims to implement an intelligent agent that provides advice based on statistical theory on the analysis of such data. The system depends on the design described in the related papers by Sassoon \textit{et al.} \cite{sassoon2014,sassoon2016,sassoon2016CD}. Especially the most recent publication will be used as solution to the problem of preferences over models in different context domains. 
+Clinicians and hospitals collect a lot of data on their patients, the used therapies and the outcomes. Unfortunately this data is often not used to inform future practice. As a recent systematic review by \cite{survivalAnalysis} showed, the usage of statistical analysis has improved the survival analysis slowly. 
+
+This project aims to implement an intelligent agent that provides advice based on statistical theory on the analysis of such data. The system depends on the design described in the related papers by Sassoon \textit{et al.} \cite{sassoon2014,sassoon2016,sassoon2016CD}. Especially the most recent publication will be used as solution to the problem of preferences over models in different context domains. 
 
 
 
-This dissertation will first clarify the project aims and objectives in \autoref{sub:aims}. Second, the used methodologies and the general technical specification are explained (see \autoref{sub:methodologies} and \autoref{sub:technical}). This is followed by a background research in \autoref{sec:background} providing a review of the theoretical aspects of argumentation frameworks and their extensions and the theory behind statistical model selection. A critical review of related literature and approaches is given. 
-
-This will then be followed by a detailed project plan (see \autoref{sec:projectplan}) which depicts the planned progress of this project till the end of August 2016. The consecutive chapters (see \autoref{sec:design} and \autoref{sec:implementation}) are focusing on the actual implementation of the software as an \gls{RoR} web application. 
-
-The report is concluded by a critical evaluation (see \autoref{sec:conclusion}) of the project and the delivered web application.
-
+This dissertation will first clarify the project aims and objectives in \autoref{sub:aims}. Second, the used methodologies and the general technical specification are explained (see \autoref{sub:methodologies} and \ref{sub:technical}). This is followed by a background research in \autoref{sec:background} providing a review of the theoretical aspects of argumentation frameworks and their extensions and the theory behind statistical model selection. 
+This will then be followed by a detailed project plan (see \autoref{sec:projectplan}). The consecutive chapters (see \autoref{sec:design} and \ref{sec:implementation}) are focusing on the actual implementation of the software as an \gls{RoR} web application. 
+The report is concluded by a critical evaluation (see \autoref{sec:conclusion}) of the project and the delivered web application. 
 The appendix contains the detailed description of the Use Cases (\autoref{app:use_cases}) that have been defined in \autoref{sec:design}, an installation guide to install the web application on a new machine (see \autoref{app:installation}). In addition a structural representation of the web application can be found in \autoref{app:structure}
+
 \todo{Review at the end if structure still applies}
 
 \subsection{Project Aims and Objectives} 
@@ -67,11 +66,9 @@ The secondary goals are desired to be achieved but do not influence the successf
 
 \subsection{Methodologies of the Project}
 \label{sub:methodologies}
-This project will be developed in an agile way. To ensure that it meets the requirements described by Sassoon \textit{et al.} (\cite{sassoon2014, sassoon2016, sassoon2016CD}, see \autoref{sub:statistical_model_selection}), the main author of that paper is treated as a client during the requirements analysis and the testing phase. For the actual development process the Use-Case 2.0 approach by Jacobson \textit{et al.} \cite{jacobson2011usecase} is used as it provides a great way to communicate, specify and iterate over functional (independent) parts of the system with non-developers. 
+This project will be developed in an agile way. To ensure that it meets the requirements described by Sassoon \textit{et al.} (\cite{sassoon2014, sassoon2016, sassoon2016CD}, see \autoref{sub:statistical_model_selection}), the main author of that paper is treated as a client or \gls{product owner} during the requirements analysis and the testing phase. For the actual development process the Use-Case 2.0 approach by Jacobson \textit{et al.} \cite{jacobson2011usecase} is used as it provides a great way to communicate, specify and iterate over functional (independent) parts of the system with non-developers. Due to its descriptive nature it does not require any knowledge about the actual process to be easy understandable. However, this methodology will be explained and introduced in detail later in this dissertation (see \autoref{sec:design}). 
 
-Due to its descriptive nature it does not require any knowledge about the actual process to be easy understandable. The key components of this approach are \glspl{use_case}, \glspl{use_case_flow}, \glspl{use_case_slice} and Test Cases. The later will be used for the test- and behaviour-driven development approach employed in this project. These methodologies will be explained and introduced in detail later in this dissertation. 
-
-As a project communication and management tool Trello\footnote{\href{http://www.trello.com}{www.trello.com}} is utilised as it provides an easy-to-use and interactive way of dealing with cards (in our case use-cases and tasks) and to group them. As the final application will be developed in four release cycles (RC~1 - 4, see \autoref{sec:projectplan}), track of the already achieved intermediate steps and the actual progress of the development process can be recorded efficiently. Labels and different lists visualise the status and progress of each task and use-case (see \autoref{fig:trello}).
+As a project communication and management tool Trello\footnote{\href{http://www.trello.com}{www.trello.com}} is utilised as it provides an easy-to-use and interactive way of dealing with cards (in our case use-cases and tasks) and to group them. During the project planning it has been decided to break down the development into  four release cycles (RC~1 - 4, see \autoref{sec:projectplan}), as this will provide a modularisation of the project and allows early feedback on it. However track of the already achieved intermediate steps and the actual progress of the development process can be recorded efficiently with Trello. Labels and different lists visualise the status and progress of each task and use-case (see \autoref{fig:trello}).
 
 
 \begin{figure}[h]
@@ -85,12 +82,12 @@ As a project communication and management tool Trello\footnote{\href{http://www.
 \subsection{Technical Specification}
 \label{sub:technical}
 
-As the system should be accessible by multiple users and from different departments (e.g. clinicians and statisticians), it will be developed as a web-application in \gls{RoR}\footnote{http://rubyonrails.org} and will be hosted on \gls{Heroku} as this will provide an easy-to-use and easy-to-deploy environment, where our demo application can be hosted for free. To provide a \gls{CI} environment, the project code is hosted on \texttt{github}\footnote{\href{http://www.github.com}{http://www.github.com}}. It integrates with a \texttt{Travis CI}\footnote{\href{http://www.travis-ci.org}{http://www.travis-ci.org} }.
+As the system should be accessible by multiple users and from different departments (e.g. clinicians and statisticians), it will be developed as a web-application in \gls{RoR}\footnote{\href{http://rubyonrails.org}{http://rubyonrails.org}} and will be hosted on \gls{Heroku} as this will provide an easy-to-use and easy-to-deploy environment, where our demo application can be hosted for free. To provide a \gls{CI} environment, the project code is hosted on \texttt{github}\footnote{\href{https://github.com/sebastianzillessen/small-data-analyst}{https://github.com/sebastianzillessen/small-data-analyst}} and a \texttt{Travis CI}\footnote{\href{https://travis-ci.org/sebastianzillessen/small-data-analyst}{https://travis-ci.org/sebastianzillessen/small-data-analyst} } instance has been setup that runs all the implemented tests of the project.
 
-The used datasets are anonymised, so data protection issues are reduced to a minimum and the datasets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{http://www.postgresql.org} will be used as a database, as it is well integrated on \gls{Heroku} and provides high scalability.
+The used datasets are anonymised, so data protection issues are reduced to a minimum and the datasets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{\href{http://www.postgresql.org}{http://www.postgresql.org}} will be used as a database, as it is well integrated on \gls{Heroku} and provides high scalability.
 
-Most of the assumption tests for the statistical models will be performed in \texttt{R}, as this is a common used language for statistical calculations and well known by statisticians. In addition many assumption-checks already exist in \texttt{R}. These scripts (externally provided) will be executed in the \gls{RoR} application with the help of third party gems.
+Most of the assumption tests for the statistical models will be performed in \gls{R}, as this is a common used language for statistical calculations and well known by statisticians. In addition many assumption-checks already exist in \gls{R}. These scripts (externally provided) will be executed in the \gls{RoR} application with the help of third party gems.
 
-To provide a responsive and clear user interface the \texttt{Bootstrap}\footnote{http://getbootstrap.com} framework will be used to design and style the application. 
+To provide a responsive and clear user interface the \texttt{Bootstrap}\footnote{\href{http://getbootstrap.com}{http://getbootstrap.com}} framework will be used to design and style the application. 
 
 
