@@ -24,3 +24,6 @@ tm
 .texpadtmp/
 Thesis.pdf
 .bash_history
+*.aux
+*.glsdefs
+*.synctex.gz*
