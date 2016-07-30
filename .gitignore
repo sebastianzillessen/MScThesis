@@ -27,3 +27,4 @@ Thesis.pdf
 *.aux
 *.glsdefs
 *.synctex.gz*
+tmp.*

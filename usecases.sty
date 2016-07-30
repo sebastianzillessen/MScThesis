@@ -1,11 +1,5 @@
-\newenvironment{usecase}[3][]{
-	\begin{table}[h]
-	\caption{#1}
-	\label{#2}
-	\begin{tabular}{l p{6cm}}
-		Name: & #3\\
-		\hline \\
-		
-}{
-\end{tabular}
-\end{table}}
+\usepackage{float}
+
+\floatstyle{ruled}
+\newfloat{usecase}{thp}{lop}
+\floatname{usecase}{Use Case}

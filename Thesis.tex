@@ -8,12 +8,25 @@
 \usepackage[toc, acronym]{glossaries}
 \usepackage{float}
 \usepackage{usecases}
-
+\usepackage{fancyvrb}
+\usepackage{pdflscape}
 
 % Run texcount on tex-file and write results to a sum-file
 \immediate\write18{texcount \jobname.tex -merge -total | grep "Words in text: " | cut -d" " -f4 > \jobname.sum}
 % Define macro \wordcountsum for including the counts
 \newcommand\wordcountsum{\input{\jobname.sum}}
+
+
+\newenvironment{markdown}%
+    {\VerbatimEnvironment\begin{VerbatimOut}{tmp.markdown}}%
+    {\end{VerbatimOut}%
+        \immediate\write18{pandoc tmp.markdown -t latex -o tmp.tex}%
+        \input{tmp.tex}}
+\def\tightlist{}
+
+
+
+
 
 \usepackage{enumitem}
 \usepackage{pdfpages}
