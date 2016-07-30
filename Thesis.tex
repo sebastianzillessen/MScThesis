@@ -7,6 +7,8 @@
 % glossaries
 \usepackage[toc, acronym]{glossaries}
 \usepackage{float}
+\usepackage{usecases}
+
 
 % Run texcount on tex-file and write results to a sum-file
 \immediate\write18{texcount \jobname.tex -merge -total | grep "Words in text: " | cut -d" " -f4 > \jobname.sum}
