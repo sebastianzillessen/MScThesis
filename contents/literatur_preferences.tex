@@ -27,10 +27,10 @@ Hence, a brief introduction to the definition of \glspl{EAF} is presented in the
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                     thick]
 
-  \node[main node] (A) {A};
+  \node[main] (A) {A};
   \node[small,n_fill_green] (B) [left of=A] {B};
   \node[small,n_fill_green] (C) [above right of=A] {C};
-  \node[main node] (D) [below right of=A] {D};
+  \node[main] (D) [below right of=A] {D};
   \node[small,n_fill_green] (E) [right=3cm of A] {E};
   
   \path[every node/.style={font=\sffamily\small}]
@@ -87,9 +87,9 @@ By using this definition, similar properties (e.g. conflict-free and admissible 
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                     thick]
 
-  \node[main node] (C) [above right of=A] {C};
-  \node[main node] (A) [below left of=C]{A};
-  \node[main node] (B) [below right of=C] {B};
+  \node[main] (C) [above right of=A] {C};
+  \node[main] (A) [below left of=C]{A};
+  \node[main] (B) [below right of=C] {B};
   
   \path[every node/.style={font=\sffamily\small}]
     (A) edge [] coordinate [pos=0.5] (AB) node [left] {} (B)

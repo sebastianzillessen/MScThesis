@@ -23,11 +23,11 @@ An (abstract) argumentation framework can be represented as a directed graph whe
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                     thick]
 
-  \node[main node] (A) {A};
-  \node[main node] (B) [right of=A] {B};
-  \node[main node] (C) [right of=B] {C};
-  \node[main node] (D) [below of=C] {D};
-  \node[main node] (E) [below of=B] {E};
+  \node[main ] (A) {A};
+  \node[main ] (B) [right of=A] {B};
+  \node[main ] (C) [right of=B] {C};
+  \node[main ] (D) [below of=C] {D};
+  \node[main ] (E) [below of=B] {E};
   
   \path[every node/.style={font=\sffamily\small}]
     (A) edge node [left] {} (B)
@@ -134,11 +134,11 @@ A preferred extension of an argumentation framework $AF$ is a maximised (with re
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                     thick]
 
-  \node[main node] (A) {A};
-  \node[main node] (B) [right of=A] {B};
-  \node[main node] (C) [right of=B] {C};
-  \node[main node] (D) [right of=C] {D};
-  \node[main node] (E) [right of=D] {E};
+  \node[main] (A) {A};
+  \node[main] (B) [right of=A] {B};
+  \node[main] (C) [right of=B] {C};
+  \node[main] (D) [right of=C] {D};
+  \node[main] (E) [right of=D] {E};
   
   \path[every node/.style={font=\sffamily\small}]
     (A) edge node [left] {} (B)

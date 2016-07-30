@@ -33,8 +33,6 @@
 \ifkclthesis@kclharvardbib
 	\RequirePackage[numbers]{natbib}
 	\RequirePackage[UKenglish]{isodate}
-\else
-	\RequirePackage[style=ieee-alphabetic,backend=bibtex]{biblatex}
 \fi
 
 
