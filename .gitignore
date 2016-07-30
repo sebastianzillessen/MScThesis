@@ -23,3 +23,6 @@ tm
 *.synctex.gz
 .texpadtmp/
 Thesis.pdf
+*.aux
+*.glsdefs
+*.synctex.gz*
