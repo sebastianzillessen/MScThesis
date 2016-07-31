@@ -1,17 +1,3 @@
-\todo{Check the stylguide}
-\\$\square${Captions must be provided for all figures and tables.}
-\\$\square${Equations (or important equations), figures and tables must be numbered.}
-\\$\square${All figures and tables must be referred to in the text.}
-\\$\square${Units of all variables must be provided.}
-\\$\square${Numercial values (floating-point number) should be in 4 decimal places.}
-\\$\square${Contractions should not be used.}
-\\$\square${Check punctuation of sentences.  In particular, those sentences with equation.  For example, if an equation is at the end of a sentence, a full stop should be used.}
-\\$\square${All variables must be defined.}
-\\$\square${Font face of variables throughout the report (in the text, equation, figures and table) must be consistent.}
-\\$\square${Use proper headings for chapters, sections, subsections.}
-\\$\square${Chapters, sections, subsections should be numbered and with the same numbering system throughout the report.}
-\\$\square${It is suggested that vector and matrix variables should be in bold, scalar variables should be in italic.}
-
 \section{Introduction}
 
 \todo{Specific objectives of the project.}
@@ -25,8 +11,8 @@ This project aims to implement an intelligent agent that provides advice based o
 
 
 
-This dissertation will first clarify the project aims and objectives in \autoref{sub:aims}. Second, the used methodologies and the general technical specification are explained (see \autoref{sub:methodologies} and \ref{sub:technical}). This is followed by a background research in \autoref{sec:background} providing a review of the theoretical aspects of argumentation frameworks and their extensions and the theory behind statistical model selection. 
-This will then be followed by a detailed project plan (see \autoref{sec:projectplan}). The consecutive chapters (see \autoref{sec:design} and \ref{sec:implementation}) are focusing on the actual implementation of the software as an \gls{RoR} web application. 
+This dissertation will first clarify the project aims and objectives in \autoref{sub:aims}. Second, the used methodologies are explained (see \autoref{sub:methodologies}). This is followed by a background research in \autoref{sec:background} providing a review of the theoretical aspects of argumentation frameworks and their extensions and the theory behind statistical model selection. 
+This will then be followed by a detailed project plan (see \autoref{sec:projectplan}) and the specification (see \autoref{sec:specification}). The consecutive chapters (see \autoref{sec:design} and \ref{sec:implementation}) are focusing on the actual implementation of the software as an \gls{RoR} web application. 
 The report is concluded by a critical evaluation (see \autoref{sec:conclusion}) of the project and the delivered web application. 
 The appendix contains the detailed description of the Use Cases (\autoref{app:use_cases}) that have been defined in \autoref{sec:design}, an installation guide to install the web application on a new machine (see \autoref{app:installation}). In addition a structural representation of the web application can be found in \autoref{app:structure}
 
@@ -78,16 +64,7 @@ As a project communication and management tool Trello\footnote{\href{http://www.
 \label{fig:trello}
 \end{figure}
 
+\subsection{Supplementary Resources}
 
-\subsection{Technical Specification}
-\label{sub:technical}
-
-As the system should be accessible by multiple users and from different departments (e.g. clinicians and statisticians), it will be developed as a web-application in \gls{RoR}\footnote{\href{http://rubyonrails.org}{http://rubyonrails.org}} and will be hosted on \gls{Heroku} as this will provide an easy-to-use and easy-to-deploy environment, where our demo application can be hosted for free. To provide a \gls{CI} environment, the project code is hosted on \texttt{github}\footnote{\href{https://github.com/sebastianzillessen/small-data-analyst}{https://github.com/sebastianzillessen/small-data-analyst}} and a \texttt{Travis CI}\footnote{\href{https://travis-ci.org/sebastianzillessen/small-data-analyst}{https://travis-ci.org/sebastianzillessen/small-data-analyst} } instance has been setup that runs all the implemented tests of the project.
-
-The used datasets are anonymised, so data protection issues are reduced to a minimum and the datasets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{\href{http://www.postgresql.org}{http://www.postgresql.org}} will be used as a database, as it is well integrated on \gls{Heroku} and provides high scalability.
-
-Most of the assumption tests for the statistical models will be performed in \gls{R}, as this is a common used language for statistical calculations and well known by statisticians. In addition many assumption-checks already exist in \gls{R}. These scripts (externally provided) will be executed in the \gls{RoR} application with the help of third party gems.
-
-To provide a responsive and clear user interface the \texttt{Bootstrap}\footnote{\href{http://getbootstrap.com}{http://getbootstrap.com}} framework will be used to design and style the application. 
-
+During this Masters Project a web-application has been developed which is public available on \href{http://small-data-analyst.herokuapp.com}{http://small-data-analyst.herokuapp.com}. Users can sign-up (needs approval of an administrator, please reach out to the author if you have any questions related to that) and upload there own datasets. Some of the existing research question are public available and shared between all users of the application. However -- if required -- the source code is available on \href{https://github.com/sebastianzillessen/small-data-analyst}{Github}\footnote{\href{https://github.com/sebastianzillessen/small-data-analyst}{https://github.com/sebastianzillessen/small-data-analyst}} and a installation instruction can be found in the appendix \autoref{app:installation}. A detailed list of used third-party applications can be found in \autoref{app:3rdparty}.
 

@@ -1,23 +1,11 @@
 \section{Specification}
 \label{sec:specification}
-\todo{Little bit more specifying the format of inputs and outputs, this should be addressed in a more detailed specification chapter in the eventual report}
 
-In accordance with the selected methodology of Use Cases 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of Use Cases have been defined and refined. These were then reviewed by the client and discussed in detail. As mentioned, the project used Trello as management tool. All Use Cases have been described on cards over there and subtasks have been generated out of these Use Cases. In the following section an exemplary description of the different Use Cases and thereby the requirements of the software are presented. They are directly reflected by the description in \cite{sassoon2014,sassoon2016, sassoon2016CD}.
-
-Each \gls{use_case} consists in general of the following attributes:
-
-\begin{itemize}
-\item Name
-\item Desired outcome
-\item (Main-)\glspl{Actor}
-\item Flow to achieve the desired outcome
-\item Alternative flow (optional)
-\end{itemize}
+In accordance with the selected methodology of Use Cases 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of \glspl{use_case} have been defined and iterativly refined. These were then reviewed by the client and discussed in detail. As mentioned, the project used Trello as management tool. All \glspl{use_case} have been described on cards and \glspl{use_case_slice} have been generated out of those. They are directly reflected by the description in \cite{sassoon2014,sassoon2016, sassoon2016CD}. In general each \gls{use_case} consists of the following attributes: Name, Desired outcome, (Main-)\glspl{Actor}, Flow to achieve the desired outcome, Alternative flow (optional).
 
 
-\autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}.
-
-In addition to the described \glspl{use_case} the following weak requirements influenced the development of the final project:
+\subsection{Weak requirements}
+In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the following weak requirements influenced the development of the final project:
 
 \begin{itemize}
 	\item The system should be designed as an interactive \textbf{web application} to ensure:
@@ -34,13 +22,17 @@ In addition to the described \glspl{use_case} the following weak requirements in
 	\item The system should be hosted on a free accessible hoster.
 \end{itemize}
 
+\subsection{Use Cases}
+
+\autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}.
+
 \begin{landscape}
 	\begin{longtable}{ l c p{8cm} l l p{3cm} }
 		\textbf{Reference}                         & \textbf{\gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{MuSCoW} &  \textbf{Comments}\\
 		\href{https://trello.com/c/KEOokZp9}{UC1}   & 	- & 	Enter two default models into the system as code without user interface including definition of assumptions & RC1 & Must &  For initial testing purposes  \\
 		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriated for a research question & RC1	& Must &	   \\
 		\href{https://trello.com/c/ORRBjISQ}{UC2-1} & 	C & 	Store done analysis & RC2 & Should &  see \autoref{as:1} \\
-		\href{https://trello.com/c/qKLAoWRj}{UC3} 	&  	S & 	Define static critical \& non-critical assumptions for models & - & - & obsolet \\
+		\href{https://trello.com/c/qKLAoWRj}{UC3} 	&  	S & 	Define assumptions for models & - & - & obsolet \\
 		\href{https://trello.com/c/7NINsfz8}{UC4}   & 	C & 	Check that a dataset meets the set of assumptions of a model and that the queries to the clinician regarding the research question's  assumptions are met as well. & RC1 & Must   &   \\
 		\href{https://trello.com/c/22JGne3r}{UC5}   & 	C & 	Select a research question & RC1 & Must &   \\
 		\href{https://trello.com/c/CVGBVWID}{UC6}   &   C, S, A & 	Login into the system and be authenticated with your role & RC2 & Should &	 \\
@@ -49,7 +41,8 @@ In addition to the described \glspl{use_case} the following weak requirements in
 		\href{https://trello.com/c/mvxBeNSR}{UC6-3} &  	A & 	Modify users & RC2 & Should &   \\
 		\href{https://trello.com/c/DidVQKAS}{UC7}   &   C & 	Fill patient data into the system to be checked by the models & RC2 & Must &  \\
 		\href{https://trello.com/c/be2088JH}{UC8}	& 	C & 	See arguments for and agains models for a research question & RC2 & Must &   \\
-		\href{https://trello.com/c/Ca9mA3uA}{UC9}   &   S & 	Add a new Model Preference Mode & RC3 & Must &   \\
+		\href{https://trello.com/c/Ca9mA3uA}{UC9}   &   C & 	Define new personal preferences & RC3 & Must &   \\
+		\href{https://trello.com/c/Ca9mA3uA}{UC9-1}   &   S & 	Define new global preferences & RC3 & Must &   \\
 		\href{https://trello.com/c/1s656fA9}{UC10}  &   C & 	Get recommended model taking into account global preferences (by using AS2) & RC3 & Should & 	 \\
 		\href{https://trello.com/c/xUDStSOK}{UC11}  &   A & 	Create new users with a specific role for the system & RC3 & Could &    \\
 		\href{https://trello.com/c/5UMo7o6U}{UC12}  &   S & 	Enter additional analysis models into the system in a defined language as text so that it will be regarded as an option for applicable models	& RC3 & Should & \\
@@ -73,7 +66,51 @@ In addition to the described \glspl{use_case} the following weak requirements in
 	\end{longtable}
 \end{landscape}
 
-The \glspl{use_case} defined in \autoref{tab:usecases} where then further defined, requirements deriving from it have been generated as new cards (\glspl{use_case_slices})
+The \glspl{use_case} defined in \autoref{tab:usecases} where then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test}.
 
+In the following section an exemplary detailed description of one \gls{use_case} is given (see \autoref{uc:12-1}):
+
+
+\input{figures/uc12-1}
+
+
+\subsection{Actors in our System}
+\label{sub:sassoon:actors}
+During the requirements analysis the following actors have been identified and are described as follows:
+
+\textbf{Clinicians} are the main users of the system and do the actual analysis of a dataset by using the predefined research questions, models and assumptions. A clinician should see all globally available research questions, models and their assumptions. In addition the preferences defined by the statistician will apply to all analyses a clinician performs. However he will be able to enter personal preferences between models that only apply for his analyses. An overview can be seen in \autoref{fig:usecase:clinician}.
+
+\textbf{Statisticians} are able to enter statistical models into the system and to define global applicable preferences. To do so, a statistician can enter different types of assumptions mapped to models and preferences. These might contain query assumptions, where the clinician performing an analysis has to confirm a fact, or test assumptions that are checked against the dataset by running a \texttt{R}-script. He is as well allowed to see all datasets that have been uploaded and to check which analysis have been performed (see \autoref{fig:usecase:statistician}).
+
+
+
+\textbf{Administrators} are able to create, modify and destroy all available data in the system. In addition an administrator is required to approve new users and to assign them to a role. He is as well capable of inviting new users into the system. An overview can be seen in \autoref{fig:usecase:admin}.
+
+
+
+\subsection{Technical Specification}
+\label{sub:technical}
+
+As the system should be accessible by multiple users and from different departments (e.g. clinicians and statisticians), it will be developed as a web-application in \gls{RoR}\footnote{\href{http://rubyonrails.org}{http://rubyonrails.org}} and will be hosted on \gls{Heroku} as this will provide an easy-to-use and easy-to-deploy environment, where our demo application can be hosted for free. To provide a \gls{CI} environment, the project code is hosted on \texttt{github}\footnote{\href{https://github.com/sebastianzillessen/small-data-analyst}{https://github.com/sebastianzillessen/small-data-analyst}} and a \texttt{Travis CI}\footnote{\href{https://travis-ci.org/sebastianzillessen/small-data-analyst}{https://travis-ci.org/sebastianzillessen/small-data-analyst} } instance has been setup that runs all the implemented tests of the project.
+
+The used datasets are anonymised, so data protection issues are reduced to a minimum and the datasets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{\href{http://www.postgresql.org}{http://www.postgresql.org}} will be used as a database, as it is well integrated on \gls{Heroku} and provides high scalability.
+
+Most of the assumption tests for the statistical models will be performed in \gls{R}, as this is a common used language for statistical calculations and well known by statisticians. In addition many assumption-checks already exist in \gls{R}. These scripts (externally provided) will be executed in the \gls{RoR} application with the help of third party gems.
+
+To provide a responsive and clear user interface the \texttt{Bootstrap}\footnote{\href{http://getbootstrap.com}{http://getbootstrap.com}} framework will be used to design and style the application. 
+
+\subsection{Data flow in the System}
+
+\autoref{fig:data_flow} shows -- in a simplified representation -- the data flows in the process of statistical model selection: First of all, the statistician has to create global preferences, research questions including their possible models and the required assumptions. This is all stored in a knowledge base which is itself stored in  a persistent database. A detailed description of all database classes can be found in \autoref{sub:db}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/data_flow}
+\caption{Core data flow in the system to create new analyses.}
+\label{fig:data_flow}
+\end{figure}
+
+
+A clinician can upload new clinical data retrieved from studies by using the CSV upload functionality. Starting a new analysis retrieves the dataset from the database and instantiates the knowledge base for this specific problem. The assumptions of all applicable models for the selected research question are then evaluated. If multiple models are possible, the preferences (first the globally defined ones by a statistician, later the personal preferences a clinician might have) are applied to the system one after another until the last model is remaining. This model is then returned as recommended model. The process of the rejection of various models will be graphically visible to the user (see \autoref{sub:ui}). The process of creating and processing a new analysis is described in detail in \autoref{sub:walk}.
 
 

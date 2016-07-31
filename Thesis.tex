@@ -5,11 +5,7 @@
 							 		% [kclharvardbib] provides different reference style.
 
 % glossaries
-\usepackage[toc, acronym]{glossaries}
-\usepackage{float}
-\usepackage{usecases}
-\usepackage{fancyvrb}
-\usepackage{pdflscape}
+
 
 % Run texcount on tex-file and write results to a sum-file
 \immediate\write18{texcount \jobname.tex -merge -total | grep "Words in text: " | cut -d" " -f4 > \jobname.sum}
@@ -25,18 +21,7 @@
 \def\tightlist{}
 
 
-
-%\usepackage{arydshln}
-%\usepackage{colortbl}
-\usepackage{enumitem}
-\usepackage{pdfpages}
-\usepackage{multirow}
-\usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
 \usetikzlibrary{shapes}
-%\arrayruhlecolor{lightgray}\hdashline
-%\def\hlight{}
-
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
 
 
@@ -53,36 +38,6 @@
 \department{Department of Informatics}
 \wordcount{ \wordcountsum }
 % 15000 words (excluding Cover page, Acknowledgement, Table of contents, Nomenclature, List of figures and tables, References, Appendix)
-
-
-
-\newcommand{\R}{\mathcal{R}}
-\renewcommand{\S}{\mathcal{S}}
-\renewcommand{\D}{\mathcal{D}}
-\renewcommand{\O}{\mathcal{O}}
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\C}{\mathcal{C}}
-
-\newcommand{\low}[1]{{\tiny $_{#1}$}}
-\newcommand{\tbd}[1]{\todo{TBD}{\color{gray} #1}}
-
-\tikzstyle{node}=[]
-\tikzstyle{main}=[circle, draw]
-\tikzstyle{n_fill_green}=[main,fill=green!20]
-\tikzstyle{n_fill_red}=[main,fill=red!20]
-\tikzstyle{n_fill_gray}=[main,fill=gray!20]
-\tikzstyle{box}=[rectangle, draw]
-\tikzstyle{small}=[main, inner sep=1pt,minimum size=20pt]
-
-
-
-\newfloat{as}{hbtp}{lop}
-\floatname{as}{AS}
-\newcommand{\asautorefname}{AS}
-
-
-
 
 
 %\makenomenclature
@@ -108,8 +63,6 @@
 \mbox{}
 \newpage
 %%%%%% Abstract
-\todo{remove releaseproject}
-
 %TC:endignore
 
 %TC:break Abstract
@@ -137,12 +90,13 @@
 \include{contents/introduction}
 \include{contents/background}
 \include{contents/projectplan}
+\include{contents/softwaredesignprocess}
 \include{contents/specification}
 \include{contents/main_result}
-\include{contents/softwaredesignprocess}
+
 \include{contents/implementation}
 
-\include{contents/involved_data}
+%\include{contents/involved_data}
 
 %\include{contents/main}
 \include{contents/conclusion}

@@ -60,6 +60,18 @@
 \RequirePackage{setspace}
 \RequirePackage{framed}
 \RequirePackage{tikz}
+\RequirePackage[toc, acronym]{glossaries}
+\RequirePackage{float}
+\RequirePackage{usecases}
+\RequirePackage{fancyvrb}
+\RequirePackage{pdflscape}
+\RequirePackage{colortbl}
+\RequirePackage{enumitem}
+\RequirePackage{pdfpages}
+\RequirePackage{multirow}
+\RequirePackage{algorithm}
+\RequirePackage[noend]{algpseudocode}
+
 \usetikzlibrary{arrows}
 \usetikzlibrary{calc}
 
@@ -81,6 +93,26 @@
 \newcommand*{\@wordcount}{\red{Missing wordcount}}
 \newcommand*{\signdate}[1]{\gdef\@signdate{#1}}
 \newcommand*{\@signdate}{\today}
+
+
+
+
+\newcommand{\low}[1]{{\tiny $_{#1}$}}
+\newcommand{\tbd}[1]{\todo{TBD}{\color{gray} #1}}
+
+\tikzstyle{node}=[]
+\tikzstyle{main}=[circle, draw]
+\tikzstyle{n_fill_green}=[main,fill=green!20]
+\tikzstyle{n_fill_red}=[main,fill=red!20]
+\tikzstyle{n_fill_gray}=[main,fill=gray!20]
+\tikzstyle{box}=[rectangle, draw]
+\tikzstyle{small}=[main, inner sep=1pt,minimum size=20pt]
+
+
+
+\newfloat{as}{hbtp}{lop}
+\floatname{as}{AS}
+\newcommand{\asautorefname}{AS}
 
 
 % MACRO 
@@ -110,11 +142,18 @@
 
 \newcommand{\ind}{1\hspace{-2.1mm}{1}} %Indicator Function
 \newcommand{\I}{\mathtt{i}}
-\newcommand{\D}{\mathrm{d}}
 \newcommand{\E}{\mathrm{e}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\sgn}{\mathrm{sgn}}
 \newcommand{\atanh}{\mathrm{arctanh}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\D}{\mathcal{D}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\C}{\mathcal{C}}
+
 \def\equalDistrib{\,{\buildrel \Delta \over =}\,}
 \numberwithin{equation}{section}
 \def\blue#1{\textcolor{blue}{#1}}
