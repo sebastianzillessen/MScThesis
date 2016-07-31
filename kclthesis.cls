@@ -106,7 +106,6 @@
 \newcommand{\definitionautorefname}{Definition}
 \newcommand{\notationautorefname}{Notation}
 \newcommand{\assumptionautorefname}{Assumption}
-\newcommand{\asautorefname}{AS}
 \newcommand{\algorithmautorefname}{Algorithm}
 
 \newcommand{\ind}{1\hspace{-2.1mm}{1}} %Indicator Function

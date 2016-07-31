@@ -26,14 +26,16 @@
 
 
 
-
-
+%\usepackage{arydshln}
+%\usepackage{colortbl}
 \usepackage{enumitem}
 \usepackage{pdfpages}
 \usepackage{multirow}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usetikzlibrary{shapes}
+%\arrayruhlecolor{lightgray}\hdashline
+%\def\hlight{}
 
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
 
@@ -75,10 +77,12 @@
 
 
 
-\newfloat{AS}{hbtp}{lop}
+\newfloat{as}{hbtp}{lop}
+\floatname{as}{AS}
+\newcommand{\asautorefname}{AS}
 
 
-%bibtex
+
 
 
 %\makenomenclature
@@ -129,7 +133,7 @@
 %%%%%% Main content
 
 \pagenumbering{arabic}
-\wordcountsum
+
 \include{contents/introduction}
 \include{contents/background}
 \include{contents/projectplan}
