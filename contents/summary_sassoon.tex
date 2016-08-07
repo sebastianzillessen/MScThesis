@@ -14,7 +14,7 @@ The \textit{knowledge base} is used to instantiate the \textit{argumentation sch
 
 
 \glsreset{SKB}
-\subsubsection*{Statistical Knowledge Base}
+\subsubsection{Statistical Knowledge Base}
 \label{sub:SKB}
 
 The \gls{SKB} consists of objectives $\O=\{o_1, ..., o_u\}$ (different types of research questions), models $\M=\{m_1, ..., m_v\}$ and assumptions $\A = \{a_1, ..., a_w\}$. Models represent statistical analysis techniques employable to answer a research question. Assumptions are conditions that ought to be met to employ a model.
@@ -91,7 +91,8 @@ The \autoref{fig:skb_example} shows the structure between \textit{objectives}, \
 
 
 
-\subsubsection*{Different Processes to instantiate Arguments from the Knowledge Base}
+\subsubsection{Adding Preferences for different Context Domains to the \gls{SKB}}
+\label{sub:preferences}
 
 To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing all their assumptions $\A(m_i)$ are met. The process of instantiating the arguments can be seen in AS\autoref{as:1}.
 
@@ -260,11 +261,11 @@ Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so t
 During this process the \glspl{CD} that relate to statistical theory are regarded as more important (lower priority) than clinician preferences. This is reflected in the final web application by reserving the priorities lower than 10 to the statistician only. Clinicians can express their personal preferences in \glspl{CD} with a priority higher than or equal to 10. 
  
 \todo{Write pseudocode}
-\begin{algorithm}[h]
-\caption{My algorithm}\label{lst:preferences_process}
-\begin{algorithmic}[1]
-\Procedure{GetPreferredModel}{RQ: ResearchQuestion, DS: Dataset}
-\State $possibleModels \gets \{m_i : m_i \in RQ.models~\&~ m_i\text{ is possible in accordance \autoref{as:1}} \}$
+%\begin{algorithm}[h]
+%\caption{My algorithm}\label{lst:preferences_process}
+%\begin{algorithmic}[1]
+%\Procedure{GetPreferredModel}{RQ: ResearchQuestion, DS: Dataset}
+%\State $possibleModels \gets \{m_i : m_i \in RQ.models~\&~ m_i\text{ is possible in accordance \autoref{as:1}} \}$
 %\If {$i > \textit{stringlen}$} \Return false
 %\EndIf
 %\State $j \gets \textit{patlen}$
@@ -277,9 +278,9 @@ During this process the \glspl{CD} that relate to statistical theory are regarde
 %\EndIf
 %\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
 %\State \textbf{goto} \emph{top}.
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
 
 Overall the approach by Sassoon \textit{et al.} enables us to perform a defeasible knowledge evaluation on the preferences over different possible models prooved to fulfill (critical) assumptions required by certain statistical models. This approvels can be either questions that the user (clinician) has to answer or tests that can be executed automatically on the dataset the user is analysing. 
 These are the main requirements for the developed web application as described in \autoref{sec:specification}.

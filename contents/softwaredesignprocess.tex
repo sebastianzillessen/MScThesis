@@ -12,7 +12,7 @@ The software design process has been inspired by the \gls{use_case} 2.0 \cite{ja
 
 
 \subsection{Use-Cases, Use-Case Flows and Use-Case Slices}
-Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} specification \glspl{use_case} are described as cards including the attributes Priority, Release, Size and Complexity. For the prioritisation the MoSCoW\todo{reference} (Must, Should, Could, Would) is used. After the initial requirement analysis, \glspl{use_case_slice} are generated usually including flows, tests and an estimation of the development. In this step the different \glspl{Actor} are identified and test cases are defined. To do so, the \glspl{use_case_slice} are analysed to check how the system elements will interact to perform the assigned \gls{use_case}. The \glspl{use_case_slice} are then going to be implemented and tested with the previous defined test scenarios. Finally the whole system will be tested with \glspl{e2e_test}.
+Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} specification \glspl{use_case} are described as cards including the attributes Priority, Release, Size and Complexity. For the prioritisation the MoSCoW \cite{moscow} (Must, Should, Could, Won't) is used. After the initial requirement analysis, \glspl{use_case_slice} are generated usually including flows, tests and an estimation of the development. In this step the different \glspl{Actor} are identified and test cases are defined. To do so, the \glspl{use_case_slice} are analysed to check how the system elements will interact to perform the assigned \gls{use_case}. The \glspl{use_case_slice} are then going to be implemented and tested with the previous defined test scenarios. Finally the whole system will be tested with \glspl{e2e_test}.
 
 \textbf{\glspl{use_case}} are the general tasks the system and the actors will perform. They are big, not thought completely through and do not contain directly implementable tasks.
 
@@ -25,6 +25,8 @@ Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} spe
 \label{sec:tdd}
 \Gls{TDD} encourages simple designs and modularity of software products \cite{tdd}. Many companies therefore employ a \gls{TDD} process. The underlying project of this dissertation uses \gls{RoR} which has test driven mechanics build in its core framework (\texttt{rspec}). In combination with the introduced Use Case 2.0 approach, \gls{TDD} can be easily used to ensure correctnes between the specification of a \gls{use_case} and the actual implementation. In general \gls{TDD} is constructed out of following steps which are applied iterative: 
 
+\bigskip
+
 \begin{enumerate}
 	\item Adding a test.
 	\item Running all test and seeing the recently added test fail.
@@ -33,6 +35,7 @@ Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} spe
 	\item Refactoring of the written code.
 \end{enumerate}
 
+\bigskip
 
 One key component in \gls{TDD} is to keep it short and simple (KISS principle), which results in small, testable and reusable modules in a software and usually leads to better code quality. As the software will be developed in iterative steps, the progress is easily trackable and although changes are made to already existing features, the integrated tests for the previously implemented functionality ensures the continuous integrity of the overall system.  
 

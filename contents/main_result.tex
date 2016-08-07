@@ -1,7 +1,35 @@
 \section{Application Overview}
-In the following chapter a short introduction to the actual system will be given. The general process and the user interface will be presented in \autoref{sub:process}-\ref{sub:ui} and the key areas will be explained. Furthermore an introduction to the underlying database models will be given, which includes the representation of the \gls{SKB} as described in \autoref{sub:SKB}. This is followed by a typical walkthrough to create a new analysis as a clinician. As stated before, the application is available on \href{https://small-data-analyst.herokuapp.com}{https://small-data-analyst.herokuapp.com} and these steps can be reproduced in the demo application. At the end of this chapter a short discussion on observations is included, providing as well the insight feedback of an actual statistician using the software. A detailed view on some key components of the software can be found in \autoref{sec:implementation}.
+In the following chapter a short introduction to the actual system will be given. An entity relationship diagram explains the core data foundation of this project in \autoref{sub:db}. The general process, core functionalities and the user interface will be presented in \autoref{sub:process}-\ref{sub:ui} and the key areas will be explained. Furthermore an introduction to the underlying database models will be given, which includes the representation of the \gls{SKB} as described in \autoref{sub:SKB}. This is followed by a typical walkthrough to create a new analysis as a clinician. 
 
-\subsection{General Process}
+As stated before, the application is available on \href{https://small-data-analyst.herokuapp.com}{https://small-data-analyst.herokuapp.com} and these steps can be reproduced in the demo application. At the end of this chapter a short discussion on observations is included, providing as well the insight feedback of an actual statistician using the software. A detailed view on some key components of the software can be found in \autoref{sec:implementation}.
+
+To test the application the standard \textit{ovarian}-dataset available in \texttt{R} has been used. In addition to that, I. Sassoon provided an anonymised version of a larger clinical data set (see \autoref{app:dataset}). The description of the dataset can be found in \autoref{fig:dataset}. Possible research question arising from this dataset are presented in \autoref{fig:dataset:rq}.
+
+
+
+\subsection{Entity Relationship Class Diagram }
+\label{sub:db}
+
+The underlying database structure of the developed application is mostly influenced by the \gls{SKB} and the representation of \texttt{Assumptions} as classes. \autoref{fig:er} shows an overview over most of the involved database models used in this application. Additional classes like \texttt{Users}, \texttt{Abilities}, etc. are intentionally left out as this would add an additional level of complexity. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/er_complete}
+	\caption{Entity-Relationship Diagram of the major classes used int the application. }
+	\label{fig:er}
+\end{figure}
+
+
+The most important class is the \texttt{Analysis} which is associated with a \texttt{Dataset}, a \texttt{ResearchQuestion}, has many answered or open \texttt{QueryAssumptionResults} (this class stores the answers of a clinician to one particular \texttt{QueryAssumption}), and a list of \texttt{PossibleModels} (including impossible models and there \texttt{Reason} why they got rejected). 
+
+The \gls{SKB} is represented by \texttt{ResearchQuestions} that have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for this \texttt{Model}. These \texttt{Assumptions} have different specialisations: \texttt{TestAssumption}, \texttt{BlankAssumption}, \texttt{TestQueryAssumption}, and \texttt{QueryAssumption}. 
+
+\texttt{Preferences} have different \texttt{PreferenceArguments} that represent a specific \gls{CD} which are assigned to a particular \texttt{ModelOrder}. This allows the representation of \gls{CD}, their order and the expressed preferences as described in \autoref{sub:SKB} in a generic way without limiting the triggers for a context domain to any particular \texttt{Assumption} type. 
+
+The class \texttt{DatasetTestAssumptionResult} stores for each \texttt{TestAssumption} and each \texttt{Dataset} a pre-calculated result to enhance the speed of the evaluation during new \texttt{Analses}. \texttt{PreferenceQueryAssumptionResults} and \texttt{QueryAssumptionResults} store the answers of clinicians to \texttt{(Test)QueryAssumptions}.
+
+
+\subsection{General Process and Application Setup}
 \label{sub:process}
 The crucial role in the process of enabling clinicians to analyse there clinical data is played by the statistician: registered or approved by an administrator he is allowed to perform significant changes to the \gls{SKB} which is required to provide the clinician with a sophisticated foundation for his analyses. 
 
@@ -22,41 +50,37 @@ To do so a statistician will first prepare the system involving the following st
 \end{figure}
 
 
-A clinician can then perform a new analysis by performing the steps below:
+A clinician can then initialise a new analysis by performing the following steps:
  
 \begin{enumerate}
 	\item Uploading a dataset that has been acquired during a clinical study.
 	\item Optionally expressing (private) preferences between different models.
-	\item Generating a new analysis and providing the answers required by the system to generate a list of possible models.
+	\item Generating a new analysis related to a research question and providing the answers required by the system to generate a list of possible models.
 	\item Answering further data related questions that might arise during the evaluation of the possible models to apply context domain specific preferences on the dataset.
 \end{enumerate}
 
 By applying these steps, clinicians will be able to make data-driven decisions that are based on the expertise entered by a statistician.
 
-\subsection{User Interface}
+
+
+
+
+\subsection{User Interface and Core Functionalities}
 \label{sub:ui}
-The \gls{UI} is intentionally kept clean for simplicity reasons: \texttt{Bootstrap} is used to provide a consistent look \& feel and responsiveness of the application. As described in \autoref{sub:sassoon:actors} we have three main users in our system which have different abilities\footnote{Abilities are access rights, that are specified via an \texttt{Ability} class that is used by \texttt{cancancan} to provide diversified access-rights to different user groups in our system.} influencing the appearance of the \gls{UI} (eg. a clinician will not be able to create, alter or delete any research questions, however he will still be able to see them as depicted in \autoref{fig:ui:rq}). This approach allows us to use the same \gls{UI}-components for different users without writing them once again (\gls{DRY} principle).
 
-
-%\begin{figure}[h]
-%\centering
-%\includegraphics[width=0.8\textwidth]{figures/ui_General}
-%\caption{General \gls{UI} of the final application: Navigation bar (1) and Main content area (2).}
-%\label{fig:ui:general}
-%\end{figure}
-
-
-
-\begin{figure}[h]
+\begin{figure}[t!]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/ui_Weibull_Model}
 \caption{Overview over a model, in this particular case the \textit{Weibull model} which requires two assumptions to hold.}
 \label{fig:ui:model}
 \end{figure}
 
-To provide easier access to the underlying \gls{SKB}, research questions and models include a visual representation of their relations as a graph (see lower right part of\autoref{fig:ui:model}). The system offers four different types of assumptions which have special functionalities (see \autoref{fig:ui:assumption}):
+The \gls{UI} is intentionally kept clean for simplicity reasons: \texttt{Bootstrap} is used to provide a consistent look \& feel and responsiveness of the application. As described in \autoref{sub:sassoon:actors} we have three main users in our system which have different abilities\footnote{Abilities are access rights, that are specified via an \texttt{Ability} class that is used by \texttt{cancancan} to provide diversified access-rights to different user groups in our system.} influencing the appearance of the \gls{UI} (eg. a clinician will not be able to create, alter or delete any research questions, however he will still be able to see them as depicted in \autoref{fig:ui:rq}). This approach allows us to use the same \gls{UI}-components for different users without writing them once again (\gls{DRY} principle).
 
-\begin{figure}[h]
+
+To provide easier access to the underlying \gls{SKB}, research questions and models include a visual representation of their relations as a graph (see lower right part of \autoref{fig:ui:model}). The system offers four different types of assumptions which have special functionalities (see \autoref{fig:ui:assumption}):
+
+\begin{figure}[t!]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/ui_new_assumption}
 \caption{The system provides four different types of assumptions: Test, Query, Test-Query, and Blank assumptions.}
@@ -71,55 +95,70 @@ To provide easier access to the underlying \gls{SKB}, research questions and mod
 	\item \texttt{BlankAssumption}: An assumption that represents a grouping ability for other assumptions. It holds only if all of it assigned assumptions (regardless of their type) hold. 
 \end{itemize}
 
-Each of those require different attributes which results in different forms during the creation process of new assumptions. 
+Each of those require different attributes which results in different forms during the creation process of new assumptions. For a model to be possible during an analysis, all assumptions assigned to this model need to hold (evaluate to true) regardless of its type. In a second step, the defined \glspl{preference} are evaluated. To do so, all possible models are added to an \gls{EAF} attacking each other as described in \autoref{sub:preferences} and the \glspl{CD} are then added iteratively. This process can be seen in \autoref{fig:analysis:eaf}.
+
+\begin{figure}[!hbt]
+	\centering
+	\includegraphics[width=\textwidth]{figures/ui_preference}
+	\caption{\gls{UI} to enter preferences between models: General information about this preference including the applicable research question (1), the context under which this preference applies can be defined as assumption (2), and the actual order of the models can be interactively arranged per drag \& drop (3).}
+	\label{fig:ui:preference}
+\end{figure}
+
 
 The most complex component from a \gls{UI} perspective are preferences, as they involve context domains and there required assumptions and relative orders per context domain. \autoref{fig:ui:preference} shows how this has been solved: (1) allows the user to enter general details for a preference (availability to users, rank of the preference and a name). For each context domain that is available for this particular preference (multiple can be added), an assumption (2) has to be chosen. A context domain will be applied, if and only if this assumption holds. The relatively order between models can be specified easily via drag \& drop (3). This order will be taken into account when analysing the \gls{EAF} at the final step of the analysis process. 
 
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{figures/ui_preference}
-\caption{\gls{UI} to enter preferences between models: General information about this preference including the applicable research question (1), the context under which this preference applies can be defined as assumption (2), and the actual order of the models can be interactively arranged per drag \& drop (3).}
-\label{fig:ui:preference}
-\end{figure}
-
-
-\subsection{Database models}
-\label{sub:db}
 \subsection{Example walkthrough}
 \label{sub:walk}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{figures/ui_analysis_0}
-\caption{Creating a new analysis, step 1: Selection of dataset and research question. }
-\label{fig:analysis:1}
+In the following a walkthrough for a new analysis involving a sample dataset provided by I. Sassoon (see \autoref{app:dataset}) and a survival analysis by gender (preferences set according to \cite{sassoon2016CD}) is shown. These initial options are selected in \autoref{fig:analysis:1}. The following screen (see \autoref{fig:analysis:2}) depicts the actual analysis screen. All \texttt{TestAssumptions} have already been evaluated and on the left hand side of the screenshot the \textit{Currently Possible Models} are depicted. On the right hand side the \textit{Open Query Assumptions} are presented to the user including one \texttt{QueryTestAssumption} with a generated plot for this particular dataset and one \texttt{QueryAssumption}. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/ui_analysis_0}
+	\caption{Creating a new analysis, step 1: Selection of dataset and research question. }
+	\label{fig:analysis:1}
+\end{figure}
+
+In this particular case, all entered models for the given research question are possible. If one \texttt{TestAssumption} for one of those models would not hold and this model would have further \texttt{Query(Test)Assumptions}, these will not be presented to the end-user, as this model is already not possible anymore. If multiple models require the same answers to one \texttt{QueryAssumption} (e.g. for our example all three models depend on assumption \texttt{A1}) the clinician will only be asked to answer this question once. 
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=\textwidth]{figures/ui_analysis_1}
+	\caption{Creating a new analysis, step 2: Clinician has to answer \texttt{QueryTest-} and \texttt{QueryAssumptions} to perform the analysis. \texttt{TestAssumptions} have already been evaluated.}
+	\label{fig:analysis:2}
 \end{figure}
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{figures/ui_analysis_1}
-\caption{Creating a new analysis, step 2: Clinician has to answer \texttt{QueryTest-} and \texttt{QueryAssumptions} to perform the analysis. \texttt{TestAssumptions} have already been evaluated.}
-\label{fig:analysis:2}
+As soon as the clinician answers one of the \texttt{QueryAssumptions} the analysis will be updated according to this answer and if some of the \texttt{QueryAssumptions} that are already visible to the user get obsolet by this answer, they will be removed from the open- and moved to the ignored-list (right lower part of \autoref{fig:analysis:3_no}). 
+As the clinician answered \texttt{A1} with \textit{No}, the analysis results in no possible models, so no preferences are employed and the analysis is finished.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/ui_analysis_2_no}
+	\caption{Creating a new analysis, step 3: After answering one question (e.g. "Has no non-informative censoring been in place?" with \textit{No}), the possible models are updated and outdated \texttt{QueryAssumptions} might be removed from the list of queries.}
+	\label{fig:analysis:3_no}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{figures/ui_analysis_2_no}
-\caption{Creating a new analysis, step 3: After answering one question (e.g. "Has no non-informative censoring been in place?" with \textit{No}), the possible models are updated and outdated \texttt{QueryAssumptions} might be removed from the list of queries.}
-\label{fig:analysis:3_no}
+However, if all \texttt{QueryAssumptions} have been answered positively all three models remain possible. The system will now initiate the \gls{EAF} for this particular analysis as described in \autoref{sub:statistical_model_selection}. The evaluation of this \gls{EAF} is performed in the same order: First, the \texttt{TestAssumptions} are evaluated. Second, if no final solution of the \gls{EAF} could be found the \texttt{Query(Test)Assumptions} required for the first preference evaluated accordingly to the \gls{CD} are presented to the user. This process is then repeated with the remaining preferences and there \gls{CD}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{figures/ui_analysis_eaf}
+	\caption{Finished analysis with applied preferences on it: context domain "Censoring" evaluated to \textit{heavy censoring}. }
+	\label{fig:analysis:eaf}
 \end{figure}
 
-The picture \autoref{fig:analysis:eaf} shows an analysis performed involving the dataset XXX\todo{describe dataset} and a survival analysis by gender, where the preferences have been set according to \cite{sassoon2016CD}. All \texttt{QueryAssumptions} have been answered positively, so after the initial initialisation of the argumentation framework all three models remain possible. During the evaluation of the preferences per context domain \textit{Kaplan-Meier} and \textit{Weibull} models are wiped-out as "\textit{Censoring}" has the performance measurement \textbf{heavy}. The generated \gls{EAF} on the right side of \autoref{fig:analysis:eaf} shows the reason why only \textit{Cox-Proportional hazard} remains as the last preferred model.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{figures/ui_analysis_eaf}
-\caption{Finished analysis with applied preferences on it: context domain "Censoring" evaluated to \textit{heavy censoring}. }
-\label{fig:analysis:eaf}
-\end{figure}
+During the evaluation of the preferences per context domain \textit{Kaplan-Meier} and \textit{Weibull} models are wiped-out as "\textit{Censoring}" has the performance measurement \textbf{heavy}. The generated \gls{EAF} on the right side of \autoref{fig:analysis:eaf} shows the reason why only \textit{Cox-Proportional hazard} remains as the last preferred model.
+
+
+During the whole process the \gls{UI} provides an interactive way of communication and as it updates its content instantly the user gets direct feedback on his interaction. In addition, the user is not required to answer all questions in a row, the analysis will still be stored in the system and can be continued at any later time. 
+
+
+
+
 
 \subsection{Observation and Discussion}
 \todo{feedback of an actual statistician}

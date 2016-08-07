@@ -27,8 +27,8 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 \autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}.
 
 \begin{landscape}
-	\begin{longtable}{ l c p{8cm} l l p{3cm} }
-		\textbf{Reference}                         & \textbf{\gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{MuSCoW} &  \textbf{Comments}\\
+	\begin{longtable}{ l l p{10.5cm} l l p{3cm} }
+		\textbf{ID}                         & \textbf{\gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{Prio}\footnote{MoSCoW priorities} &  \textbf{Comments}\\
 		\href{https://trello.com/c/KEOokZp9}{UC1}   & 	- & 	Enter two default models into the system as code without user interface including definition of assumptions & RC1 & Must &  For initial testing purposes  \\
 		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriated for a research question & RC1	& Must &	   \\
 		\href{https://trello.com/c/ORRBjISQ}{UC2-1} & 	C & 	Store done analysis & RC2 & Should &  see \autoref{as:1} \\
@@ -43,17 +43,17 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 		\href{https://trello.com/c/be2088JH}{UC8}	& 	C & 	See arguments for and agains models for a research question & RC2 & Must &   \\
 		\href{https://trello.com/c/Ca9mA3uA}{UC9}   &   C & 	Define new personal preferences & RC3 & Must &   \\
 		\href{https://trello.com/c/Ca9mA3uA}{UC9-1}   &   S & 	Define new global preferences & RC3 & Must &   \\
-		\href{https://trello.com/c/1s656fA9}{UC10}  &   C & 	Get recommended model taking into account global preferences (by using AS2) & RC3 & Should & 	 \\
+		\href{https://trello.com/c/1s656fA9}{UC10}  &   C & 	Get recommended model taking into account global preferences & RC3 & Should & 	 \\
 		\href{https://trello.com/c/xUDStSOK}{UC11}  &   A & 	Create new users with a specific role for the system & RC3 & Could &    \\
 		\href{https://trello.com/c/5UMo7o6U}{UC12}  &   S & 	Enter additional analysis models into the system in a defined language as text so that it will be regarded as an option for applicable models	& RC3 & Should & \\
 		\href{https://trello.com/c/2V6Cl65u}{UC12-1}&   S & 	Add Test-Argument into the system & RC2 & Must & \\
 		\href{https://trello.com/c/OwM2Z7wt}{UC12-2}&   S & 	Add Query-Argument into the system & RC2 & Must &  \\
-		\href{https://trello.com/c/VThxB5aS}{UC12-3}&   S & 	Add Test-Query-Assumptions into the system & RC4 & Should & added during the project\\
+		\href{https://trello.com/c/VThxB5aS}{UC12-3}&   S & 	Add Test-Query-Assumptions into the system & RC4 & Should & added later\\
 		\href{https://trello.com/c/CkpJUNPW}{UC12-4}&   S & 	Run Test-Argument on a specific existing dataset & RC3	& Should &  \\
 		\href{https://trello.com/c/Rg6GPnNE}{UC12-5}&   S & 	Add Blank Arguments for grouping of assumptions & RC2 & Could & \\
-		\href{https://trello.com/c/ORlMByiQ}{UC13}  &   S & 	Get in-depth information about algorithmic performance and steps it proceeds & RC4 & Would & Rejected, as not required.\\
+		\href{https://trello.com/c/ORlMByiQ}{UC13}  &   S & 	Get in-depth information about algorithmic performance & RC4 & Would & rejected\\
 		\href{https://trello.com/c/NcV3lo4w}{UC14}  &   C & 	Enter personal preferences for statistical models and/or analysis techniques & RC4 & Could &   \\
-		\href{https://trello.com/c/BOUu2hKN}{UC15}  &   C & 	See argumentation frameworks that are generated for/agains the statistical models. Graph Export: See arguments for and agains models for a research question in a nice and graphical &RC4 & Would & 	 The export to PDF has been ignored, as the user can just print the generated graphs.  \\
+		\href{https://trello.com/c/BOUu2hKN}{UC15}  &   C & 	See argumentation frameworks that are generated for/agains the statistical models. Graph Export: See arguments for and agains models for a research question in a nice and graphical &RC4 & Would & 	 ignored as printing of generated graphs possible  \\
 		\href{https://trello.com/c/3FCcFdmm}{UC16}  &   C & 	See analysis process of argumentation framework as visualisation & RC4 & Would	&    \\
 		\href{https://trello.com/c/Hv2xe2UW}{UC17}  &   S & 	Enter additional research questions into the system & RC3 &Could& \\
 		\href{https://trello.com/c/w1YiIgU7}{UC17-1}&   S & 	Modify research questions&RC3 & Must &  \\
