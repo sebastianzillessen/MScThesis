@@ -7,6 +7,8 @@ In accordance with the selected methodology of \glspl{use_case} 2.0 (see \autore
 \subsection{Weak requirements}
 In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the following weak requirements influenced the development of the final project:
 
+\bigskip 
+
 \begin{itemize}
 	\item The system should be designed as an interactive \textbf{web application} to ensure:
 	\begin{itemize}
@@ -22,6 +24,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\item The system should be hosted on a free accessible hoster.
 \end{itemize}
 
+
 \subsection{Use Cases}
 \label{sub:use_cases}
 \autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}.
@@ -30,7 +33,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\begin{longtable}{ l l p{10.5cm} l l p{3cm} }
 		\textbf{ID}                         & \textbf{\gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{Prio}\footnote{MoSCoW priorities} &  \textbf{Comments}\\
 		\href{https://trello.com/c/KEOokZp9}{UC1}   & 	- & 	Enter two default models into the system as code without user interface including definition of assumptions & RC1 & Must &  For initial testing purposes  \\
-		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriated for a research question & RC1	& Must &	   \\
+		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriate for a research question & RC1	& Must &	   \\
 		\href{https://trello.com/c/ORRBjISQ}{UC2-1} & 	C & 	Store done analysis & RC2 & Should &  see \autoref{as:1} \\
 		\href{https://trello.com/c/qKLAoWRj}{UC3} 	&  	S & 	Define assumptions for models & - & - & obsolet \\
 		\href{https://trello.com/c/7NINsfz8}{UC4}   & 	C & 	Check that a dataset meets the set of assumptions of a model and that the queries to the clinician regarding the research question's  assumptions are met as well. & RC1 & Must   &   \\
@@ -66,7 +69,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\end{longtable}
 \end{landscape}
 
-The \glspl{use_case} defined in \autoref{tab:usecases} where then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test}.
+The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test}.
 
 In the following section an exemplary detailed description of one \gls{use_case} is given (see \autoref{uc:12-1}):
 

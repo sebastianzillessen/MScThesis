@@ -2,10 +2,12 @@
 
 \label{sub:statistical_model_selection}
 
-The foundation of this MSc Project is the paper \cite{sassoon2014}. The following papers of Sassoon \textit{et al.} \cite{sassoon2016,sassoon2016CD} have been as well taken into account, as they provide an elegant solution to express the order of preferences in different \glspl{CD}.
+The foundation of this MSc Project is the paper \cite{sassoon2014}. The following papers of Sassoon \textit{et al.} \cite{sassoon2016,sassoon2016CD} have been taken into account, as they provide an elegant solution to express the order of preferences in different \glspl{CD}.
 
 The goal of this project is to use Argumentation Theory for Statistical Model Selection in mostly clinical environments. The demand into systems that support clinicians in the analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of datasets available for clinicians, and raising awareness on evidence based decision making extend). In the following section a short summary on the paper will be given. 
 
+
+\todo{Rephrase next paragraph: I would rephrase it and focus on clinicians needing help in selecting the model once the data is available}
 To overcome the issue of clinicians analysing data and models on their compatibility \cite{sassoon2014} proposes an approach of an intelligent model selection system which is capable of suggesting appropriate model(s) to a clinician during the design stage of a study, taking in account the research question, the clinical data and any external relevant input and preferences. In addition this system should be able to support its decision by providing the argumentation for and against a model to the user. As clinicians might not always be qualified to perform the statistical analysis required for their research question, the process of designing models, specifying its requirements and providing the arguments for or agains these models should be separated from the actual design process and be done by a statistician. The statistician is thereby in charge of understanding the data in the context of the research question and provide arguments that are able to recommend the best suited statistical analysis for a particular research question. 
 
 Furthermore  Sassoon \textit{et al.} address the problem of defeasible knowledge, as the (counter-) arguments for a model are often contradicting and the system, the clinician and the statistician might have some preferences for one or the other model. Therefore they propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences. In the later papers \cite{sassoon2016,sassoon2016CD} they propose to reflect this by \gls{CD} specific preference orders that are ordered themselves by a priority.
@@ -258,7 +260,7 @@ CD2_{explain} &\twoheadrightarrow (m_2 \rightarrow m_3)\\
 
 Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so that they get evaluated one after the other, until one final (if at all possible) preferred model remains. After evaluating the possible models by using \autoref{as:1} we will form an \gls{AF} where each of the possible model attacks every other model. Then each \gls{CD} will be initiated and adds its attacks on the existing \gls{AF}. After that, the \gls{EAF} will be evaluated w.r.t. the argument holding in this \gls{CD} $\S_1'$ (e.g. $\S_1' = \{CD1_{heavy}\}$, see \autoref{fig:cd1_heavy}). If a final decision (only one model is acceptable w.r.t. $\S_1'$) can be made, the process terminates. Otherwise the next \gls{CD} gets evaluated (e.g. $\S_2' = \{CD2_{predict}\}$, see \autoref{fig:cd2_predict}). This is continued until no further preferences are defined or only one -- the preferred -- model remains. The overall process can be seen in \autoref{lst:preferences_process}.
 
-During this process the \glspl{CD} that relate to statistical theory are regarded as more important (lower priority) than clinician preferences. This is reflected in the final web application by reserving the priorities lower than 10 to the statistician only. Clinicians can express their personal preferences in \glspl{CD} with a priority higher than or equal to 10. 
+During this process the \glspl{CD} that relate to statistical theory are regarded as more important than clinician preferences. This is reflected in the final web application by reserving the priorities 1 - 9 to the statistician only (1 has the highest priority). Clinicians can express their personal preferences in \glspl{CD} with a priority lower than or equal to 10. 
  
 \todo{Write pseudocode}
 %\begin{algorithm}[h]
@@ -282,5 +284,5 @@ During this process the \glspl{CD} that relate to statistical theory are regarde
 %\end{algorithmic}
 %\end{algorithm}
 
-Overall the approach by Sassoon \textit{et al.} enables us to perform a defeasible knowledge evaluation on the preferences over different possible models prooved to fulfill (critical) assumptions required by certain statistical models. This approvels can be either questions that the user (clinician) has to answer or tests that can be executed automatically on the dataset the user is analysing. 
+Overall the approach by Sassoon \textit{et al.} enables us to perform a defeasible knowledge evaluation on the preferences over different possible models proofed to fulfil (critical) assumptions required by certain statistical models. This approvals can be either questions that the user (clinician) has to answer or tests that can be executed automatically on the dataset the user is analysing. 
 These are the main requirements for the developed web application as described in \autoref{sec:specification}.
