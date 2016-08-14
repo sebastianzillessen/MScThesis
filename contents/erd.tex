@@ -1,0 +1,33 @@
+\subsection{Entity Relationship Class Diagram }
+\label{sub:db}
+
+
+The underlying database structure of the developed application is mostly influenced by the \gls{SKB} and the representation of \texttt{Assumptions} as classes. \autoref{fig:er} shows an overview over most of the involved database models used in this application. Additional classes like \texttt{Users}, \texttt{Abilities}, etc. are intentionally left out as this would add an additional level of complexity. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/er_complete}
+	\caption{Entity-Relationship Diagram of the major classes used int the application. }
+	\label{fig:er}
+\end{figure}
+
+
+The most important class is the \texttt{Analysis} which is associated with a \texttt{Dataset}, a \texttt{ResearchQuestion}, has many answered or open \texttt{QueryAssumptionResults} (this class stores the answers of a clinician to one particular \texttt{QueryAssumption}), and a list of \texttt{PossibleModels} (including impossible models and there \texttt{Reason} why they got rejected). 
+
+The \gls{SKB} is represented by \texttt{ResearchQuestions} that have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for this \texttt{Model}. These \texttt{Assumptions} have different specialisations: 
+
+\bigskip
+
+\begin{itemize}
+
+	\item \texttt{TestAssumption}: An assumption that requires a \texttt{R} script to be executed and to return \texttt{true} or \texttt{false}. These assumptions will be checked automatically from the system and rely only on the dataset used in an analysis.
+	\item \texttt{QueryAssumption}: A clinician has to provide a \textit{yes} or \textit{no} answer to a question during the process of the analysis. Only if he answers positively, this assumption holds.
+	\item \texttt{QueryTestAssumption}: A \texttt{R} script generates a plot based on the dataset, which is then presented to the user who has to confirm that the plot shows some required features.
+	\item \texttt{BlankAssumption}: An assumption that represents a grouping ability for other assumptions. It holds only if all of it assigned assumptions (regardless of their type) hold. 
+\end{itemize}
+\bigskip
+
+
+\texttt{Preferences} have different \texttt{PreferenceArguments} that represent a specific \gls{CD} which are assigned to a particular \texttt{ModelOrder}. This allows the representation of \glspl{CD}, their order and the expressed preferences as described in \autoref{sub:SKB} in a generic way without limiting the triggers for a \gls{CD} to any particular \texttt{Assumption} type. 
+
+The class \texttt{DatasetTestAssumptionResult} stores for each \texttt{TestAssumption} and each \texttt{Dataset} a pre-calculated result to enhance the speed of the evaluation during new \texttt{Analses}. \texttt{PreferenceQueryAssumptionResults} and \texttt{QueryAssumptionResults} store the answers of clinicians to \texttt{(Test)QueryAssumptions} for one particular \texttt{Analysis}.

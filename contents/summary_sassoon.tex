@@ -258,11 +258,10 @@ CD2_{explain} &\twoheadrightarrow (m_2 \rightarrow m_3)\\
 \end{figure}
 
 
-Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so that they get evaluated one after the other, until one final (if at all possible) preferred model remains. After evaluating the possible models by using \autoref{as:1} we will form an \gls{AF} where each of the possible model attacks every other model. Then each \gls{CD} will be initiated and adds its attacks on the existing \gls{AF}. After that, the \gls{EAF} will be evaluated w.r.t. the argument holding in this \gls{CD} $\S_1'$ (e.g. $\S_1' = \{CD1_{heavy}\}$, see \autoref{fig:cd1_heavy}). If a final decision (only one model is acceptable w.r.t. $\S_1'$) can be made, the process terminates. Otherwise the next \gls{CD} gets evaluated (e.g. $\S_2' = \{CD2_{predict}\}$, see \autoref{fig:cd2_predict}). This is continued until no further preferences are defined or only one -- the preferred -- model remains. The overall process can be seen in \autoref{lst:preferences_process}.
+Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so that they get evaluated one after the other, until one final (if at all possible) preferred model remains. After evaluating the possible models by using \autoref{as:1} we will form an \gls{AF} where each of the possible model attacks every other model. Then each \gls{CD} will be initiated and adds its attacks on the existing \gls{AF}. After that, the \gls{EAF} will be evaluated w.r.t. the argument holding in this \gls{CD} $\S_1'$ (e.g. $\S_1' = \{CD1_{heavy}\}$, see \autoref{fig:cd1_heavy}). If a final decision (only one model is acceptable w.r.t. $\S_1'$) can be made, the process terminates. Otherwise the next \gls{CD} gets evaluated (e.g. $\S_2' = \{CD2_{predict}\}$, see \autoref{fig:cd2_predict}). This is continued until no further preferences are defined or only one -- the preferred -- model remains.
 
 During this process the \glspl{CD} that relate to statistical theory are regarded as more important than clinician preferences. This is reflected in the final web application by reserving the priorities 1 - 9 to the statistician only (1 has the highest priority). Clinicians can express their personal preferences in \glspl{CD} with a priority lower than or equal to 10. 
  
-\todo{Write pseudocode}
 %\begin{algorithm}[h]
 %\caption{My algorithm}\label{lst:preferences_process}
 %\begin{algorithmic}[1]

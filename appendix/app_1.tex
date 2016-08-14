@@ -1,71 +1,24 @@
 
 \section{Appendix}
 
-\todo{Appendices: Supplementary materials could be included.  Each appendix must be labeled (for example, Apeendix A, Appendix B) and with heading.  All Appendices must be referred to in the text.  }
-\subsection{ECOG performance status}
-\todo{Oken M, Creech R, Tormey D, \textit{et al.} Toxicity and response criteria of the Eastern Cooperative Oncology Group. Am J Clin Oncol. 1982;5:649-655.}
-
-
-\begin{tabular}{|l p{8cm}|}
-\hline
-GRADE&	ECOG PERFORMANCE STATUS\\
-\hline\hline
-0	&Fully active, able to carry on all pre-disease performance without restriction\\
-1	&Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature, e.g., light house work, office work\\
-2	&Ambulatory and capable of all selfcare but unable to carry out any work activities; up and about more than 50\% of waking hours\\
-3	&Capable of only limited selfcare; confined to bed or chair more than 50\% of waking hours\\
-4	&Completely disabled; cannot carry on any selfcare; totally confined to bed or chair\\
-5	&Dead\\
-\hline
-\end{tabular}
-\label{tab:ecog}
-
-\subsection{Test Suite}
-\label{sub:test_suit}
-\todo{Add test suite export}
-
-
-\subsection{Use Case overviews}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/use_case_clinician}
-\caption{Use Case overview for clinicians}
-\label{fig:usecase:clinician}
-\end{figure}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/use_case_statistician}
-\caption{Use Case overview for statisticians}
-\label{fig:usecase:statistician}
-\end{figure}
-
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/use_case_admin}
-\caption{Use Case overview for administrators}
-\label{fig:usecase:admin}
-\end{figure}
-
-
-
-\subsection{Example Dataset}
+\subsection{Sample clinical dataset}
 \label{app:dataset}
-\begin{figure}[!h]
+{
 	\centering
-	\includegraphics[page=1,width=0.9\textwidth]{appendix/analysis_data.pdf}
-	\caption{Explanation of the example dataset provided by I. Sassoon (private email conversation)}
+	\includegraphics[page=1,width=0.85\textwidth]{appendix/analysis_data.pdf}
+	\captionof{figure}{
+	Explanation of the example dataset provided by I. Sassoon (private email conversation)
 	\label{fig:dataset}
-\end{figure}
+	}
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[page=2,width=0.9\textwidth]{appendix/analysis_data.pdf}
-	\caption{Possible research questions arising from the example dataset provided by I. Sassoon (private email conversation)}
-	\label{fig:dataset:rq}
-\end{figure}
+	\includegraphics[page=2,width=0.85\textwidth]{appendix/analysis_data.pdf}
+	\captionof{figure}{Possible research questions arising from the example dataset provided by I. Sassoon (private email conversation)
+		\label{fig:dataset:rq}
+	}
+
+
+}
+
 
 
 \section{Software related appendix}
@@ -75,11 +28,53 @@ GRADE&	ECOG PERFORMANCE STATUS\\
 
 \subsection{Use Cases}
 \label{app:use_cases}
-\todo{export usecases from trello}
 
-\subsection{Structure of application}
-\label{app:structure}
-\todo{Component diagram}
+Figures \ref{fig:usecase:clinician}, \ref{fig:usecase:statistician} and \ref{fig:usecase:admin} provide an overview over the implemented \glspl{use_case} in the application grouped by their main actors. A complete list of all use cases can be found for further references under \href{https://trello.com/b/ywCkicpc/msc-small-data-analyst}{https://trello.com/b/ywCkicpc/msc-small-data-analyst}.
+
+% use_cases
+{
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/use_case_clinician}
+	\captionof{figure}{Use Case overview for clinicians \label{fig:usecase:clinician}}
+	
+	
+	\includegraphics[width=0.6\textwidth]{figures/use_case_statistician}
+	\captionof{figure}{Use Case overview for statisticians \label{fig:usecase:statistician}}
+	
+	\includegraphics[width=0.6\textwidth]{figures/use_case_admin}
+	\captionof{figure}{Use Case overview for administrators \label{fig:usecase:admin}}
+
+}
 
 \section{Third party libaries}
 \label{app:3rdparty}
+\autoref{tab:libs} contains all the third party libraries that have been used in the project. These are all public available and free of use. Additional information can be found for each listed \texttt{gem} under \href{http://rubygems.org}{http://rubygems.org}.
+
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|p{2.4cm}r||p{2.4cm}r||p{2.4cm}r|}
+	\hline
+	\textbf{Library} & \textbf{ver.} & 	\textbf{Library} & \textbf{ver.} & 	\textbf{Library} & \textbf{ver.} \\
+	actionmailer&(4.2.6)&faker&(1.6.3)&rails\_12factor&(0.0.3)\\actionpack&(4.2.6)&foreman&(0.82.0)&\tiny{rails\_serve\_static\_assets}&(0.0.5)\\actionview&(4.2.6)&formtastic&(3.1.4)&\tiny{rails\_stdout\_logging}&(0.0.5)\\activejob&(4.2.6)&\tiny{formtastic-bootstrap}&(3.1.1)&railties&(4.2.6)\\activemodel&(4.2.6)&globalid&(0.3.6)&rake&(11.2.2)\\activerecord&(4.2.6)&haml&(4.0.7)&rdoc&(4.2.2)\\activesupport&(4.2.6)&haml-rails&(0.9.0)&ref&(2.0.0)\\addressable&(2.4.0)&heroku-api&(0.4.2)&responders&(2.2.0)\\arel&(6.0.3)&html2haml&(2.0.0)&\tiny{rootapp-rinruby}&(3.1.2)\footnote{https://github.com/sebastianzillessen/rinruby}\\aws-sdk&(2.4.2)&i18n&(0.7.0)&rspec-core&(3.4.4)\\aws-sdk-core&(2.4.2)&jbuilder&(2.5.0)&\tiny{rspec-expectations}&(3.4.0)\\\tiny{aws-sdk-resources}&(2.4.2)&jmespath&(1.3.1)&rspec-mocks&(3.4.1)\\bcrypt&(3.1.11)&jquery-rails&(4.1.1)&rspec-rails&(3.4.2)\\\tiny{binding\_of\_caller}&(0.7.2)&\tiny{jquery-turbolinks}&(2.1.0)&rspec-retry&(0.4.5)\\builder&(3.2.2)&jquery-ui-rails&(5.0.5)&rspec-support&(3.4.1)\\bullet&(5.1.1)&json&(1.8.3)&ruby-graphviz&(1.2.2)\\bundler&(1.12.5)&launchy&(2.4.3)&ruby\_parser&(3.8.2)\\byebug&(9.0.5)&less&(2.6.0)&rush&(0.6.8)\\cancancan&(1.15.0)&less-rails&(2.7.1)&sass&(3.4.22)\\capybara&(2.7.1)&libv8&(3.16.*)&sass-rails&(5.0.4)\\\tiny{capybara-screenshot}&(1.0.13)&loofah&(2.0.3)&sdoc&(0.4.1)\\choice&(0.2.0)&mail&(2.6.4)&session&(3.2.0)\\cliver&(0.3.2)&method\_source&(0.8.2)&sexp\_processor&(4.7.0)\\cocoon&(1.2.9)&\tiny{mime-types}&(3.1)&\tiny{shoulda-matchers}&(3.1.1)\\\tiny{codeclimate-test-reporter}&(0.6.0)&\tiny{mime-types-data}&(3.2016*)&simplecov&(0.12.0)\\coderay&(1.1.1)&mini\_portile2&(2.1.0)&\tiny{simplecov-html}&(0.10.0)\\coffee-rails&(4.1.1)&minitest&(5.9.0)&slop&(3.6.0)\\coffee-script&(2.4.1)&multi\_json&(1.12.1)&sprockets&(3.6.2)\\\tiny{coffee-script-source}&(1.10.0)&nokogiri&(1.6.8)&sprockets-rails&(3.0.4)\\commonjs&(0.2.7)&orm\_adapter&(0.5.0)&teaspoon&(1.1.5)\\\tiny{concurrent-ruby}&(1.0.2)&pg&(0.18.4)&\tiny{teaspoon-jasmine}&(2.3.4)\\data\_migrate&(2.1.0)&pkg-config&(1.1.7)&therubyracer&(0.12.2)\\\tiny{database\_cleaner}&(1.5.3)&poltergeist&(1.10.0)&thor&(0.19.1)\\debug\_inspector&(0.0.2)&pry&(0.10.3)&thread\_safe&(0.3.5)\\delayed\_job&(4.1.2)&puma&(3.4.0)&tilt&(2.0.5)\\\tiny{delayed\_job\_active\_record}&(4.1.1)&rack&(1.6.4)&turbolinks&(2.5.3)\\devise&(4.1.1)&\tiny{rack-mini-profiler}&(0.10.1)&\tiny{twitter-bootstrap-rails}&(3.2.2)\\diff-lcs&(1.2.5)&rack-test&(0.6.3)&tzinfo&(1.2.2)\\plecdocile&(1.1.5)&rails&(4.2.6)&uglifier&(3.0.0)\\dotenv&(2.1.1)&\tiny{rails-assets-chosen}&(1.6.1)&uniform\_notifier&(1.10.0)\\dotenv-rails&(2.1.1)&\tiny{rails-assets-jquery}&(3.0.0)&warden&(1.2.6)\\erubis&(2.7.0)&\tiny{rails-deprecated\_sanitizer}&(1.0.3)&web-console&(2.3.0)\\excon&(0.51.0)&\tiny{rails-dom-testing}&(1.0.7)&\tiny{websocket-driver}&(0.6.4)\\execjs&(2.7.0)&rails-erd&(1.4.7)&\tiny{websocket-extensions}&(0.1.2)\\factory\_girl&(4.7.0)&\tiny{rails-html-sanitizer}&(1.0.3)&workless&(1.2.3)\\factory\_girl\_rails&(4.7.0)&&&&\\
+	\hline
+	\end{tabular}
+	\caption{Third-party libraries and services used in the web-application}
+	\label{tab:libs}
+\end{table}
+
+
+
+\section{R-Spec test suite}
+\sloppy
+\autoref{sub:test_suit} provides an impression on the developed \texttt{rspec} tests. Only the first two pages have been generated. The whole report can be found on \href{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}. The test suite which is made out of $\approx 350$ specs results in a resonable test coverage of $\geq 85\%$ (see \href{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage} for in depth code climate details and coverage report).
+% rspec
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=1,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=2,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (example of the first two pages)}
+	\label{sub:test_suit}
+\end{sidewaysfigure}
+
+
+
+

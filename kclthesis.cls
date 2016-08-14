@@ -25,6 +25,7 @@
 	\SetWatermarkText{DRAFT}
 	\SetWatermarkScale{8}
 	\RequirePackage[textsize=tiny,figwidth=8cm]{todonotes}
+	\overfullrule=1mm
 \else
 	\RequirePackage[disable]{todonotes}
 \fi
@@ -47,7 +48,10 @@
             linkcolor = blue,
             urlcolor  = blue,
             citecolor = blue,
-            anchorcolor = blue]{hyperref}
+            anchorcolor = blue,
+            breaklinks=true]{hyperref}
+\RequirePackage{breakurl}
+\hypersetup{pdfborder={0 0 100}}
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
 \RequirePackage{rotating}
@@ -107,6 +111,7 @@
 \tikzstyle{n_fill_gray}=[main,fill=gray!20]
 \tikzstyle{box}=[rectangle, draw]
 \tikzstyle{small}=[main, inner sep=1pt,minimum size=20pt]
+
 
 
 
