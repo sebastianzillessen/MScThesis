@@ -217,7 +217,7 @@ $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{
 
 Similar to Dung's theory, admissible, preferred, complete and stable extensions of an \gls{EAF} can now be defined.
 
-
+\tbd{
 \begin{definition}
 	Let $S'$ be a \textbf{conflict free} subset of $\S$ in $\langle \S, \R, \D \rangle$. Then:
 	\begin{itemize}
@@ -233,6 +233,7 @@ By using this definition, we can define again \textbf{sceptically}, respectively
 \begin{exa}
 	The example given in \autoref{fig:eaf_intro} has only the single preferred, complete and stable extension $\{B, C, E\}$. \autoref{fig:eaf_small} has the admissible sets $\{A\}, \{A, C\}, \{A, B, C\}$. $\{A, B, C\}$ is the only preferred extension which is as well stable.
 \end{exa}
+}
 
 \begin{lemma}
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable w.r.t. $S'$. Then:
@@ -251,6 +252,8 @@ By using this definition, we can define again \textbf{sceptically}, respectively
 	\label{lem:eaf:partialorder}
 \end{lemma}
 
+
+\tbd{
 The definition of the characteristic function for an \gls{EAF} is similar but not equal to Dung's definition. 
 
 \begin{definition}
@@ -260,6 +263,7 @@ The definition of the characteristic function for an \gls{EAF} is similar but no
 		\item $F_\Delta(S') = \{A | A~\text{is acceptable w.r.t.~}S'\}$.
 	\end{itemize}
 \end{definition}
+
 
 From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable w.r.t $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable w.r.t. the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
 \begin{lemma}
@@ -275,6 +279,7 @@ Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^
 	Let $\Delta$ be a finitary \gls{EAF} and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\cup_{i=0}^\infty(F^i)$ is the \textbf{grounded extension} $GE(\Delta)$ of $\Delta$.
 \end{definition}
 
+}
 
 \begin{remark}
 Similar to Dung's framework we can state the following relations between different extensions:

@@ -1,0 +1,22 @@
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick]
+  	\node[n_fill_red] (m1) {$m_1$};
+	\node[n_fill_green] (m2) [below left of=m1]{$m_2$};
+	\node[n_fill_red] (m3) [below right of=m1]{$m_3$};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (m1) edge [bend right,dashed] coordinate [pos=0.5] (m1m2) node [left] {} (m2)
+    (m1) edge [] coordinate [pos=0.5] (m1m3) node [left] {} (m3)
+    (m2) edge [] coordinate [pos=0.5] (m2m1) node [left] {} (m1)
+    (m2) edge [bend right] coordinate [pos=0.5] (m2m3) node [left] {} (m3)
+    (m3) edge [bend right] coordinate [pos=0.5] (m3m1) node [left] {} (m1)
+    (m3) edge [dashed] coordinate [pos=0.5] (m3m2) node [left] {} (m2)
+    ;
+	\node[box] (CD1heavy1)[above left of=m1m2,xshift=1cm,yshift=-1cm] {$CD1_{heavy}$};
+	\node[box] (CD1heavy2)[below of=m3m2, yshift=1cm] {$CD1_{heavy}$};  
+    
+   \path [every node/.style={red}] 
+   (CD1heavy1) edge [->>] node [left] {} (m1m2)
+   (CD1heavy2) edge [->>] node [left] {} (m3m2)
+   ;
+\end{tikzpicture}

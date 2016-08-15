@@ -25,7 +25,7 @@
 	\SetWatermarkText{DRAFT}
 	\SetWatermarkScale{8}
 	\RequirePackage[textsize=tiny,figwidth=8cm]{todonotes}
-	\overfullrule=1mm
+	%\overfullrule=1mm
 \else
 	\RequirePackage[disable]{todonotes}
 \fi
@@ -105,6 +105,7 @@
 \newcommand{\tbd}[1]{\todo{TBD}{\color{gray} #1}}
 
 \tikzstyle{node}=[]
+\tikzstyle{dummy}=[inner sep=0,outer sep=0]
 \tikzstyle{main}=[circle, draw]
 \tikzstyle{n_fill_green}=[main,fill=green!20]
 \tikzstyle{n_fill_red}=[main,fill=red!20]

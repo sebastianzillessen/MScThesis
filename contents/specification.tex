@@ -1,7 +1,7 @@
 \section{Specification}
 \label{sec:specification}
 
-In accordance with the selected methodology of \glspl{use_case} 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of \glspl{use_case} have been defined and iterativly refined. These were then reviewed by the client and discussed in detail. As mentioned, the project used Trello as management tool. All \glspl{use_case} have been described on cards and \glspl{use_case_slice} have been generated out of those. They are directly reflected by the description in \cite{sassoon2014,sassoon2016, sassoon2016CD}. In general each \gls{use_case} consists of the following attributes: Name, Desired outcome, (Main-)\glspl{Actor}, Flow to achieve the desired outcome, Alternative flow (optional).
+In accordance with the selected methodology of Use Case 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of \glspl{use_case} have been defined and iterativly refined. These were then reviewed by the client and discussed in detail. As mentioned, the project used Trello as management tool. All \glspl{use_case} have been described on cards and \glspl{use_case_slice} have been generated out of those. They are directly reflected by the description in \cite{sassoon2014,sassoon2016, sassoon2016CD}. In general each \gls{use_case} consists of the following attributes: Name, Desired outcome, (Main-)\glspl{Actor}, Flow to achieve the desired outcome, Alternative flow (optional).
 
 
 \subsection{Weak requirements}
@@ -21,17 +21,17 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\item The system must be suitable for different user types (\glspl{Actor}).
 	\item The system has to provide different levels of access for different user groups.
 	\item The system should be able to execute test scripts as \texttt{R}-Scripts.
-	\item The system should be hosted on a free accessible hoster.
+	\item The system should be hosted on a free accessible hosting provider.
 \end{itemize}
 
 
 \subsection{Use Cases}
 \label{sub:use_cases}
-\autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}.
+\autoref{tab:usecases} shows an overview over the major \glspl{use_case} that have been generated during the requirements analysis. For the sake of simplicity they have not been integrated into this dissertation. However they are public available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}\footnote{\url{https://trello.com/b/ywCkicpc}}.
 
 \begin{landscape}
 	\begin{longtable}{ l l p{10.5cm} l l p{3cm} }
-		\textbf{ID}                         & \textbf{\gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{Prio}\footnote{MoSCoW priorities} &  \textbf{Comments}\\
+		\textbf{ID}                         & \textbf{\Gls{Actor}}\footnote{C: Clinician, S: Statistician, A: Admin} &\textbf{Description} &  \textbf{RC} & \textbf{Prio}\footnote{MoSCoW priorities} &  \textbf{Comments}\\
 		\href{https://trello.com/c/KEOokZp9}{UC1}   & 	- & 	Enter two default models into the system as code without user interface including definition of assumptions & RC1 & Must &  For initial testing purposes  \\
 		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriate for a research question & RC1	& Must &	   \\
 		\href{https://trello.com/c/ORRBjISQ}{UC2-1} & 	C & 	Store done analysis & RC2 & Should &  see \autoref{as:1} \\
@@ -69,9 +69,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\end{longtable}
 \end{landscape}
 
-The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test}.
-
-In the following section an exemplary detailed description of one \gls{use_case} is given (see \autoref{uc:12-1}):
+The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall line coverage of $ \geq 85\%$ (see \href{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}). \autoref{uc:12-1} shows an exemplary detailed description of one \gls{use_case}.
 
 
 \input{figures/uc12-1}
@@ -81,13 +79,13 @@ In the following section an exemplary detailed description of one \gls{use_case}
 \label{sub:sassoon:actors}
 During the requirements analysis the following actors have been identified and are described as follows:
 
-\textbf{Clinicians} are the main users of the system and do the actual analysis of a dataset by using the predefined research questions, models and assumptions. A clinician should see all globally available research questions, models and their assumptions. In addition the preferences defined by the statistician will apply to all analyses a clinician performs. However he will be able to enter personal preferences between models that only apply for his analyses. An overview can be seen in \autoref{fig:usecase:clinician}.
+\textbf{Clinicians} are the main users of the system and do the actual analysis of a dataset by using the predefined research questions, models and assumptions. A clinician should see all globally available research questions, models and their assumptions. In addition the preferences defined by the statistician will apply to all analyses a clinician performs. However she/he will be able to enter personal preferences between models that only apply for his analyses. An overview over her/his uses cases can be seen in \autoref{fig:usecase:clinician}.
 
-\textbf{Statisticians} are able to enter statistical models into the system and to define global applicable preferences. To do so, a statistician can enter different types of assumptions mapped to models and preferences. These might contain query assumptions, where the clinician performing an analysis has to confirm a fact, or test assumptions that are checked against the dataset by running a \texttt{R}-script. He is as well allowed to see all datasets that have been uploaded and to check which analysis have been performed (see \autoref{fig:usecase:statistician}).
+\textbf{Statisticians} are able to enter statistical models into the system and to define global applicable preferences. To do so, a statistician can enter different types of assumptions mapped to models and preferences. These might contain query assumptions, where the clinician performing an analysis has to confirm a fact, or test assumptions that are checked against the dataset by running a \texttt{R}-script. She or he is as well allowed to see all datasets that have been uploaded and to check which analysis have been performed (see \autoref{fig:usecase:statistician}).
 
 
 
-\textbf{Administrators} are able to create, modify and destroy all available data in the system. In addition an administrator is required to approve new users and to assign them to a role. He is as well capable of inviting new users into the system. An overview can be seen in \autoref{fig:usecase:admin}.
+\textbf{Administrators} are able to create, modify and destroy all available data in the system. In addition an administrator is required to approve new users and to assign them to a role. She or he is as well capable of inviting new users into the system. An overview over her/his uses cases can be seen in \autoref{fig:usecase:admin}.
 
 
 
@@ -114,6 +112,6 @@ To provide a responsive and clear user interface the \texttt{Bootstrap}\footnote
 \end{figure}
 
 
-A clinician can upload new clinical data retrieved from studies by using the CSV upload functionality. Starting a new analysis retrieves the dataset from the database and instantiates the knowledge base for this specific problem. The assumptions of all applicable models for the selected research question are then evaluated. If multiple models are possible, the preferences (first the globally defined ones by a statistician, later the personal preferences a clinician might have) are applied to the system one after another until the last model is remaining. This model is then returned as recommended model. The process of the rejection of various models will be graphically visible to the user (see \autoref{sub:ui}). The process of creating and processing a new analysis is described in detail in \autoref{sub:walk}.
+A clinician can upload new clinical data retrieved from studies by using the CSV upload functionality. Starting a new analysis retrieves the dataset from the database and instantiates the knowledge base for this specific problem. The assumptions of all applicable models for the selected research question are then evaluated. If multiple models are possible, the preferences (first the globally defined ones by a statistician, later the personal preferences a clinician might have) are applied to the system one after another until one last model remains. This model is then returned as recommended model. The process of the rejection of various models will be graphically visible to the user (see \autoref{sub:ui}). The process of creating and processing a new analysis is described in detail in \autoref{sub:walk}.
 
 

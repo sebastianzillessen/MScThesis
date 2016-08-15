@@ -76,6 +76,7 @@ In  \autoref{fig:small_af} $E$ is acceptable with respect to $\{A\}$. $A$ is acc
 \end{exa}
 
 
+\tbd{
 \begin{definition}
 The \textbf{characteristic function} of an argumentation framework $AF$ (denoted as $F_{AF}$) is defined by the following:
 	\begin{align*}
@@ -86,10 +87,10 @@ The \textbf{characteristic function} of an argumentation framework $AF$ (denoted
 \begin{notation}
 	If it is unambiguous, we often refer to $F_{AF}$ with $F$. 
 \end{notation}
-
+}
 
 \begin{definition}
-	A conflict-free set $S' \subseteq \S$ is \textbf{admissible} iff $S'$ defends all of its arguments (\textit{each argument in $S'$ is acceptable with respect to $S'$}) or $S' \subseteq F_{AF}(S')$.
+	A conflict-free set $S' \subseteq \S$ is \textbf{admissible} iff $S'$ defends all of its arguments (\textit{each argument in $S'$ is acceptable with respect to $S'$}) \tbd{ or $S' \subseteq F_{AF}(S')$}.
 \end{definition}
 
 \begin{exa}
@@ -157,37 +158,42 @@ A preferred extension of an argumentation framework $AF$ is a maximised (with re
 The preferred extensions in \autoref{fig:pref_af} are $\{A, C\}$ and $\{A, D\}$.
 \end{exa}
 
-\begin{definition}
-A conflict-free set of arguments $S' \subseteq \S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument which does not belong to $S'$.
-\end{definition}
-\begin{exa}
-The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}$ is a preferred, but not a stable extension.
-\end{exa}
+\tbd{
+	\begin{definition}
+	A conflict-free set of arguments $S' \subseteq \S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument which does not belong to $S'$.
+	\end{definition}
+	\begin{exa}
+	The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}$ is a preferred, but not a stable extension.
+	\end{exa}
+	
+	
+	\begin{remark}
+	The different extensions of a $AF = \langle \S, \R \rangle$ have the following relations between each other \cite{dung1995}:
+	\begin{itemize} 
+		\item Each preferred extension is as well a complete extension.
+		\item Each stable extension is as well a preferred extension.
+		\item The grounded extension is the least (with respect to set inclusion) complete extension and therefore unique for each $AF$.
+		\item Preferred extensions are the most (with respect to set inclusion) complete extensions.
+		\item Arguments accepted in the grounded extension are skeptically accepted in the $AF$.
+		\item Every $AF$ has at least one preferred extension.
+		\item A stable extension does not always exist.
+	\end{itemize}
+	\end{remark}
+}
 
-
-\begin{remark}
-The different extensions of a $AF = \langle \S, \R \rangle$ have the following relations between each other \cite{dung1995}:
-\begin{itemize} 
-	\item Each preferred extension is as well a complete extension.
-	\item Each stable extension is as well a preferred extension.
-	\item The grounded extension is the least (with respect to set inclusion) complete extension and therefore unique for each $AF$.
-	\item Preferred extensions are the most (with respect to set inclusion) complete extensions.
-	\item Arguments accepted in the grounded extension are skeptically accepted in the $AF$.
-	\item Every $AF$ has at least one preferred extension.
-	\item A stable extension does not always exist.
-\end{itemize}
-\end{remark}
-
-\begin{definition}
-An argument is regarded as \textbf{sceptically accepted under a semantic}, iff it is accepted in all extensions of this semantic (complete, grounded, preferred, stable). An argument is regarded as \textbf{credulously accepted under a semantic}, iff it accepted in at least one, but not all, extensions of this semantic. 	
-\end{definition}
-
-\begin{exa}
-In \autoref{fig:pref_af} $\{A\}$ is sceptically accepted under each semantic. $\{C, D\}$ are credulously accepted under a preferred semantic. $\{D\}$ is as well accepted sceptically under the stable semantic.
-\end{exa}
-
-
-Furthermore \cite{dung1995} introduces \textit{well-founded argumentation frameworks} (having exactly one extension which is grounded, preferred and stable), \textit{uncontroversial argumentation frameworks} and \textit{coherent argumentation frameworks} (each preferred extension of an $AF$ is stable). Regarding the problem we are looking at, defeasible argumentation is really important, as we are dealing with inconsistent \glspl{SKB}. Hence these restricted argumentation frameworks will not be used in this project, therefore they are not discussed any further.
+\todo{This could be left out from my point of view, as it is not relevant to the remaining dissertation}
+\tbd{
+	\begin{definition}	
+		An argument is regarded as \textbf{sceptically accepted under a semantic}, iff it is accepted in all extensions of this semantic (complete, grounded, preferred, stable). An argument is regarded as \textbf{credulously accepted under a semantic}, iff it accepted in at least one, but not all, extensions of this semantic. 	
+	\end{definition}
+	
+	\begin{exa}
+		In \autoref{fig:pref_af} $\{A\}$ is sceptically accepted under each semantic. $\{C, D\}$ are credulously accepted under a preferred semantic. $\{D\}$ is as well accepted sceptically under the stable semantic.
+	\end{exa}
+	
+	
+	Furthermore \cite{dung1995} introduces \textit{well-founded argumentation frameworks} (having exactly one extension which is grounded, preferred and stable), \textit{uncontroversial argumentation frameworks} and \textit{coherent argumentation frameworks} (each preferred extension of an $AF$ is stable). Regarding the problem we are looking at, defeasible argumentation is really important, as we are dealing with inconsistent \glspl{SKB}. Hence these restricted argumentation frameworks will not be used in this project, therefore they are not discussed any further.
+}
 
 In addition to the discussed extension-based semantics, \cite{liao} introduces a so called \textit{labelling-based approach} where there are usually three labels: \texttt{IN} (accepted argument), \texttt{OUT} (rejected argument) and \texttt{UNDEC} (undecided whether this argument is accepted or rejected) and a labelling function $\lambda: \S \rightarrow \{IN, OUT, UNDEC\}$.
 
