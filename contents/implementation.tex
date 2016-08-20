@@ -1,22 +1,65 @@
-\tbd{
-
-	\todo{Is this chapter relevant? The Implementation Details have already been discussed in the previous chapters and I'm not really sure, if this is relevant to the user.}
-	\section{Implementation Details}
-	\label{sec:implementation}
+\section{Implementation Details}
+\label{sec:implementation}
+In the following section, some implementation details will be highlighted. An entity relationship diagram explains the core data foundation of this project in \autoref{sub:db}, which includes the representation of the \gls{SKB} as described in \autoref{sub:SKB}. Overall the development of the intelligent agent could be accomplished with general techniques and features provided by \gls{RoR}. However, the details of the components related to \glspl{EAF} (see \autoref{sub:eaf_algorithm}) and \glspl{AF} (see \autoref{sub:af_algorithm}) should be highlighted, as they are crucial for the successful implementation. In addition the execution of \gls{R}-scripts turned out to be more complex than initially assumed. The requirements for scripts, that will be entered into the application, will therefore be presented in \autoref{sec:r_code}.
+	
 
 	%\todo{Program listings (depending on the project nature). Complete source code listings must be submitted as an appendix to the report (excluding any well-known, freely obtainable, third-party libraries explicitly mentioned in the report). In addition, the source code must be submitted in a compressed file via KEATS together with the report. You should try to help the reader to navigate through your source code by providing a "table of contents" (titles of these files/units and one line descriptions). The first page of the program listings folder must contain the following statement certifying the work as your own: "I verify that I am the sole author of the programs contained in this folder, except where explicitly stated to the contrary". Your (typed) signature and the date should follow this statement.}
 
-	\subsection{\Gls{EAF} Algorithm}
-	\label{sub:eaf_algorithm}
+\input{contents/erd}
 
-	\subsection{\Gls{AF} Algorithm}
-	\label{sub:af_algorithm}
-
-
-	\subsection{R-Code and \texttt{rinruby} gem}
-	\label{sec:r_code}
+\subsection{\Gls{EAF} Algorithm}
+\label{sub:eaf_algorithm}
+	
+An algorithm to solve \glspl{EAF} was presented in \cite{Dunne10computationin} (see \autoref{fig:eaf_algo}) and is used to solve acceptability w.r.t a subset $\S \subseteq \X$ of an argument $x \in \X$ in an \gls{EAF}. The presented algorithm defines an \gls{EAF} as a triple $\langle \X, \A, \D \rangle$ (\autoref{sub:eaf} introduced it as $\langle \S, \R, \D \rangle$).
+This algorithm transforms (using an colouring based approach) an \gls{EAF} into an \gls{AF} and then uses \autoref{sub:af_algorithm}  to check whether $x$ is acceptable w.r.t. $\S$ in the AF $\langle \X, \A \rangle$. To do so, it eliminates the attack-on-attacks relation $\D$ by removing elements from $\A$ according to the provided subset $\S$.
 
 
-	\href{https://trello.com/c/5IQAdrtS/30-r-script-requirements}{R-Script requirements}
+\begin{algorithm}[!htp]
+	\includegraphics[width=0.8\textwidth]{figures/eaf_algorithm}
+	\caption{Deciding \gls{EAF} Acceptability of $x \in \X$ w.r.t. $\S \subseteq \X$ in $\langle \X, \A, \D \rangle$.}
+	\label{fig:eaf_algo}
+\end{algorithm}
 
-}
+
+\subsection{\Gls{AF} Algorithm}
+\label{sub:af_algorithm}
+
+The algorithm presented in \autoref{fig:af_algo} is taken from \cite{rodrigues} and is based on an labelling approach which was as well proposed in \cite{Modgil2009}. \texttt{Cand} holds the possible candidates for a preferred labelling as defined in \cref{def:preferred_extension} and is initialised with \texttt{Cand = $\emptyset$}. The Ruby implementation of this algorithm can be found in \autoref{lst:af}. The used class \texttt{Labelling} can be found in the provided source code repository / zip-file. 
+
+\begin{algorithm}[!htp]
+	\includegraphics[width=0.8\textwidth]{figures/af_labelling}
+	\caption{Algorithm to compute preferred labelings $\lambda \in $ Cand for \glspl{AF} \cite{rodrigues}.}
+	\label{fig:af_algo}
+\end{algorithm}
+
+
+
+\subsection{R-Code and \texttt{rinruby} gem}
+\label{sec:r_code}
+
+To test if a \texttt{TestAssumption} (see \autoref{sub:db}) holds or not, statisticians have to upload \gls{R}-scripts that verify these assumptions on the selected dataset. This is done, by executing the script in R and then returning the result of it back to the \gls{RoR} application. Therefore the scripts have to fulfil certain criteria to be able to communicate correctly with the rest of the application. The provided scripts are executed using regular R-Syntax. In addition to the by default loaded libraries, the \texttt{survival} library has been installed on the systems, as this is often used during analyses related to statistical model selection.
+
+As it is mandatory to access the dataset of the analysis, the R-script needs the dataset as input. The application supports only uploads of CSV files, thereby the selected format of providing the datasets to the scripts was chosen to be a tabular representation as R has an excellent support of loading CSV files.
+
+\begin{listing}[!htp]
+	\rcode{figures/mild_censoring.r}
+	\caption{R-script to perform a \texttt{TestAssumption} on a dataset to check whether the underlying dataset has been mild censored or not (to check which performance measurement of \gls{CD}1 applies). }
+	\label{lst:cd_mild}
+\end{listing}
+
+
+Each script that is executed will have access to a variable \texttt{tabular\_data} which has been initialised with \texttt{tabular\_data=read.csv(file='\#{filename}')}. This type of assumption must return its result (whether the assumption holds on this dataset or not) in the boolean variable name \texttt{result}. Therefore each script for this type should contain something similar to the following: \texttt{result <- True} or \texttt{result <- False}. The provided example in \cref{lst:cd_mild} shows, how this \texttt{tabular\_data} and the \texttt{result} variable are used together to perform an assumption check on the dataset.
+
+\begin{listing}[!htp]
+	\rcode{figures/weibull_test.r}
+	\caption{R-script to perform a \texttt{QueryTestAssumption} on a dataset to check whether the Weibull-Model is applicable or not. The script generates a plot that will be stored in \texttt{fileName} and presented to the end-user.}
+	\label{lst:rcode}
+\end{listing}
+
+A \texttt{QueryTestAssumption} will receive the additional variable \texttt{fileName} which is initialised with an absolute filename to a temporary file which must be used to store a generated plot during the analysis. This is required, as the hosted application does not have read and write access to all folders and \gls{RoR} will provide an accessible temporary file. For this type of assumptions it is necessary to return a valid PNG at this file location. Please note, that due to some rendering issues, the on Heroku hosted installation only supports PNG generation in R-scripts when the \texttt{type} is set to \texttt{cairo} (see \cref{lst:rcode}).
+
+To execute the \gls{R}-scripts the gem \texttt{rinruby}\footnote{\url{https://github.com/clbustos/rinruby}} has been used. As the original gem did not provide all required functionalities and features it has been extended and forked at \href{https://github.com/sebastianzillessen/rinruby}{https://github.com/sebastianzillessen/rinruby}. 
+
+In addition to this, separate buildpacks have been used to enable \gls{R}\footnote{\url{https://github.com/virtualstaticvoid/heroku-buildpack-r}} and the generation of plots\footnote{\url{https://github.com/weibeld/heroku-buildpack-graphviz.git}} on Heroku, as this requires additional software components, which are usually not pre-installed.
+
+

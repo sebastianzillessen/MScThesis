@@ -4,7 +4,7 @@
 %A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. This limitation causes these frameworks to be incapable to express attacks on attacks in an easy way. As this is required to extend basic argumentation frameworks with a representation of defeasible preferences between arguments an extension to these frameworks will be presented in the following section.
 
 
-In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences regardless whether they are defeasible or conflicting by using an approach to argument about preferences on contextual preferences \cite{amgoud2000}. In addition it provides a really user-friendly way to consider preferences which will improve the understandability for clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
+In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences whether they are defeasible or conflicting by using an approach to argument about preferences on contextual preferences \cite{amgoud2000}. In addition it provides a user-friendly way to consider preferences which will improve the understandability of clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
 \autoref{fig:eaf_intro}, which is taken from \cite{Modgil2009}, shows an example for a \gls{EAF} representing the following arguments:
 
 \begin{itemize}
@@ -43,7 +43,7 @@ Hence, a brief introduction to the definition of \glspl{EAF} is presented in the
    (E) edge [->>] node [left] {} (DC)
    ;
 \end{tikzpicture}
-\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension}
+\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension.}
 \label{fig:eaf_intro}
 \end{figure}
 
@@ -96,7 +96,7 @@ By using this definition, similar properties (e.g. conflict-free and admissible 
    (C) edge [->>] node [left] {} (AB)
    ;
 \end{tikzpicture}
-\caption{\gls{EAF} with $\langle \S, \R, \D \rangle = \langle \{A, B, C\}, \{(A, B)\}, \{(C, (A, B))\} \rangle$}
+\caption{\gls{EAF} with $\langle \S, \R, \D \rangle = \langle \{A, B, C\}, \{(A, B)\}, \{(C, (A, B))\} \rangle$.}
 \label{fig:eaf_small}
 \end{figure}
 
@@ -217,7 +217,7 @@ $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{
 
 Similar to Dung's theory, admissible, preferred, complete and stable extensions of an \gls{EAF} can now be defined.
 
-\tbd{
+
 \begin{definition}
 	Let $S'$ be a \textbf{conflict free} subset of $\S$ in $\langle \S, \R, \D \rangle$. Then:
 	\begin{itemize}
@@ -233,7 +233,7 @@ By using this definition, we can define again \textbf{sceptically}, respectively
 \begin{exa}
 	The example given in \autoref{fig:eaf_intro} has only the single preferred, complete and stable extension $\{B, C, E\}$. \autoref{fig:eaf_small} has the admissible sets $\{A\}, \{A, C\}, \{A, B, C\}$. $\{A, B, C\}$ is the only preferred extension which is as well stable.
 \end{exa}
-}
+
 
 \begin{lemma}
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable w.r.t. $S'$. Then:
@@ -252,8 +252,6 @@ By using this definition, we can define again \textbf{sceptically}, respectively
 	\label{lem:eaf:partialorder}
 \end{lemma}
 
-
-\tbd{
 The definition of the characteristic function for an \gls{EAF} is similar but not equal to Dung's definition. 
 
 \begin{definition}
@@ -279,12 +277,11 @@ Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^
 	Let $\Delta$ be a finitary \gls{EAF} and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\cup_{i=0}^\infty(F^i)$ is the \textbf{grounded extension} $GE(\Delta)$ of $\Delta$.
 \end{definition}
 
-}
 
 \begin{remark}
 Similar to Dung's framework we can state the following relations between different extensions:
 \begin{itemize}
-	\item Every \gls{EAF} has at least one preferred extension (implied by \autoref{lem:eaf:partialorder} as $\emptyset$ is an admissible extension for every \gls{EAF}).
+	\item Every \gls{EAF} has at least one preferred extension (implied by \cref{lem:eaf:partialorder} as $\emptyset$ is an admissible extension for every \gls{EAF}).
 	\item Every stable extension of an \gls{EAF} is a preferred extension.
 	\item The grounded extension for \gls{EAF} is not defined over the least fix point of the characteristic function $F$, but can be defined for finitary \glspl{EAF} over the union of all characteristic functions $F^i$.
 \end{itemize}	

@@ -5,8 +5,8 @@ The software design process has been inspired by the \Gls{use_case} 2.0 of Iva J
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/uc20_flow}
-\caption{\Gls{use_case} 2.0 activities for iterative development approaches \cite{jacobson2011usecase}}
+\includegraphics[width=0.7\textwidth]{figures/uc20_flow}
+\caption{\Gls{use_case} 2.0 activities for iterative development approaches \cite{jacobson2011usecase}.}
 \label{fig:usecase20:flow}
 \end{figure}
 
@@ -25,8 +25,6 @@ Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} spe
 \label{sec:tdd}
 \Gls{TDD} encourages simple designs and modularity of software products \cite{tdd}. Many companies therefore employ a \gls{TDD} process. The underlying project of this dissertation uses \gls{RoR} which has test driven mechanics build in its core framework (\texttt{rspec}). In combination with the introduced Use Case 2.0 approach, \gls{TDD} can be easily used to ensure correctnes between the specification of a \gls{use_case} and the actual implementation. In general \gls{TDD} is constructed out of following steps which are applied iterative: 
 
-\bigskip
-
 \begin{enumerate}
 	\item Adding a test.
 	\item Running all test and seeing the recently added test fail.
@@ -35,7 +33,6 @@ Use cases are the core concept in Use Case 2.0. In addition to the \gls{UML} spe
 	\item Refactoring of the written code.
 \end{enumerate}
 
-\bigskip
 
 One key component in \gls{TDD} is to keep it short and simple (KISS principle), which results in small, testable and reusable modules in a software and usually leads to better code quality. As the software will be developed in iterative steps, the progress is easily trackable and although changes are made to already existing features, the integrated tests for the previously implemented functionality ensures the continuous integrity of the overall system.  
 

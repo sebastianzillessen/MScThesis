@@ -1,0 +1,91 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{def} \PYGdefault{n+nf}{to\PYGdefaultZus{}dung\PYGdefaultZus{}framework}\PYGdefault{p}{(}\PYGdefault{n}{subset}\PYGdefault{p}{,} \PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{fw}\PYGdefault{p}{)}
+    \PYGdefault{k}{raise} \PYGdefault{n+no}{ArgumentError}\PYGdefault{p}{,} \PYGdefault{l+s+s2}{\PYGdefaultZdq{}}\PYGdefault{l+s+si}{\PYGdefaultZsh{}\PYGdefaultZob{}}\PYGdefault{n}{subset}\PYGdefault{o}{.}\PYGdefault{n}{map}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZam{}}\PYGdefault{l+s+ss}{:to\PYGdefaultZus{}s}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{join}\PYGdefault{p}{(}\PYGdefault{l+s+s2}{\PYGdefaultZdq{},\PYGdefaultZdq{}}\PYGdefault{p}{)}\PYGdefault{l+s+si}{\PYGdefaultZcb{}}\PYGdefault{l+s+s2}{ is not a subset of }\PYGdefault{l+s+si}{\PYGdefaultZsh{}\PYGdefaultZob{}}\PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{arguments}\PYGdefault{o}{.}\PYGdefault{n}{map}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZam{}}\PYGdefault{l+s+ss}{:to\PYGdefaultZus{}s}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{join}\PYGdefault{p}{(}\PYGdefault{l+s+s2}{\PYGdefaultZdq{},\PYGdefaultZdq{}}\PYGdefault{p}{)}\PYGdefault{l+s+si}{\PYGdefaultZcb{}}\PYGdefault{l+s+s2}{\PYGdefaultZdq{}} \PYGdefault{k}{unless} \PYGdefault{n}{subset}\PYGdefault{o}{.}\PYGdefault{n}{subseteq?}\PYGdefault{p}{(}\PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{arguments}\PYGdefault{p}{)}
+
+    \PYGdefault{n}{attacks} \PYGdefault{o}{=} \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks}\PYGdefault{o}{.}\PYGdefault{n}{reject} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{a}\PYGdefault{o}{|} \PYGdefault{o}{!}\PYGdefault{n}{a}\PYGdefault{o}{.}\PYGdefault{n}{succeeds\PYGdefaultZus{}wrt}\PYGdefault{p}{(}\PYGdefault{n}{subset}\PYGdefault{p}{,} \PYGdefault{n}{fw}\PYGdefault{p}{)} \PYGdefault{p}{\PYGdefaultZcb{}}
+
+    \PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks} \PYGdefault{o}{=} \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{clone}
+    \PYGdefault{n}{colors} \PYGdefault{o}{=} \PYGdefault{p}{\PYGdefaultZob{}\PYGdefaultZcb{}}
+    \PYGdefault{n}{attacks}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{a}\PYGdefault{o}{|} \PYGdefault{n}{a}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{x} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{a}\PYGdefault{o}{|} \PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{a}\PYGdefault{o}{]} \PYGdefault{o}{=} \PYGdefault{n+no}{BLUE} \PYGdefault{p}{\PYGdefaultZcb{}}
+
+    \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}attack\PYGdefaultZus{}color} \PYGdefault{o}{=} \PYGdefault{k+kp}{false}
+    \PYGdefault{k}{begin}
+      \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}attack\PYGdefaultZus{}color} \PYGdefault{o}{=} \PYGdefault{k+kp}{false}
+
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} for y \PYGdefaultZbs{}in X s.t. y \PYGdefaultZhy{}\PYGdefaultZgt{}S x or \PYGdefaultZlt{}y,\PYGdefaultZlt{}u,v\PYGdefaultZgt{}\PYGdefaultZgt{} is BLUE do}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}   for each z \PYGdefaultZbs{}in S s.t. z \PYGdefaultZhy{}\PYGdefaultZgt{}S y}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}     \PYGdefaultZsh{} color z \PYGdefaultZhy{}\PYGdefaultZgt{}S y RED}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}   end}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} end}
+      \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{arguments}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{y}\PYGdefault{o}{|}
+        \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks}\PYGdefault{p}{(}\PYGdefault{n}{y}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{e}\PYGdefault{o}{|} \PYGdefault{n}{e}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZam{}\PYGdefaultZam{}} \PYGdefault{n}{e}\PYGdefault{o}{.}\PYGdefault{n}{succeeds\PYGdefaultZus{}wrt}\PYGdefault{p}{(}\PYGdefault{n}{subset}\PYGdefault{p}{,} \PYGdefault{n}{fw}\PYGdefault{p}{)} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{any?} \PYGdefault{o}{||}
+            \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{p}{(}\PYGdefault{n}{y}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{yuv}\PYGdefault{o}{|} \PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{yuv}\PYGdefault{o}{]} \PYGdefault{o}{==} \PYGdefault{n+no}{BLUE} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{any?}
+      \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{y}\PYGdefault{o}{|}
+        \PYGdefault{n}{subset}\PYGdefault{o}{.}\PYGdefault{n}{map} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{z}\PYGdefault{o}{|} \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks}\PYGdefault{p}{(}\PYGdefault{n}{z}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{a}\PYGdefault{o}{|} \PYGdefault{n}{a}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{y} \PYGdefault{p}{\PYGdefaultZcb{}} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{flatten}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{edge}\PYGdefault{o}{|}
+          \PYGdefault{k}{if} \PYGdefault{p}{(}\PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{edge}\PYGdefault{o}{]} \PYGdefault{o}{!=} \PYGdefault{n+no}{RED}\PYGdefault{p}{)}
+            \PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{edge}\PYGdefault{o}{]} \PYGdefault{o}{=} \PYGdefault{n+no}{RED}
+            \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}attack\PYGdefaultZus{}color} \PYGdefault{o}{=} \PYGdefault{k+kp}{true}
+          \PYGdefault{k}{end}
+        \PYGdefault{k}{end}
+      \PYGdefault{k}{end}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} for z \PYGdefaultZhy{}\PYGdefaultZgt{}S y colored RED do}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}   color each attack \PYGdefaultZlt{}v,\PYGdefaultZlt{}z,y\PYGdefaultZgt{}\PYGdefaultZgt{} in D BLUE}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} end for}
+      \PYGdefault{n}{colors}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{e}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|} \PYGdefault{n}{v} \PYGdefault{o}{==} \PYGdefault{n+no}{RED} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{e}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|}
+        \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{a}\PYGdefault{o}{|} \PYGdefault{n}{a}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{e} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{aoa}\PYGdefault{o}{|}
+          \PYGdefault{k}{if} \PYGdefault{p}{(}\PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{aoa}\PYGdefault{o}{]} \PYGdefault{o}{!=} \PYGdefault{n+no}{BLUE}\PYGdefault{p}{)}
+            \PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{aoa}\PYGdefault{o}{]} \PYGdefault{o}{=} \PYGdefault{n+no}{BLUE}
+            \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}attack\PYGdefaultZus{}color} \PYGdefault{o}{=} \PYGdefault{k+kp}{true}
+          \PYGdefault{k}{end}
+        \PYGdefault{k}{end}
+      \PYGdefault{k}{end}
+    \PYGdefault{k}{end} \PYGdefault{k}{while} \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}attack\PYGdefaultZus{}color}
+
+    \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}d} \PYGdefault{o}{=} \PYGdefault{k+kp}{false}
+
+    \PYGdefault{k}{begin}
+      \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}d} \PYGdefault{o}{=} \PYGdefault{k+kp}{false}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} if exists y \PYGdefaultZbs{}in X s.t. \PYGdefaultZlt{}y, \PYGdefaultZlt{}v,w\PYGdefaultZgt{}\PYGdefaultZgt{} is BLUE AND there is no u \PYGdefaultZhy{}\PYGdefaultZgt{}S y coloured RED then}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}  A := A\PYGdefaultZbs{}\PYGdefaultZob{}\PYGdefaultZlt{}v,w\PYGdefaultZgt{}\PYGdefaultZcb{}}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}  D := D\PYGdefaultZbs{}\PYGdefaultZob{}\PYGdefaultZlt{}y,\PYGdefaultZlt{}v,w\PYGdefaultZgt{}\PYGdefaultZgt{}\PYGdefaultZcb{}}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} end}
+      \PYGdefault{n}{colors}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{e}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|} \PYGdefault{n}{v} \PYGdefault{o}{==} \PYGdefault{n+no}{BLUE} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{e}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|} \PYGdefault{n}{colors}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{e2}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|} \PYGdefault{n}{v}\PYGdefault{o}{==}\PYGdefault{n+no}{RED} \PYGdefault{o}{\PYGdefaultZam{}\PYGdefaultZam{}} \PYGdefault{n}{e2}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{e}\PYGdefault{o}{.}\PYGdefault{n}{source} \PYGdefault{o}{\PYGdefaultZam{}\PYGdefaultZam{}} \PYGdefault{n}{e2}\PYGdefault{o}{.}\PYGdefault{n}{succeeds\PYGdefaultZus{}wrt}\PYGdefault{p}{(}\PYGdefault{n}{subset}\PYGdefault{p}{,} \PYGdefault{n}{fw}\PYGdefault{p}{)} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{empty?} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{edge}\PYGdefault{p}{,} \PYGdefault{n}{v}\PYGdefault{o}{|}
+        \PYGdefault{c+c1}{\PYGdefaultZsh{} edge is \PYGdefaultZlt{}y, \PYGdefaultZlt{}v,w\PYGdefaultZgt{}\PYGdefaultZgt{}}
+        \PYGdefault{n}{attacks} \PYGdefault{o}{\PYGdefaultZhy{}=} \PYGdefault{o}{[}\PYGdefault{n}{edge}\PYGdefault{o}{.}\PYGdefault{n}{target}\PYGdefault{o}{]}
+        \PYGdefault{k}{if} \PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{delete}\PYGdefault{p}{(}\PYGdefault{n}{edge}\PYGdefault{p}{)}
+          \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}d} \PYGdefault{o}{=} \PYGdefault{k+kp}{true}
+        \PYGdefault{k}{end}
+      \PYGdefault{k}{end}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} if exists z \PYGdefaultZbs{}in S s.t. (\PYGdefaultZlt{}z,y\PYGdefaultZgt{} is RED with \PYGdefaultZlt{}y,\PYGdefaultZlt{}u,v\PYGdefaultZgt{}\PYGdefaultZgt{} is BLUE) and there is no \PYGdefaultZlt{}p,\PYGdefaultZlt{}z,y\PYGdefaultZgt{}\PYGdefaultZgt{} in D}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{}   D := D \PYGdefaultZbs{} \PYGdefaultZob{}\PYGdefaultZlt{}y,\PYGdefaultZlt{}u,v\PYGdefaultZgt{}\PYGdefaultZgt{}\PYGdefaultZcb{}}
+      \PYGdefault{c+c1}{\PYGdefaultZsh{} end}
+      \PYGdefault{n}{subset}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{z}\PYGdefault{o}{|}
+        \PYGdefault{c+c1}{\PYGdefaultZsh{} (\PYGdefaultZlt{}z,y\PYGdefaultZgt{} is RED with \PYGdefaultZlt{}y,\PYGdefaultZlt{}u,v\PYGdefaultZgt{}\PYGdefaultZgt{} is BLUE)}
+        \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks}\PYGdefault{p}{(}\PYGdefault{n}{z}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{zy}\PYGdefault{o}{|}
+          \PYGdefault{n}{y} \PYGdefault{o}{=} \PYGdefault{n}{zy}\PYGdefault{o}{.}\PYGdefault{n}{target}
+          \PYGdefault{k}{if} \PYGdefault{p}{(}\PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{zy}\PYGdefault{o}{]} \PYGdefault{o}{==} \PYGdefault{n+no}{RED}\PYGdefault{p}{)}
+            \PYGdefault{n}{fw}\PYGdefault{o}{.}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{p}{(}\PYGdefault{n}{y}\PYGdefault{p}{)}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{yuv}\PYGdefault{o}{|}
+              \PYGdefault{n}{colors}\PYGdefault{o}{[}\PYGdefault{n}{yuv}\PYGdefault{o}{]} \PYGdefault{o}{==} \PYGdefault{n+no}{BLUE}
+            \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{each} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{yuv}\PYGdefault{o}{|}
+              \PYGdefault{c+c1}{\PYGdefaultZsh{} and there is no \PYGdefaultZlt{}p,\PYGdefaultZlt{}z,y\PYGdefaultZgt{}\PYGdefaultZgt{} in D\PYGdefaultZcb{}}
+              \PYGdefault{k}{if} \PYGdefault{p}{(}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{select} \PYGdefault{p}{\PYGdefaultZob{}} \PYGdefault{o}{|}\PYGdefault{n}{aoa}\PYGdefault{o}{|} \PYGdefault{n}{aoa}\PYGdefault{o}{.}\PYGdefault{n}{target} \PYGdefault{o}{==} \PYGdefault{n}{zy} \PYGdefault{p}{\PYGdefaultZcb{}}\PYGdefault{o}{.}\PYGdefault{n}{empty?}\PYGdefault{p}{)}
+                \PYGdefault{k}{if} \PYGdefault{p}{(}\PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{delete}\PYGdefault{p}{(}\PYGdefault{n}{yuv}\PYGdefault{p}{))}
+                  \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}d} \PYGdefault{o}{=} \PYGdefault{k+kp}{true}
+                \PYGdefault{k}{end}
+              \PYGdefault{k}{end}
+            \PYGdefault{k}{end}
+          \PYGdefault{k}{end}
+        \PYGdefault{p}{\PYGdefaultZcb{}}
+      \PYGdefault{p}{\PYGdefaultZcb{}}
+    \PYGdefault{k}{end} \PYGdefault{k}{while} \PYGdefault{n}{change\PYGdefaultZus{}in\PYGdefaultZus{}d}
+
+    \PYGdefault{c+c1}{\PYGdefaultZsh{} remove from attacks on attacks all edges that point on a not existing terminal edge}
+    \PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{.}\PYGdefault{n}{select!} \PYGdefault{k}{do} \PYGdefault{o}{|}\PYGdefault{n}{edge}\PYGdefault{o}{|}
+      \PYGdefault{k}{while} \PYGdefault{p}{(}\PYGdefault{n}{edge}\PYGdefault{o}{.}\PYGdefault{n}{target}\PYGdefault{o}{.}\PYGdefault{n}{is\PYGdefaultZus{}a?}\PYGdefault{p}{(}\PYGdefault{n+no}{Edge}\PYGdefault{p}{))}
+        \PYGdefault{n}{edge} \PYGdefault{o}{=} \PYGdefault{n}{edge}\PYGdefault{o}{.}\PYGdefault{n}{target}
+      \PYGdefault{k}{end}
+      \PYGdefault{n}{attacks}\PYGdefault{o}{.}\PYGdefault{n}{include?}\PYGdefault{p}{(}\PYGdefault{n}{edge}\PYGdefault{p}{)}
+    \PYGdefault{k}{end}
+    \PYGdefault{o}{[}\PYGdefault{n}{attacks}\PYGdefault{p}{,} \PYGdefault{n}{attacks\PYGdefaultZus{}on\PYGdefaultZus{}attacks}\PYGdefault{o}{]}
+  \PYGdefault{k}{end}
+\end{Verbatim}

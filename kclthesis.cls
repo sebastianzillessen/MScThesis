@@ -55,6 +55,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
 \RequirePackage{rotating}
+\RequirePackage[capitalize,nameinlink,noabbrev]{cleveref}
 
 % reset glossaries per section
 
@@ -159,6 +160,7 @@
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\C}{\mathcal{C}}
+\newcommand{\X}{\mathcal{X}}
 
 \def\equalDistrib{\,{\buildrel \Delta \over =}\,}
 \numberwithin{equation}{section}

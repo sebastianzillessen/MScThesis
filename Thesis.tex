@@ -21,6 +21,51 @@
 \def\tightlist{}
 
 \usepackage{caption}
+\usepackage{listings}
+\usepackage[cache=false,outputdir=.texpadtmp]{minted}
+\lstloadlanguages{ruby}
+
+
+\newmintedfile[rubycode]{ruby}{
+fontfamily=tt,
+linenos=true,
+numbersep=5pt,
+gobble=0,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=2,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+stepnumber=5,
+breaklines=true,
+fontsize=\tiny
+}
+\newmintedfile[rcode]{r}{
+fontfamily=tt,
+linenos=true,
+numbersep=5pt,
+gobble=0,
+framerule=0.4pt,
+framesep=2mm,
+funcnamehighlighting=true,
+tabsize=2,
+obeytabs=false,
+mathescape=false
+samepage=false, %with this setting you can force the list to appear on the same page
+showspaces=false,
+showtabs =false,
+texcl=false,
+stepnumber=5,
+breaklines=true
+}
+
+\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}<!---->}
+
 
 \usetikzlibrary{shapes}
 \setlist{nosep} % or \setlist{noitemsep} to leave space around whole list
@@ -68,8 +113,6 @@
 
 %TC:break Abstract
 \include{contents/abstract}
-%TC:ignore
-
 \include{structure/acknowledgements}
 
 %%%%%% Table of contents
@@ -97,7 +140,7 @@
 
 \include{contents/implementation}
 
-%\include{contents/involved_data}
+\include{contents/evaluation} 
 
 %\include{contents/main}
 \include{contents/conclusion}

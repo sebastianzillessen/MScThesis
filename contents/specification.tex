@@ -5,9 +5,9 @@ In accordance with the selected methodology of Use Case 2.0 (see \autoref{sec:de
 
 
 \subsection{Weak requirements}
+\label{sub:weak}
 In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the following weak requirements influenced the development of the final project:
 
-\bigskip 
 
 \begin{itemize}
 	\item The system should be designed as an interactive \textbf{web application} to ensure:
@@ -61,7 +61,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 		\href{https://trello.com/c/Hv2xe2UW}{UC17}  &   S & 	Enter additional research questions into the system & RC3 &Could& \\
 		\href{https://trello.com/c/w1YiIgU7}{UC17-1}&   S & 	Modify research questions&RC3 & Must &  \\
 		\href{https://trello.com/c/UbT5mtDx}{UC17-2}&   S & 	Delete research questions&RC3&Must& \\
-		\href{https://trello.com/c/dpLHOxbB}{UC18}  &   S & 	Include R Script execution	 & RC1 & Must & \\
+		\href{https://trello.com/c/dpLHOxbB}{UC18}  &   S & 	Include R-script execution	 & RC1 & Must & \\
 		\href{https://trello.com/c/bZHdWpkt}{UC19}  &   S & 	Enter global preferences for statistical models and/or analysis techniques& RC3 & Could &	 \\
 
 		\caption{List of the different use cases that have been evaluated during the requirements analysis.}	
@@ -69,7 +69,7 @@ In addition to the described \glspl{use_case} (see \autoref{tab:usecases}) the f
 	\end{longtable}
 \end{landscape}
 
-The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a product owner. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall line coverage of $ \geq 85\%$ (see \href{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}). \autoref{uc:12-1} shows an exemplary detailed description of one \gls{use_case}.
+The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, requirements deriving from it have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach with close feedback loops to the supervisor of the project and the author of \cite{sassoon2014,sassoon2016, sassoon2016CD} who has been treated as a \gls{product owner} or client. As the software was developed in a test driven approach (see \autoref{sec:tdd}) all features where implemented by designing tests first. This is reflected by the final existing test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall line coverage of $ \geq 85\%$ (see \href{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}). \autoref{uc:12-1} shows an exemplary detailed description of one \gls{use_case}.
 
 
 \input{figures/uc12-1}
