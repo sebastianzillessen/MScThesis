@@ -90,7 +90,10 @@ breaklines=true
 \makeglossaries
 
 
-\pretocmd{\section}{\glsresetall}{}{}
+\pretocmd{\section}{
+\glsresetall
+\glsunset{w.r.t.}
+}{}{}
 
 
 \begin{document}

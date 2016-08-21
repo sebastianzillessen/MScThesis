@@ -1,15 +1,14 @@
 \subsection{Extended Argumentation Framework - Working with Preferences in $AF$}
 \label{sub:eaf}
 
-%A Dung's argumentation framework is based on logical theory which is transformed to arguments and a binary attack relation. This limitation causes these frameworks to be incapable to express attacks on attacks in an easy way. As this is required to extend basic argumentation frameworks with a representation of defeasible preferences between arguments an extension to these frameworks will be presented in the following section.
 
 
-In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences (see \autoref{sub:paf}) or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences whether they are defeasible or conflicting by using an approach to argument about preferences on contextual preferences \cite{amgoud2000}. In addition it provides a user-friendly way to consider preferences which will improve the understandability of clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
-\autoref{fig:eaf_intro}, which is taken from \cite{Modgil2009}, shows an example for a \gls{EAF} representing the following arguments:
+In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences, regardless of them being  defeasible or conflicting \cite{amgoud2000}. In addition it provides a user-friendly way to consider preferences which will improve the understandability of clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
+\autoref{fig:eaf_intro}, which is taken from \cite{Modgil2009}, shows an example for an \gls{EAF} representing the following arguments:
 
 \begin{itemize}
-	\item $A$: "Today will be dry in London since the BBC forecast sunshine"
-	\item $B$: "Today will be wet in London since CNN forecast rain"
+	\item $A$: "Today will be dry in London since the BBC forecasts sunshine"
+	\item $B$: "Today will be wet in London since CNN forecasts rain"
 	\item $C$: "But I think the BBC are more trustworthy than CNN"
 	\item $D$: "However, statistically CNN are more accurate forecasters than the BBC"
 	\item $E$: "Basing on a comparison on statistics is more rigorous and rational than basing a comparison on your instincts about their relative trustworthiness"
@@ -17,34 +16,33 @@ In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} wil
 
 \bigskip
 
-\Glspl{EAF} have to be considered, as Sassoon \textit{et al.} defined the defeasible knowledge over possible models in there latest paper \cite{sassoon2016CD} by using this approach. It is reasonable to consider an order of importance for different preferences (e.g. preferences based on statistical knowledge should be regarded as more important than the clinicians personal preference). As this can be easily achieved in \glspl{EAF} by applying the preferences one by one related to their \glspl{CD}, this approach is in favour.
+\Glspl{EAF} have to be considered, as Sassoon \textit{et al.} defined the defeasible knowledge over possible models in there latest paper \cite{sassoon2016CD} by using this approach. It is reasonable to consider an order of importance for different preferences (e.g. preferences based on statistical knowledge should be regarded as more important than the clinicians personal preference). As this can be easily achieved in \glspl{EAF} by applying the preferences one by one related to their \glspl{CD}, this approach is in favour. Therefore, a brief introduction (based on \cite{Modgil2009}) to the definition of \glspl{EAF} is presented in the following section.
 
-Hence, a brief introduction to the definition of \glspl{EAF} is presented in the following section.
-\begin{figure}[b!]
-\centering
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                    thick]
-
-  \node[main] (A) {A};
-  \node[small,n_fill_green] (B) [left of=A] {B};
-  \node[small,n_fill_green] (C) [above right of=A] {C};
-  \node[main] (D) [below right of=A] {D};
-  \node[small,n_fill_green] (E) [right=3cm of A] {E};
-  
-  \path[every node/.style={font=\sffamily\small}]
-    (A) edge [bend right, dashed] coordinate [pos=0.5] (AB) node [left] {} (B)
-    (B) edge [bend right] coordinate [pos=0.5] (BA) node [left] {} (A)
-    (C) edge [bend right] coordinate [pos=0.5] (CD) node [left] {} (D)
-    (D) edge [bend right, dashed] coordinate [pos=0.5] (DC) node [left] {} (C)
-    ;
-   \path [every node/.style={red}] 
-   (C) edge [->>, bend right] node [left] {} (AB)
-   (D) edge [->>, bend left, dashed] node [left] {} (BA)
-   (E) edge [->>] node [left] {} (DC)
-   ;
-\end{tikzpicture}
-\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension.}
-\label{fig:eaf_intro}
+\begin{figure}[tbp]
+	\centering
+	\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+	                    thick]
+	
+	  \node[main] (A) {A};
+	  \node[small,n_fill_green] (B) [left of=A] {B};
+	  \node[small,n_fill_green] (C) [above right of=A] {C};
+	  \node[main] (D) [below right of=A] {D};
+	  \node[small,n_fill_green] (E) [right=3cm of A] {E};
+	  
+	  \path[every node/.style={font=\sffamily\small}]
+	    (A) edge [bend right, dashed] coordinate [pos=0.5] (AB) node [left] {} (B)
+	    (B) edge [bend right] coordinate [pos=0.5] (BA) node [left] {} (A)
+	    (C) edge [bend right] coordinate [pos=0.5] (CD) node [left] {} (D)
+	    (D) edge [bend right, dashed] coordinate [pos=0.5] (DC) node [left] {} (C)
+	    ;
+	   \path [every node/.style={red}] 
+	   (C) edge [->>, bend right] node [left] {} (AB)
+	   (D) edge [->>, bend left, dashed] node [left] {} (BA)
+	   (E) edge [->>] node [left] {} (DC)
+	   ;
+	\end{tikzpicture}
+	\caption{\gls{EAF} about the weather forcasts with preferences over arguments. Dashed attacks are canceled out. Double-arrow-headed edges represent attacks on attacks. Green nodes represent accepted arguments in the unique preferred extension.}
+	\label{fig:eaf_intro}
 \end{figure}
 
 
@@ -54,12 +52,12 @@ Hence, a brief introduction to the definition of \glspl{EAF} is presented in the
 	\begin{itemize}
 		\item $\R \subseteq \S \times \S$: attack relation.
 		\item $\D \subseteq \S \times \R$: new attack relation of arguments on attacks.
-		\item $\{(A, (B, C)), (A', (C, B))\} \subseteq \D \rightarrow \{(A, A'), (A', A)\} \subseteq \R$ (any arguments expressing contradictory preferences must attack each other).
+		\item $\{(A, (B, C)), (A', (C, B))\} \subseteq \D \rightarrow \{(A, A'), (A', A)\} \subseteq \R$ \textit{(any arguments expressing contradictory preferences must attack each other).}
 	\end{itemize}
 \end{definition}
 
 \begin{remark}
-To be able to express a preference between $C$ and $B$ by an additional argument $A$ it is required, that the arguments $B, C$ express contradictory preferences. This can be achieved, if $A$ defines a preference of $C$ over $B$ and the \gls{EAF} contains $\{(B, C), (C, B)\} \in \R$ and $(A, (B, C)) \in \D$. 
+To be able to express a preference between $C$ and $B$ by an additional argument $A$ it is required, that the arguments $B$ and $C$ express contradictory preferences. This can be achieved, if $A$ defines a preference of $C$ over $B$ and the \gls{EAF} contains $\{(B, C), (C, B)\} \in \R$ and $(A, (B, C)) \in \D$. 
 \end{remark}
 
 Let $\Delta = \langle \S, \R, \D \rangle$ be a \gls{EAF} and $S' \subseteq \S$ for the following definitions.
@@ -110,26 +108,30 @@ Let $S'$ be a conflict-free subset of $\S$ in $\langle \S, \R, \D \rangle$. Then
 
 \begin{definition}
 
-$R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$), iff:
+$R_{S'} = \{X_1 \rightarrow^{S'} Y_1, ..., 	X_n \rightarrow^{S'} Y_n\}$ is called a \textbf{reinstatement set} for $C \rightarrow^{S'} B$ ($C$ defeats\low{S'} $B$) iff:
 \begin{itemize}
 	\item $C \rightarrow^{S'} B \in R_{S'}$,
 	\item $\forall_{i=1}^n X_i \in S'$,
 	\item $\forall X \rightarrow^{S'} Y \in R_{S'}, \forall Y': (Y', (X, Y)) \in \D$, there is a $X' \rightarrow^{S'} Y' \in R_{S'}$.
 \end{itemize}
-\textit{(A set of attacks is called a reinstatement set (for a particular attack $C \rightarrow^{S'} B$), if for every attack relation in $R_{S'}$, which is attacked from another argument $Y'$, there is a attack relation in $R_{S'}$ that attacks this argument $Y'$ again and ensures the attack on the argument to hold. So a reinforcement sets guarantees that an attack on an argument is successfully performed, nevertheless what other attacks in the system exist. Hence these reinforcement sets can be used to define acceptability of arguments as seen in \autoref{def:eaf:acceptable}.)}
 \end{definition}
+
+\begin{remark}
+A set of attacks is called a reinstatement set (for a particular attack $C \rightarrow^{S'} B$), if for every attack relation in $R_{S'}$, which is attacked from another argument $Y'$, there is a attack relation in $R_{S'}$ that attacks this argument $Y'$ again and ensures the attack on the argument to hold. So a reinforcement sets guarantees, that an attack on an argument is successfully performed, nevertheless which other attacks in the system exist. Hence these reinforcement sets can be used to define acceptability of arguments as seen in \cref{def:eaf:acceptable}.
+\end{remark}
+
 
 The acceptability of an argument can now be formally defined based on the reinstatement set.
 
 \begin{definition}
 \label{def:eaf:acceptable}
-$A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
+$A \in \S$ is \textbf{acceptable} \gls{w.r.t.}	 $S'$ iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
 \end{definition}
 
 
-\begin{figure}[h]
+\begin{figure}[htb]
 	\centering
-	\subfigure[0.3\textwidth][$A_1$ is not acceptable w.r.t $S' = \{A_1, A_2\}$]{
+	\subfigure[0.3\textwidth][$A_1$ is not acceptable \gls{w.r.t.} $S' = \{A_1, A_2\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,thin]
 		
 		  \node[n_fill_red,small] (A1) [] {$A_1$};
@@ -151,7 +153,7 @@ $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{
 		\label{fig:eaf_not_acceptable}
 	}
 	\hfill
-	\subfigure[0.3\textwidth][$C$ is acceptable w.r.t $S' = \{A_1, A_2, A_3\}$]{
+	\subfigure[0.3\textwidth][$C$ is acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
 		                    thin]
 		
@@ -179,7 +181,7 @@ $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{
 		\label{fig:eaf_acceptable}
 	}
 	\hfill
-	\subfigure[0.3\textwidth][$C$ is not acceptable w.r.t $S' = \{A_1, A_2, A_3\}$]{
+	\subfigure[0.3\textwidth][$C$ is not acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
 		                    thin]
 		
@@ -212,7 +214,7 @@ $A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$, iff: $\forall B: B \rightarrow^{
 \end{figure}
 
 \begin{exa}
-	In Figure \autoref{fig:eaf_not_acceptable} $S'=\{A_1, A_2\}$ is not admissible since $A_1$ is not acceptable w.r.t. $S'$. In Figure \autoref{fig:eaf_acceptable} $C$ is acceptable w.r.t $S' = \{A_1, A_2, A_3\}$ as there is a reinstatement set $\{A_1 \rightarrow^{S'} B_1, A_2 \rightarrow^{S'} B_2, A_3 \rightarrow^{S'} B_3\}$ for $A_1 \rightarrow^{S'} B_1$. In Figure \autoref{fig:eaf_not_acceptable_big} there is an additional argument $B_4$ such that $B_4 \rightarrow (A_3 \rightarrow B_3)$ and no argument in $S'$ that defeats\low{S'} $B_4$, then no reinstatement set for $A_1 \rightarrow^{S'} B_1$ would exist, hence $C$ is not acceptable w.r.t. $S'$.
+	In Figure \autoref{fig:eaf_not_acceptable} $S'=\{A_1, A_2\}$ is not admissible since $A_1$ is not acceptable \gls{w.r.t.} $S'$. In Figure \autoref{fig:eaf_acceptable} $C$ is acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$ as there is a reinstatement set $\{A_1 \rightarrow^{S'} B_1, A_2 \rightarrow^{S'} B_2, A_3 \rightarrow^{S'} B_3\}$ for $A_1 \rightarrow^{S'} B_1$. In Figure \autoref{fig:eaf_not_acceptable_big} there is an additional argument $B_4$ such that $B_4 \rightarrow (A_3 \rightarrow B_3)$ and no argument in $S'$ that defeats\low{S'} $B_4$, then no reinstatement set for $A_1 \rightarrow^{S'} B_1$ would exist, hence $C$ is not acceptable \gls{w.r.t.} $S'$.
 \end{exa}
 
 Similar to Dung's theory, admissible, preferred, complete and stable extensions of an \gls{EAF} can now be defined.
@@ -221,9 +223,9 @@ Similar to Dung's theory, admissible, preferred, complete and stable extensions 
 \begin{definition}
 	Let $S'$ be a \textbf{conflict free} subset of $\S$ in $\langle \S, \R, \D \rangle$. Then:
 	\begin{itemize}
-		\item $S'$ is an \textbf{admissible} extension iff every argument in $S'$ is acceptable w.r.t $S'$.
-		\item $S'$ is a \textbf{preferred} extension iff $S'$ is (w.r.t. set inclusion) a maximal admissible extension.
-		\item $S'$ is a \textbf{complete} extension iff each argument which is acceptable w.r.t. $S'$ is in $S'$.
+		\item $S'$ is an \textbf{admissible} extension iff every argument in $S'$ is acceptable \gls{w.r.t.} $S'$.
+		\item $S'$ is a \textbf{preferred} extension iff $S'$ is (\gls{w.r.t.} set inclusion) a maximal admissible extension.
+		\item $S'$ is a \textbf{complete} extension iff each argument which is acceptable \gls{w.r.t.} $S'$ is in $S'$.
 		\item $S'$ is a \textbf{stable} extension iff $\forall B \notin S', \exists A \in S'$ such that $A$ defeats\low{S'} $B$.
 	\end{itemize}
 \end{definition}
@@ -236,17 +238,17 @@ By using this definition, we can define again \textbf{sceptically}, respectively
 
 
 \begin{lemma}
-	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable w.r.t. $S'$. Then:
+	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable \gls{w.r.t.} $S'$. Then:
 	\begin{itemize}
 		\item $S'' = S' \cup \{A\}$ is admissible.
-		\item $A'$ is acceptable w.r.t. $S''$.
+		\item $A'$ is acceptable \gls{w.r.t.} $S''$.
 	\end{itemize}	
 \end{lemma}
 
 \begin{lemma}
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}. 
 	\begin{itemize}
-		\item The set of all admissible extensions of $\Delta$ form a complete partial order w.r.t. set inclusion.
+		\item The set of all admissible extensions of $\Delta$ form a complete partial order \gls{w.r.t.} set inclusion.
 		\item For each admissible extension $E$ of $\Delta$ there exists a preferred extension $E'$ such that $E\subseteq E'$.
 	\end{itemize}
 	\label{lem:eaf:partialorder}
@@ -258,12 +260,12 @@ The definition of the characteristic function for an \gls{EAF} is similar but no
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'\subseteq \S$, and $2^{\S_C}$ denote the set of all conflict free subsets of $\S$. The \textbf{characteristic function} $F_\Delta$ of $\Delta$ is defined as follows:
 	\begin{itemize}
 		\item $F_\Delta: 2^{\S_C} \rightarrow 2^{\S}$
-		\item $F_\Delta(S') = \{A | A~\text{is acceptable w.r.t.~}S'\}$.
+		\item $F_\Delta(S') = \{A | A~\text{is acceptable \gls{w.r.t.}~}S'\}$.
 	\end{itemize}
 \end{definition}
 
 
-From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable w.r.t $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable w.r.t. the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
+From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable \gls{w.r.t.} $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable \gls{w.r.t.} the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
 \begin{lemma}
 Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\forall i, F^i \subseteq F^{i+1}$ and $F^i$ is conflict free.
 \end{lemma}
@@ -287,6 +289,5 @@ Similar to Dung's framework we can state the following relations between differe
 \end{itemize}	
 \end{remark}
 
-In addition Modgil \textit{et al.} introduce in \cite{Modgil2009} the concept of a special class of \glspl{EAF}, \textit{hiearchical \glspl{EAF}}, which are defined by the existence of a partition of $\Delta$ into multiple regular Dung argumentation frameworks. Due to this restriction it is possible to define a least fix point of the characteristic function $F$, hence defining the grounded extension $GE(\Delta)$ in the same way as it has been defined in Dung's framework. However, this is a to narrow restriction for our purposes, therefore this will not be described here. 
 
 

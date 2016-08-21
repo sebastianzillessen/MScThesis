@@ -1,8 +1,7 @@
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
                     thick]
   	\node[n_fill_red] (m1) {$m_1$};
-	\node[n_fill_green] (m2) [below of=m1]{$m_2$};
-	\node[dummy] (dummy) [below of=m2,yshift=0.8cm]{};
+	\node[n_fill_green] (m2) [below left of=m1]{$m_2$};
   \path[every node/.style={font=\sffamily\small}]
     (m1) edge [bend right, dashed] coordinate [pos=0.5] (m1m2) node [left] {} (m2)
     (m2) edge [bend right] coordinate [pos=0.5] (m2m1) node [left] {} (m1)

@@ -2,13 +2,13 @@
 
 \label{sub:statistical_model_selection}
 
-The goal of this project is to use argumentation theory for statistical model selection in mostly clinical environments. The demand for systems supporting clinicians during analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of datasets available for clinicians, and raising awareness on evidence based decision making). In the following section a short summary on the underlying theory presented by Sassoon \textit{et al.} in \cite{sassoon2014} will be given which will be extended by the elegant solution to express the order of preferences in different \glspl{CD} \cite{sassoon2016,sassoon2016CD}.
+The goal of this project is to use argumentation theory for statistical model selection in mostly clinical environments. The demand for systems supporting clinicians during analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of data sets available for clinicians, and raising awareness on evidence based decision making). In the following section a short summary on the underlying theory presented by Sassoon \textit{et al.} in \cite{sassoon2014} will be given which will be extended by the elegant solution to express the order of preferences in different \glspl{CD} \cite{sassoon2016,sassoon2016CD}.
 
-During the design of clinical studies, clinicians often struggle with selection the right model to analyse the retrieved data as they might not be qualified to perform the statistical model selection required for their research question. The process of implementing models, specifying their requirements, providing the arguments for or against these models and specifying preferences between them should be separated from the actual design process and  done by a statistician. An intelligent model selection system which is capable of suggesting appropriate model(s) would reduce administrative and demanding workload and empower clinicians to make data driven decisions.
+During the design of clinical studies, clinicians often struggle with selection the right model to analyse the retrieved data as they might not be qualified to perform the statistical model selection required for their research question. The process of implementing models, specifying their requirements, providing the arguments for or against these models and specifying preferences between them should be separated from the actual design process and  done by a statistician. An intelligent model selection system, which is capable of suggesting appropriate model(s), would reduce administrative and demanding workload and empower clinicians to make data driven decisions.
 
-Sassoon \textit{et al.} \cite{sassoon2014} address these problems with a defeasible knowledge base, as the (counter-) arguments for specific models might be contradicting. Furthermore the system, the clinician and the statistician might have different preferences over models, which need to be expressed in this  knowledge base. Therefore they propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences, which are reflected by \gls{CD} specific preference orders proposed in later work \cite{sassoon2016,sassoon2016CD} .
+Sassoon \textit{et al.} \cite{sassoon2014} address these problems with a defeasible knowledge base, as the (counter-) arguments for specific models might be contradicting. Furthermore the system, the clinician and the statistician might have different preferences over models which need to be expressed in this  knowledge base. Therefore they propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences which are reflected by \gls{CD} specific preference orders proposed in later work \cite{sassoon2016,sassoon2016CD} .
 
-The \textit{knowledge base} is used to instantiate the \textit{argumentation schemes}. The knowledge base itself defines how research objectives can be achieved through different statistical models considering their given assumptions. \textit{Research objectives} are defined as different 'families' of analysis (e.g. survival analysis or categorical outcome variable analysis).
+The \textit{knowledge base} is used to instantiate the \textit{argumentation schemes} and defines how research objectives can be achieved through different statistical models considering their given assumptions. \textit{Research objectives} are defined as different 'families' of analysis (e.g. survival analysis or categorical outcome variable analysis).
 
 
 \glsreset{SKB}
@@ -22,7 +22,7 @@ The \gls{SKB} consists of objectives $\O=\{o_1, ..., o_u\}$ (different types of 
 \end{definition}
 
 \begin{definition}
-	Let $R_{\M\A}: \M \times \A$ be relation between models and their assumptions. $(m_i, a_j)\in R_{\M\A}$ implies  the model $m_i$ requires the assumption $a_j$ to be true to be applicable. Let $\A(m_i) = \{a_j | (m_i, a_j) \in R_{\M\A}\}$ be the set of assumptions of $m_i$.
+	Let $R_{\M\A}: \M \times \A$ be the relation between models and their assumptions. $(m_i, a_j)\in R_{\M\A}$ implies  the model $m_i$ requires the assumption $a_j$ to be true to be applicable. Let $\A(m_i) = \{a_j | (m_i, a_j) \in R_{\M\A}\}$ be the set of assumptions of $m_i$.
 \end{definition}
 
 \begin{remark}
@@ -35,11 +35,11 @@ In contradiction to \cite{sassoon2014} we will not use the proposed approach to 
 To apply a model $m_i$ all assumptions $\A(m_i) = \{a_j | (m_i, a_j) \in R_{\M\A} \}$ must be met\footnote{As described in \cref{rem:cds} we regard all assumptions as critical.}.
 \end{definition}
 
-Each \textit{assumption} will be either specified as a specific property of the data set (assessed by applying tests on the data set) or as a characteristic of the population of interest or the way in which the data set was collected from that population (relying on the expertise of a domain expert). Sassoon proposes a partitioning of all assumptions: $\A_t$ denotes the set of tests (and apply a test on the available data set). $\A_q$ denotes the set of queries (and will be assessed by asking the clinician for an opinion). Lets define $\A_t(m_i)= \{a_j| (m_i, a_j) \in \A_t\}$ and $\A_q(m_i)= \{a_j| (m_i, a_j) \in \A_q\}$. 
+Each \textit{assumption} will be either specified as a specific property of the data set (assessed by applying tests on the data set) or as a characteristic of the population of interest or the way in which the data set was collected from that population (relying on the expertise of a domain expert). Sassoon proposes a partitioning of all assumptions: $\A_t$ denotes the set of \textit{tests} (applying a test on the available data set). $\A_q$ denotes the set of \textit{queries} (assessed by asking the clinician for an opinion). Lets define $\A_t(m_i)= \{a_j| (m_i, a_j) \in \A_t\}$ and $\A_q(m_i)= \{a_j| (m_i, a_j) \in \A_q\}$. 
 
-\autoref{fig:skb_example} shows the structure between \textit{objectives}, \textit{models} and \textit{assumptions} in a small example. The assumptions $\{a_1, a_2, a_3\} \in \A_t$ are based on the provided data set, $\{a_3, a_5\} \in \A_q$ are based on the domain expertise. Objectives $\{o_1, o_2\}$ can  be achieved by the possible model $m_1$, $o_3$ can only be achieved by $m_3$. 
+\autoref{fig:skb_example} shows the structure between \textit{objectives}, \textit{models} and \textit{assumptions} in a small example. The assumptions $\{a_1, a_2\} \in \A_t$ are based on the provided data set, $\{a_3, a_4\} \in \A_q$ are based on the domain expertise. Objectives $\{o_1, o_2\}$ can  be achieved by the possible model $m_1$, $o_3$ can only be achieved by $m_3$. 
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1cm,
                     thick]
@@ -78,7 +78,7 @@ Each \textit{assumption} will be either specified as a specific property of the 
 	(m3) edge [] node [left] {} (o3)
     ;
 \end{tikzpicture}
-\caption{Example of a \gls{SKB}. Green coloured assumptions hold while red coloured assumptions do not hold. Green coloured models are the possible models after \autoref{as:1}.}
+\caption{Example of a \gls{SKB}. Green coloured assumptions hold while red coloured assumptions do not hold. Green coloured models are the possible models after \cref{as:1}.}
 \label{fig:skb_example}
 \end{figure}
 
@@ -87,12 +87,10 @@ Each \textit{assumption} will be either specified as a specific property of the 
 \subsubsection{Adding Preferences for different Context Domains to the \gls{SKB}}
 \label{sub:preferences}
 
-To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing all their assumptions $\A(m_i)$ are met. The process of instantiating the arguments can be seen in \autoref{as:1}.
+To achieve an objective $o_c$ (which has been selected by the clinician) a number of models $m_i$ might be possible providing all their assumptions $\A(m_i)$ are met. The process of instantiating the arguments can be seen in \cref{as:1}.
 
-\begin{as}[h]
-\centering
-	\label{as:1}
-	\caption{Constructed argument for a Possible Model.}
+\begin{as}[tb]
+	\centering
 	\fbox{\begin{minipage}{0.7\textwidth}
 	\begin{itemize}
 		\item Model $m_i$ achieves objective $o_c$.
@@ -103,9 +101,11 @@ To achieve an objective $o_c$ (which has been selected by the clinician) a numbe
 	\rule{\textwidth}{0.5pt}\\
 	$~~~~\Rightarrow$  $m_i$ is a possible model for the research question $o_c$.
 	\end{minipage}}
+	\caption{Constructed argument for a Possible Model. 	\label{as:1}}
+
 \end{as}
 
-As quoted in \cref{rem:cds} we will not use the inital approach of instantiating AS2 as described in \cite{sassoon2014} but the \gls{CD}-based approach described in \cite{sassoon2016CD,sassoon2016}: An \gls{EAF} can be employed to capture and reason with statistical and research domain knowledge that affects the relative strength of arguments and thereby implies an order over different context domains. To do so, \glspl{CPAF} are used in combination with \glspl{EAF} by defining a preference ordering $Pref : \M \times \M$ for a given set of models $\M = \{m_1, ..., m_n\}$ by assigning performance measurements to each model for a given \gls{CD}. A sample performance function for model resilience to censoring (CD1) can be seen in \autoref{tab:cd1}, an additional second performance function for based on the intention of the model (CD2) can be seen in \autoref{tab:cd2} (both have been taken from \cite{sassoon2016CD}).
+As quoted in \cref{rem:cds} we will not use the initial approach of instantiating AS2 as described in \cite{sassoon2014} but the \gls{CD}-based approach described in \cite{sassoon2016,sassoon2016CD}: An \gls{EAF} can be employed to capture and reason with statistical and research domain knowledge that affects the relative strength of arguments and thereby implies an order over different context domains. To do so, \glspl{CPAF} are used in combination with \glspl{EAF} by defining a preference ordering $Pref : \M \times \M$ for a given set of models $\M = \{m_1, ..., m_n\}$ by assigning performance measurements to each model for a given \gls{CD}. A sample performance function for model resilience to censoring (CD1) can be seen in \autoref{tab:cd1}, an additional second performance function for based on the intention of the model (CD2) can be seen in \autoref{tab:cd2} (both have been taken from \cite{sassoon2016CD}).
 
 
 \begin{table}[t]
@@ -160,31 +160,33 @@ CD1_{heavy} &\twoheadrightarrow (m_1 \rightarrow m_2) & CD2_{explain} &\twoheadr
 CD1_{heavy} &\twoheadrightarrow (m_3 \rightarrow m_2) & CD2_{explain} &\twoheadrightarrow (m_2 \rightarrow m_3)\\
 \end{align*}
 
-\begin{figure}[!hb]
+\begin{figure}[hbtp]
 	\centering
 	\input{figures/cd1heavy_step1}
-	\caption{\gls{EAF} if $CD1_{heavy}$ holds: The attacks $(m_1,m_2)$ and $(m_3,m_2)$ are canceled out and $m_3$ is the only acceptable model w.r.t to $\S_1' = \{CD1_{heavy}\}$.}
+	\caption{\gls{EAF} if $CD1_{heavy}$ holds: The attacks $(m_1,m_2)$ and $(m_3,m_2)$ are canceled out and $m_3$ is the only acceptable model \gls{w.r.t.} to $\S_1' = \{CD1_{heavy}\}$.}
 	\label{fig:cd1_heavy}
 \end{figure}
 
-Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so that they get evaluated one after the other, until one final (if at all possible) preferred model remains. After evaluating the possible models by using \autoref{as:1} we will generate an \gls{AF} where each of the possible model attacks every other model. Then each \gls{CD} will be initiated and adds its attacks on the existing \gls{AF} and translates it into an \gls{EAF}, which can then be evaluated w.r.t. the argument holding in this \gls{CD} (e.g. $\S_1' = \{CD1_{heavy}\}$, see \autoref{fig:cd1_heavy}). If a final decision (only one model is acceptable w.r.t. $\S_1'$) can be made, the process terminates. 
+Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so that they get evaluated one after the other, until one final (if at all possible) preferred model remains. This order should be based on the global relevance of the \glspl{CD}: Statistical Theory $\succ$ Intention of Analysis $\succ$ Clinicians Preference. 
+
+After evaluating the possible models by using \autoref{as:1} we will generate an \gls{AF} where each of the possible model attacks every other model. Then each \gls{CD} will be initiated and adds its attacks on the existing \gls{AF} and translates it into an \gls{EAF}. This can then be evaluated \gls{w.r.t.} the argument holding in this \gls{CD} (e.g. $\S_1' = \{CD1_{heavy}\}$, see \cref{fig:cd1_heavy}). If a final decision (only one model is acceptable \gls{w.r.t.} $\S_1'$) can be made, the process terminates. 
 
 
-\begin{figure}[!h]
-	\subfigure[0.45\textwidth][First \gls{CD} applied: $CD1_{light}$ holds. The attacks $(m_3,m_2)$ and $(m_3,m_1)$ are canceled out. $m_3$ is not acceptable w.r.t $\S_2' = \{CD1_{light}\}$.]{
+\begin{figure}[hbtp]
+	\subfigure[0.45\textwidth][First \gls{CD} applied: $CD1_{light}$ holds. The attacks $(m_3,m_2)$ and $(m_3,m_1)$ are canceled out. $m_3$ is not acceptable \gls{w.r.t.} $\S_2' = \{CD1_{light}\}$.]{
 	  	\begin{minipage}{0.45\textwidth}
 		  	\centering
 		  	\input{figures/cd1light_step1}
-		  	\\
-		  	\hspace*{10pt}
-	  	\end{minipage}
+		  	\end{minipage}
 		\label{fig:cd1_light}
 	}
 	\hfill
-	\subfigure[0.45\textwidth][Next \gls{CD} applied: $CD2_{predict}$ holds. The attack $(m_1,m_2)$ is canceled out. $m_1$ is not acceptable w.r.t $\S_2'' = \{CD1_{light}, CD2_{predict}\}$. The recommended model is $m_2$.]{
+	\subfigure[0.45\textwidth][Next \gls{CD} applied: $CD2_{predict}$ holds. The attack $(m_1,m_2)$ is canceled out and $m_1$ is not possible anymore. Hence $m_2$ is the recommended model.]{
 	  	\begin{minipage}{0.45\textwidth}
 	  		\centering
 			\input{figures/cd1_light}
+			\\
+		  	\hspace*{70pt}
 		\end{minipage}
 		\label{fig:cd2_predict}
 	}
@@ -194,28 +196,7 @@ Sassoon \textit{et al.} propose further to assign each \gls{CD} a priority, so t
 
 
 
-\autoref{fig:cd1_light_cd2_predict} shows another example, where we need to evaluated multiple \glspl{CD} to get a final result. First the \gls{EAF} will be evaluated w.r.t. the argument holding in the first \gls{CD} $\S_1' = \{CD1_{light}\}$ (see \autoref{fig:cd1_light}), then the second \gls{CD} $\S_2'' = \{CD2_{predict}\}$ (see \autoref{fig:cd2_predict}) is applied. This is continued until no further preferences are defined or only one -- the preferred -- model remains.
+\autoref{fig:cd1_light_cd2_predict} shows another example, where we need to evaluated multiple \glspl{CD} to get a final result. First the \gls{EAF} will be evaluated \gls{w.r.t.} the argument holding in the first \gls{CD} $\S_1' = \{CD1_{light}\}$ as shown in \Cref{fig:cd1_light}, then the second \gls{CD} $\S_2'' = \{CD2_{predict}\}$ is applied in \Cref{fig:cd2_predict}. This is continued until no further preferences are defined or only one -- the preferred -- model remains.
 
 During this process the \glspl{CD} that relate to statistical theory are regarded as more important than clinician preferences. This is reflected in the final web application by reserving the priorities 1 - 9 to the statistician only (1 has the highest priority).
- 
-%\begin{algorithm}[h]
-%\caption{My algorithm}\label{lst:preferences_process}
-%\begin{algorithmic}[1]
-%\Procedure{GetPreferredModel}{RQ: ResearchQuestion, DS: Dataset}
-%\State $possibleModels \gets \{m_i : m_i \in RQ.models~\&~ m_i\text{ is possible in accordance \autoref{as:1}} \}$
-%\If {$i > \textit{stringlen}$} \Return false
-%\EndIf
-%\State $j \gets \textit{patlen}$
-%\State \emph{loop}:
-%\If {$\textit{string}(i) = \textit{path}(j)$}
-%\State $j \gets j-1$.
-%\State $i \gets i-1$.
-%\State \textbf{goto} \emph{loop}.
-%\State \textbf{close};
-%\EndIf
-%\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-%\State \textbf{goto} \emph{top}.
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
 

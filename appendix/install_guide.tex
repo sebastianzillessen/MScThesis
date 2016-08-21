@@ -1,0 +1,50 @@
+The following installation guide has been tested on a clean debian OS:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Install \texttt{postgresql} and \texttt{R} with:
+  \texttt{sudo\ apt-get\ install\ postgresql\ r-base}
+\item
+  Install \texttt{rvm} following \href{https://rvm.io/rvm/install}{this
+  guide}.
+\item
+  Clone the repository:\\
+  \texttt{git\ clone\ }\url{https://github.com/sebastianzillessen/small-data-analyst.git}
+\item
+  \texttt{cd\ small-data-analyst}
+\item
+  Install the required ruby version as prompted by rvm:
+  \texttt{rvm\ install\ ruby-2.2.4}
+\item
+  Install bundler: \texttt{gem\ install\ bundler\ foreman}
+\item
+  Install all required gems: \texttt{bundle\ install}
+\item
+  Set the AWS credentials in the file \texttt{.env}:
+
+\begin{verbatim}
+PORT=3000
+AWS_ACCESS_KEY_ID=XXXXXXXXXXXXX
+AWS_SECRET_ACCESS_KEY=YYYYYYYYYYYYYYYYYYYY
+S3_BUCKET_NAME=ZZZZZZZZZZZZZZ
+\end{verbatim}
+\item Set the database credentials if required in \texttt{config/database.yml}.
+\item
+  Initialise the database:\\
+  \texttt{rake\ db:create\ \&\&\ rake\ db:setup\ \&\&\ rake\ db:migrate}
+\item
+  Start the server with \texttt{foreman\ start}
+\item
+  Create an Admin user:
+
+\begin{verbatim}
+$ rails console
+> u = User.create(email: "test1@test.de", password: "fooPassword", 
+		approved: true, role: :admin)
+> u.confirm!
+\end{verbatim}
+\item
+  Navigate to \texttt{http://localhost:3000} and play around with the
+  application.
+\end{enumerate}

@@ -41,9 +41,10 @@
 \RequirePackage{amsmath, amsfonts, amsthm, amssymb}
 \RequirePackage{wasysym}
 
+
 %Additional Packages
 \RequirePackage{color}
-\RequirePackage[nottoc,notlot,notlof]{tocbibind}
+\RequirePackage[nottoc]{tocbibind}
 \RequirePackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
@@ -51,11 +52,12 @@
             anchorcolor = blue,
             breaklinks=true]{hyperref}
 \RequirePackage{breakurl}
-\hypersetup{pdfborder={0 0 100}}
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
 \RequirePackage{rotating}
-\RequirePackage[capitalize,nameinlink,noabbrev]{cleveref}
+\RequirePackage[nameinlink,noabbrev]{cleveref}
+
+
 
 % reset glossaries per section
 
@@ -100,6 +102,12 @@
 \newcommand*{\@signdate}{\today}
 
 
+\newfloat{as}{hbtp}{lop}
+\floatname{as}{AS}
+\newcommand{\asautorefname}{AS}
+\crefname{as}{AS}{AS}
+\Crefname{as}{AS}{AS}
+
 
 
 \newcommand{\low}[1]{{\tiny $_{#1}$}}
@@ -117,9 +125,6 @@
 
 
 
-\newfloat{as}{hbtp}{lop}
-\floatname{as}{AS}
-\newcommand{\asautorefname}{AS}
 
 
 % MACRO 

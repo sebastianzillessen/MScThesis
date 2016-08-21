@@ -13,10 +13,9 @@
     (m3) edge [dashed] coordinate [pos=0.5] (m3m2) node [left] {} (m2)
     ;
 	\node[box] (CD1light1)[above right of=m3m1,xshift=-1cm,yshift=-1cm] {$CD1_{light}$};
-	\node[box] (CD1light2)[below of=m3m2, yshift=1cm] {$CD1_{light}$};  
     
    \path [every node/.style={red}] 
-   (CD1light1) edge [->>] node [left] {} (m3m1)
-   (CD1light2) edge [->>] node [left] {} (m3m2)
+   (CD1light1) edge [->>] node [] {} (m3m1)
+   (CD1light1) edge [bend right,->>] node [] {} (m3m2)
    ;
 \end{tikzpicture}

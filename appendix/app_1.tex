@@ -1,20 +1,21 @@
 
 \section{Appendix}
+\label{app:a}
 
 \input{contents/other_af}
 
-\subsection{Sample clinical dataset}
+\subsection{Sample clinical data set}
 \label{app:dataset}
 {
 	\centering
 	\includegraphics[page=1,width=0.85\textwidth]{appendix/analysis_data.pdf}
 	\captionof{figure}{
-	Explanation of the example dataset provided by I. Sassoon (private email conversation)
+	Explanation of the example data set provided by I. Sassoon (private email conversation)
 	\label{fig:dataset}
 	}
 
 	\includegraphics[page=2,width=0.85\textwidth]{appendix/analysis_data.pdf}
-	\captionof{figure}{Possible research questions arising from the example dataset provided by I. Sassoon (private email conversation)
+	\captionof{figure}{Possible research questions arising from the example data set provided by I. Sassoon (private email conversation)
 		\label{fig:dataset:rq}
 	}
 }
@@ -22,6 +23,7 @@
 
 
 \section{Software related appendix}
+\label{app:b}
 \subsection{Code samples}
 
 \begin{listing}[H]
@@ -38,9 +40,16 @@
 	\label{lst:af}
 \end{listing}
 
+\begin{listing}[hbtp]
+	\rcode{figures/weibull_test.r}
+	\caption{R-script to perform a \texttt{QueryTestAssumption} on a data set to check whether the Weibull-Model is applicable or not. The script generates a plot that will be stored in \texttt{fileName} and presented to the end-user.}
+	\label{lst:rcode}
+\end{listing}
+
+
 \subsection{Installation Guide}
 \label{app:installation}
-\todo{Write Installation Guide}
+\input{appendix/install_guide}
 
 \subsection{Use Cases}
 \label{app:use_cases}
@@ -63,6 +72,7 @@ Figures \ref{fig:usecase:clinician}, \ref{fig:usecase:statistician} and \ref{fig
 }
 
 \section{Third party libaries}
+\label{app:c}
 \label{app:3rdparty}
 \autoref{tab:libs} contains all the third party libraries that have been used in the project. These are all public available and free of use. Additional information can be found for each listed \texttt{gem} under \href{http://rubygems.org}{http://rubygems.org}.
 
@@ -78,9 +88,12 @@ Figures \ref{fig:usecase:clinician}, \ref{fig:usecase:statistician} and \ref{fig
 	\label{tab:libs}
 \end{table}
 
-
+\clearpage
+\newpage
 
 \section{R-Spec test suite}
+\label{app:d}
+\label{app:rspec}
 \sloppy
 \autoref{sub:test_suit} provides an impression on the developed \texttt{rspec} tests. Only the first two pages have been generated. The whole report can be found on \href{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}. The test suite which is made out of $\approx 350$ specs results in a resonable test coverage of $\geq 85\%$ (see \href{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage} for in depth code climate details and coverage report).
 % rspec
