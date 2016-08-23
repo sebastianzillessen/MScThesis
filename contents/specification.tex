@@ -29,13 +29,13 @@ In addition to the described \glspl{use_case} in \autoref{tab:usecases} (derived
 \label{sub:sassoon:actors}
 During the requirements analysis the following actors have been identified and are described as follows:
 
-\textbf{Clinicians} are the main users of the system and do the actual analysis of a data set by using the predefined research questions, models and assumptions. A clinician should see all globally available research questions, models and their assumptions. In addition the preferences defined by the statistician will apply to all analyses a clinician performs. However they will be able to enter personal preferences between models that only apply for their analyses. An overview over those uses cases can be seen in \autoref{fig:usecase:clinician}.
+\textbf{Clinicians} are the main users of the system and do the actual analysis of a data set by using the predefined research questions, models and assumptions. A clinician should see all globally available research questions, models and their assumptions. In addition the preferences defined by the statistician will apply to all analyses a clinician performs. However they will be able to enter personal preferences between models that only apply for their analyses. An overview over those \glspl{use_case} can be seen in \autoref{fig:usecase:clinician}.
 
 \textbf{Statisticians} are able to enter statistical models into the system and to define global applicable preferences. To do so, a statistician can enter different types of assumptions mapped to models and preferences. These might contain query assumptions, where the clinician performing an analysis has to confirm a fact, or test assumptions that are checked against the data set by running an \texttt{R}-script. A statistician is as well allowed to see all data sets that have been uploaded and to check which analysis have been performed (see \autoref{fig:usecase:statistician}).
 
 
 
-\textbf{Administrators} are able to create, modify and delete all available data in the system. In addition an administrator is required to approve new users and to assign them to a role. They are as well capable of inviting new users into the system. An overview over their uses cases can be seen in \autoref{fig:usecase:admin}.
+\textbf{Administrators} are able to create, modify and delete all available data in the system. In addition an administrator is required to approve new users and to assign them to a role. They are as well capable of inviting new users into the system. An overview over their \glspl{use_case} can be seen in \autoref{fig:usecase:admin}.
 
 
 
@@ -45,7 +45,7 @@ During the requirements analysis the following actors have been identified and a
 \label{sub:use_cases}
 \autoref{tab:usecases} shows an overview over the major \glspl{use_case} being generated during the requirements analysis. For the sake of simplicity they have not been integrated into this thesis. However they are available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}\footnote{\url{https://trello.com/b/ywCkicpc}}.
 
-The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, deriving requirements have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach. Close feedback loops to the author of \cite{sassoon2016,sassoon2014,sassoon2016CD} (\gls{product owner} or client) ensured the correctness of these implementations. As the software was developed in a test driven approach (see \autoref{sec:tdd}), all features were implemented by designing tests first. This is reflected by the final test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall test coverage of $ \geq 85\%$\footnote{\url{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}}. \autoref{uc:12-1} shows an exemplary, detailed description of one \gls{use_case}.
+The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, deriving requirements have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach. Close feedback loops to the author of \cite{sassoon2016,sassoon2014,sassoon2016CD} (\gls{product owner} or client) ensured the correctness of these implementations. As the software was developed in a test driven approach (see \autoref{sec:tdd}), all features were implemented by designing tests first. This is reflected by the final test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall test coverage of $ \geq 85\%$\footnote{\url{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}}. \autoref{uc:121} shows an exemplary, detailed description of one \gls{use_case}.
 
 \begin{landscape}
 	\begin{longtable}{ l l p{11cm} l l p{3cm} }

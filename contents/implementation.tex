@@ -39,7 +39,7 @@ The algorithm presented in \cref{fig:af_algo} is based on an labelling approach 
 
 To test if a \texttt{TestAssumption} holds or not, statisticians have to upload \gls{R}-scripts that verify these assumptions on the selected data set. This is done by executing the script in \gls{R} and returning the result back to the \gls{RoR} application. Therefore the scripts have to fulfil certain criteria to be able to communicate correctly with the rest of the agent. The provided scripts are executed using regular R-Syntax. In addition to the by default loaded libraries, the \texttt{survival} library will be installed on the executing systems, as it is often used during analyses related to statistical model selection.
 
-Accessing the data setof the analysis as an input in the R-script is essential. The application supports only uploads of CSV files. Thereby the selected format of providing the data sets to the scripts was chosen to be a tabular representation as \gls{R} has an excellent support of loading CSV files.
+Accessing the data set of the analysis as an input in the R-script is essential. The application supports only uploads of CSV files. Thereby the selected format of providing the data sets to the scripts was chosen to be a tabular representation as \gls{R} has an excellent support of loading CSV files.
 
 \begin{listing}[htbp]
 	\rcode{figures/mild_censoring.r}

@@ -41,7 +41,7 @@
             citecolor = blue,
             anchorcolor = blue,
             breaklinks=true]{hyperref}
-\RequirePackage{breakurl}
+%\RequirePackage{breakurl}
 \RequirePackage{fancyhdr}
 \RequirePackage{subfigure}
 \RequirePackage{rotating}
