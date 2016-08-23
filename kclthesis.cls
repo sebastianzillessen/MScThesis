@@ -212,8 +212,7 @@
 
 \begin{minipage}{0.3\textwidth}
 	\begin{flushleft}
-	\textbf{
-		Name:\\
+	\textbf{Name:\\
 		Student Number:\\
 		Degree Programme:\\
 		Project Title:\\ 

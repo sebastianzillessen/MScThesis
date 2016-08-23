@@ -3,7 +3,7 @@
 
 
 
-In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences, regardless of them being  defeasible or conflicting \cite{amgoud2000}. In addition it provides a user-friendly way to consider preferences which will improve the understandability of clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
+In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} will be used, as it provides a useful meta-level on preferences between other arguments, by extending Dung's framework with a new attack relation between arguments and attacks. This overcomes the issues of defining orders over preferences or value-evaluation functions (see \autoref{sub:vaf}) and enables us to argue about preferences, regardless of them being  defeasible or conflicting \cite{amgoud2000}. In addition it provides a user-friendly way to consider preferences, which will improve the understandability of clinicians, who will be the main actors (see \autoref{sub:sassoon:actors}) in the final system.
 \autoref{fig:eaf_intro}, which is taken from \cite{Modgil2009}, shows an example for an \gls{EAF} representing the following arguments:
 
 \begin{itemize}
@@ -16,7 +16,7 @@ In this thesis the \gls{EAF} approach introduced by Modgil \cite{Modgil2009} wil
 
 \bigskip
 
-\Glspl{EAF} have to be considered, as Sassoon \textit{et al.} defined the defeasible knowledge over possible models in there latest paper \cite{sassoon2016CD} by using this approach. It is reasonable to consider an order of importance for different preferences (e.g. preferences based on statistical knowledge should be regarded as more important than the clinicians personal preference). As this can be easily achieved in \glspl{EAF} by applying the preferences one by one related to their \glspl{CD}, this approach is in favour. Therefore, a brief introduction (based on \cite{Modgil2009}) to the definition of \glspl{EAF} is presented in the following section.
+Sassoon \textit{et al.} define the defeasible knowledge via \Glspl{EAF} \cite{sassoon2016CD} as it is reasonable to consider an order of importance for different preferences (e.g. preferences based on statistical knowledge should be regarded as more important than the clinicians personal preference). This can be easily achieved in \glspl{EAF} by applying the preferences one by one related to their \glspl{CD}. Therefore, a brief introduction (based on \cite{Modgil2009}) to the definition of \glspl{EAF} is presented in the following section.
 
 \begin{figure}[tbp]
 	\centering
@@ -125,13 +125,13 @@ The acceptability of an argument can now be formally defined based on the reinst
 
 \begin{definition}
 \label{def:eaf:acceptable}
-$A \in \S$ is \textbf{acceptable} \gls{w.r.t.}	 $S'$ iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
+$A \in \S$ is \textbf{acceptable} w.r.t.	 $S'$ iff: $\forall B: B \rightarrow^{S'} A$, there is a $C \in S': C \rightarrow^{S'} B$ and there is a reinstatement set for $C \rightarrow^{S'} B$.
 \end{definition}
 
 
 \begin{figure}[htb]
 	\centering
-	\subfigure[0.3\textwidth][$A_1$ is not acceptable \gls{w.r.t.} $S' = \{A_1, A_2\}$]{
+	\subfigure[0.3\textwidth][$A_1$ is not acceptable w.r.t. $S' = \{A_1, A_2\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,thin]
 		
 		  \node[n_fill_red,small] (A1) [] {$A_1$};
@@ -153,7 +153,7 @@ $A \in \S$ is \textbf{acceptable} \gls{w.r.t.}	 $S'$ iff: $\forall B: B \rightar
 		\label{fig:eaf_not_acceptable}
 	}
 	\hfill
-	\subfigure[0.3\textwidth][$C$ is acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$]{
+	\subfigure[0.3\textwidth][$C$ is acceptable w.r.t. $S' = \{A_1, A_2, A_3\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
 		                    thin]
 		
@@ -181,7 +181,7 @@ $A \in \S$ is \textbf{acceptable} \gls{w.r.t.}	 $S'$ iff: $\forall B: B \rightar
 		\label{fig:eaf_acceptable}
 	}
 	\hfill
-	\subfigure[0.3\textwidth][$C$ is not acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$]{
+	\subfigure[0.3\textwidth][$C$ is not acceptable w.r.t. $S' = \{A_1, A_2, A_3\}$]{
 		\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.2cm,
 		                    thin]
 		
@@ -214,7 +214,7 @@ $A \in \S$ is \textbf{acceptable} \gls{w.r.t.}	 $S'$ iff: $\forall B: B \rightar
 \end{figure}
 
 \begin{exa}
-	In Figure \autoref{fig:eaf_not_acceptable} $S'=\{A_1, A_2\}$ is not admissible since $A_1$ is not acceptable \gls{w.r.t.} $S'$. In Figure \autoref{fig:eaf_acceptable} $C$ is acceptable \gls{w.r.t.} $S' = \{A_1, A_2, A_3\}$ as there is a reinstatement set $\{A_1 \rightarrow^{S'} B_1, A_2 \rightarrow^{S'} B_2, A_3 \rightarrow^{S'} B_3\}$ for $A_1 \rightarrow^{S'} B_1$. In Figure \autoref{fig:eaf_not_acceptable_big} there is an additional argument $B_4$ such that $B_4 \rightarrow (A_3 \rightarrow B_3)$ and no argument in $S'$ that defeats\low{S'} $B_4$, then no reinstatement set for $A_1 \rightarrow^{S'} B_1$ would exist, hence $C$ is not acceptable \gls{w.r.t.} $S'$.
+	In Figure \autoref{fig:eaf_not_acceptable} $S'=\{A_1, A_2\}$ is not admissible since $A_1$ is not acceptable w.r.t. $S'$. In Figure \autoref{fig:eaf_acceptable} $C$ is acceptable w.r.t. $S' = \{A_1, A_2, A_3\}$ as there is a reinstatement set $\{A_1 \rightarrow^{S'} B_1, A_2 \rightarrow^{S'} B_2, A_3 \rightarrow^{S'} B_3\}$ for $A_1 \rightarrow^{S'} B_1$. In Figure \autoref{fig:eaf_not_acceptable_big} there is an additional argument $B_4$ such that $B_4 \rightarrow (A_3 \rightarrow B_3)$ and no argument in $S'$ that defeats\low{S'} $B_4$, then no reinstatement set for $A_1 \rightarrow^{S'} B_1$ would exist, hence $C$ is not acceptable w.r.t. $S'$.
 \end{exa}
 
 Similar to Dung's theory, admissible, preferred, complete and stable extensions of an \gls{EAF} can now be defined.
@@ -223,9 +223,9 @@ Similar to Dung's theory, admissible, preferred, complete and stable extensions 
 \begin{definition}
 	Let $S'$ be a \textbf{conflict free} subset of $\S$ in $\langle \S, \R, \D \rangle$. Then:
 	\begin{itemize}
-		\item $S'$ is an \textbf{admissible} extension iff every argument in $S'$ is acceptable \gls{w.r.t.} $S'$.
-		\item $S'$ is a \textbf{preferred} extension iff $S'$ is (\gls{w.r.t.} set inclusion) a maximal admissible extension.
-		\item $S'$ is a \textbf{complete} extension iff each argument which is acceptable \gls{w.r.t.} $S'$ is in $S'$.
+		\item $S'$ is an \textbf{admissible} extension iff every argument in $S'$ is acceptable w.r.t. $S'$.
+		\item $S'$ is a \textbf{preferred} extension iff $S'$ is (w.r.t. set inclusion) a maximal admissible extension.
+		\item $S'$ is a \textbf{complete} extension iff each argument that is acceptable w.r.t. $S'$ is in $S'$.
 		\item $S'$ is a \textbf{stable} extension iff $\forall B \notin S', \exists A \in S'$ such that $A$ defeats\low{S'} $B$.
 	\end{itemize}
 \end{definition}
@@ -233,22 +233,22 @@ Similar to Dung's theory, admissible, preferred, complete and stable extensions 
 
 By using this definition, we can define again \textbf{sceptically}, respectively \textbf{credulously}, accepted arguments under the semantic $ s \in $\{preferred, complete, stable\} iff $A$ is in every (at least one) $s$ extension. 
 \begin{exa}
-	The example given in \autoref{fig:eaf_intro} has only the single preferred, complete and stable extension $\{B, C, E\}$. \autoref{fig:eaf_small} has the admissible sets $\{A\}, \{A, C\}, \{A, B, C\}$. $\{A, B, C\}$ is the only preferred extension which is as well stable.
+	The example given in \autoref{fig:eaf_intro} has only the single preferred, complete and stable extension $\{B, C, E\}$. \autoref{fig:eaf_small} has the admissible sets $\{A\}, \{A, C\}, \{A, B, C\}$. $\{A, B, C\}$ is the only preferred extension that is as well stable.
 \end{exa}
 
 
 \begin{lemma}
-	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable \gls{w.r.t.} $S'$. Then:
+	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'$ an admissible extension of $\Delta$ and let $A, A'$ be arguments which are acceptable w.r.t. $S'$. Then:
 	\begin{itemize}
 		\item $S'' = S' \cup \{A\}$ is admissible.
-		\item $A'$ is acceptable \gls{w.r.t.} $S''$.
+		\item $A'$ is acceptable w.r.t. $S''$.
 	\end{itemize}	
 \end{lemma}
 
 \begin{lemma}
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}. 
 	\begin{itemize}
-		\item The set of all admissible extensions of $\Delta$ form a complete partial order \gls{w.r.t.} set inclusion.
+		\item The set of all admissible extensions of $\Delta$ form a complete partial order w.r.t. set inclusion.
 		\item For each admissible extension $E$ of $\Delta$ there exists a preferred extension $E'$ such that $E\subseteq E'$.
 	\end{itemize}
 	\label{lem:eaf:partialorder}
@@ -260,12 +260,12 @@ The definition of the characteristic function for an \gls{EAF} is similar but no
 	Let $\Delta = \langle \S, \R, \D \rangle$ be an \gls{EAF}, $S'\subseteq \S$, and $2^{\S_C}$ denote the set of all conflict free subsets of $\S$. The \textbf{characteristic function} $F_\Delta$ of $\Delta$ is defined as follows:
 	\begin{itemize}
 		\item $F_\Delta: 2^{\S_C} \rightarrow 2^{\S}$
-		\item $F_\Delta(S') = \{A | A~\text{is acceptable \gls{w.r.t.}~}S'\}$.
+		\item $F_\Delta(S') = \{A | A~\text{is acceptable w.r.t.~}S'\}$.
 	\end{itemize}
 \end{definition}
 
 
-From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable \gls{w.r.t.} $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable \gls{w.r.t.} the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
+From here on we will always refer to a fixed \gls{EAF}, hence we can simply write $F$ rather than $F_\Delta$. Equally to Dung's Framework, any conflict-free set $S' \subseteq \S$ in $\Delta$ is admissible iff $S' \subseteq F(S')$, and complete iff $S'$ is a fixed point of $F$. We can apply $F$ iteratively on an \gls{EAF}: $F^0 = \emptyset, F^{i+1} = F(F^i))$. Note, that for \glspl{EAF} the characteristic function $F$ is in general \textbf{not} monotonic (e.g. $C$ is acceptable w.r.t. $S'= \{A_1, A_2, A_3\}$ in \autoref{fig:eaf_acceptable}, but is not acceptable w.r.t. the conflict-free $S'' = S' \cup \{B_2, B_3\}$).
 \begin{lemma}
 Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^{i+1} = F(F^i)$. Then $\forall i, F^i \subseteq F^{i+1}$ and $F^i$ is conflict free.
 \end{lemma}
@@ -283,7 +283,7 @@ Let $F$ be the characteristic function of an \gls{EAF}, and $F^0 = \emptyset, F^
 \begin{remark}
 Similar to Dung's framework we can state the following relations between different extensions:
 \begin{itemize}
-	\item Every \gls{EAF} has at least one preferred extension (implied by \cref{lem:eaf:partialorder} as $\emptyset$ is an admissible extension for every \gls{EAF}).
+	\item Every \gls{EAF} has at least one preferred extension (implied by \Cref{lem:eaf:partialorder} as $\emptyset$ is an admissible extension for every \gls{EAF}).
 	\item Every stable extension of an \gls{EAF} is a preferred extension.
 	\item The grounded extension for \gls{EAF} is not defined over the least fix point of the characteristic function $F$, but can be defined for finitary \glspl{EAF} over the union of all characteristic functions $F^i$.
 \end{itemize}	

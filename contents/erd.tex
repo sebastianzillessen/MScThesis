@@ -12,15 +12,15 @@ The underlying database structure of the developed application is mostly influen
 \end{sidewaysfigure*}
 
 
-The most important class is \texttt{Analysis} which is associated with \texttt{Dataset} and \texttt{Research-} \texttt{Question}. It has many answered or open \texttt{QueryAssumptionResults}\footnote{This class stores the answers of a clinician to one particular \texttt{QueryAssumption}} and a list of \texttt{PossibleModels} (including impossible models and there \texttt{Reason} why they got rejected). \texttt{ResearchQuestions} have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for its \texttt{Model}. These \texttt{Assumptions} have different specialisations: 
+The most important class is \texttt{Analysis} which is associated with \texttt{Dataset} and \texttt{Research-} \texttt{Question}. It has many answered or open \texttt{QueryAssumptionResults}\footnote{This class stores the answers of a clinician to one particular \texttt{QueryAssumption}} and a list of \texttt{PossibleModels} (including impossible models and their \texttt{Reason} why they got rejected). \texttt{ResearchQuestions} have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for its \texttt{Model}. These \texttt{Assumptions} have different specialisations: 
 
 \bigskip
 
 \begin{itemize}
 
-	\item \texttt{TestAssumption}: An assumption that requires a \texttt{R}-script to be executed and to return \texttt{true} or \texttt{false}. These assumptions will be checked automatically by the system and rely only on the data set used in an analysis.
+	\item \texttt{TestAssumption}: An assumption that requires an \texttt{R}-script to be executed and to return \texttt{true} or \texttt{false}. These assumptions will be checked automatically by the system and rely only on the data set used in an analysis.
 	\item \texttt{QueryAssumption}: A clinician has to provide a \textit{yes} or \textit{no} answer to a question during the process of the analysis. Only if he answers positively, this assumption holds.
-	\item \texttt{QueryTestAssumption}: A \texttt{R}-script generates a plot based on the data set, which is then presented to the user who has to confirm, that the plot shows some required features.
+	\item \texttt{QueryTestAssumption}: An \texttt{R}-script generates a plot based on the data set, which is then presented to the user who has to confirm, that the plot shows some required features.
 	\item \texttt{BlankAssumption}: An assumption that represents a grouping ability for other assumptions. All assigned assumptions (regardless of their type) must hold. 
 \end{itemize}
 \bigskip

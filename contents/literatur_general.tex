@@ -1,8 +1,7 @@
-\subsection{Argumentation Theory: General introduction}
+\subsection{Argumentation Theory: General Introduction}
 \glsresetall
-\glsunset{w.r.t.}
 \label{sub:dung}
-In the following section a general overview on \glspl{AF} will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for \glspl{AF} and the main sources of this dissertation \cite{Modgil2009,sassoon2016,sassoon2014,sassoon2016CD} are based on this approach.
+In the following section a general overview on \glspl{AF} will be given. The notation and definitions are based on Dung's theory \cite{dung1995} as it is a widely used definition for \glspl{AF} and the main sources of this thesis \cite{Modgil2009,sassoon2016,sassoon2014,sassoon2016CD} are based on this approach.
 \begin{definition}
 	An argumentation framework is a tuple $AF = \langle \S, \R \rangle$ where $\S$ is a set of arguments and $ \R \subseteq \S \times \S$. $\R$ is a binary \textit{"attack relation"}.
 \end{definition}
@@ -16,7 +15,7 @@ An (abstract) argumentation framework can be represented as a directed graph whe
 \end{remark}
 
 \begin{remark}
-	Later in this dissertation assumptions that need to hold for a specific model are introduced. They are as well represented as a directed graph, but here an edge from assumption $A$ to model $B$ denotes that the assumption $A$ needs to hold so that $B$ is a possible model. However, the difference will be determinable from the context.
+	Later in this thesis assumptions that need to hold for a specific model are introduced. These are as well represented as a directed graph, but here an edge from assumption $A$ to model $B$ denotes that the assumption $A$ needs to hold so that $B$ is a possible model. However, the difference will be determinable from the context.
 \end{remark}
 
 
@@ -62,11 +61,11 @@ Conflict-free subsets in \autoref{fig:small_af} are: $\emptyset, \{A\}, \{B\}, \
 \end{exa}
 
 \begin{definition}
-$A$ is \textbf{acceptable} \gls{w.r.t.} a subset $S'$ iff  $\forall B \in \S: (B, A) \in \R \Rightarrow \exists C \in S': (C, B) \in \R$ \textit{(an argument $A$ is acceptable with respect to a subset $S'$ iff for each attacker $C$ of $A$ there is an argument in $S'$ that attacks this attacker of $A$). }
+$A$ is \textbf{acceptable} w.r.t. a subset $S'$ iff  $\forall B \in \S: (B, A) \in \R \Rightarrow \exists C \in S': (C, B) \in \R$ \textit{(an argument $A$ is acceptable with respect to a subset $S'$ iff for each attacker $C$ of $A$ there is an argument in $S'$ that attacks this attacker of $A$). }
 \end{definition}
 
 \begin{remark}
-If an argument $A$ is acceptable \gls{w.r.t.} a subset $S'$, then there exists no holding counter-argument in this \gls{AF} causing the argument $A$ not to hold.
+If an argument $A$ is acceptable w.r.t. a subset $S'$, then there exists no holding counter-argument in this \gls{AF} causing the argument $A$ not to hold.
 \end{remark}
 
 \begin{lemma}
@@ -102,7 +101,7 @@ $S'$ is a \textbf{complete extension} iff  $S'$ is admissible and each argument 
 \end{definition}
 
 \begin{remark}
-	A complete extension is a set of arguments that defends all members and includes all arguments that can be accepted regarding these members. In \autoref{fig:small_af} the set $S'=\{A\}$ is acceptable, but as this set defends as well $E$ (the only attacker $B$ is not acceptable \gls{w.r.t.} $S'$), this argument must be included in $S'$ to make the set complete. Hence $S' = \{A, E\}$ is a complete extension. 
+	A complete extension is a set of arguments that defends all members and includes all arguments that can be accepted regarding these members. In \autoref{fig:small_af} the set $S'=\{A\}$ is acceptable, but as this set defends as well $E$ (the only attacker $B$ is not acceptable w.r.t. $S'$), this argument must be included in $S'$ to make the set complete. Hence $S' = \{A, E\}$ is a complete extension. 
 \end{remark}
 
 
@@ -160,7 +159,7 @@ The preferred extensions in \autoref{fig:pref_af} are $\{A, C\}$ and $\{A, D\}$.
 \end{exa}
 
 \begin{definition}
-A conflict-free set of arguments $S' \subseteq \S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument which does not belong to $S'$.
+A conflict-free set of arguments $S' \subseteq \S$ is called a \textbf{stable extension} iff $S'$ directly attacks each argument that does not belong to $S'$.
 \end{definition}
 \begin{exa}
 The $AF$ in \autoref{fig:pref_af} has the stable extension $\{A, D\}$. $\{A, C\}$ is a preferred, but not a stable extension.
@@ -190,7 +189,7 @@ The different extensions of a $AF = \langle \S, \R \rangle$ have the following r
 \end{exa}
 
 
-Furthermore \cite{dung1995} introduces \textit{well-founded argumentation frameworks} (having exactly one extension which is grounded, preferred and stable), \textit{uncontroversial argumentation frameworks} and \textit{coherent argumentation frameworks} (each preferred extension of an $AF$ is stable). Regarding the problem we are looking at, defeasible argumentation is really important, as we are dealing with inconsistent \glspl{SKB}. Hence these restricted argumentation frameworks will not be used in this project, therefore they are not discussed any further.
+Furthermore \cite{dung1995} introduces \textit{well-founded argumentation frameworks} (having exactly one extension that is grounded, preferred and stable), \textit{uncontroversial argumentation frameworks} and \textit{coherent argumentation frameworks} (each preferred extension of an $AF$ is stable). Regarding the problem we are looking at, defeasible argumentation is really important, as we are dealing with inconsistent \glspl{SKB}. Hence these restricted argumentation frameworks will not be used in this project, therefore they are not discussed any further.
 
 
 In addition to the discussed extension-based semantics, \cite{liao} introduces a so called \textit{labelling-based approach} where there are usually three labels: \texttt{IN} (accepted argument), \texttt{OUT} (rejected argument) and \texttt{UNDEC} (undecided whether this argument is accepted or rejected) and a labelling function $\lambda: \S \rightarrow \{IN, OUT, UNDEC\}$.

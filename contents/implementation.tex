@@ -7,21 +7,21 @@ In the following section, some implementation details will be highlighted. An en
 
 \input{contents/erd}
 
-\subsection{\Gls{EAF} Algorithm}
+\subsection{Extended Argumentation Framework: Algorithm}
 \label{sub:eaf_algorithm}
 
-An algorithm to solve \glspl{EAF} was presented in \cite{Dunne10computationin} (see \cref{fig:eaf_algo}) and is used to solve acceptability \gls{w.r.t.} a subset $S' \subseteq \X$ of an argument $x \in \X$ in an \gls{EAF}. The presented algorithm defines an \gls{EAF} as a triple $\langle \X, \A, \D \rangle$ (\autoref{sub:eaf} introduced it as $\langle \S, \R, \D \rangle$).
-This algorithm transforms an \gls{EAF} into an \gls{AF} using a colouring-based approach. To do so, it eliminates the attack-on-attacks relation $\D$ by removing elements from $\A$ according to the provided subset $S'$. In addition, \cref{fig:af_algo} (see \cref{sub:af_algorithm}) will be applied to check whether $x$ is acceptable \gls{w.r.t.} $S'$ in the resulting AF $\langle \X', \A' \rangle$\footnote{As the \gls{EAF} gets reduced to an \gls{AF} the following is true: $\X' \subseteq \X, \A' \subseteq \A$.}.
+An algorithm to solve \glspl{EAF} was presented in \cite{Dunne10computationin} (see \cref{fig:eaf_algo}) and is used to solve acceptability w.r.t. a subset $S' \subseteq \X$ of an argument $x \in \X$ in an \gls{EAF}. The presented algorithm defines an \gls{EAF} as a triple $\langle \X, \A, \D \rangle$ (\autoref{sub:eaf} introduced it as $\langle \S, \R, \D \rangle$).
+This algorithm transforms an \gls{EAF} into an \gls{AF} using a colouring-based approach. To do so, it eliminates the attack-on-attacks relation $\D$ by removing elements from $\A$ according to the provided subset $S'$. In addition, \cref{fig:af_algo} (see \cref{sub:af_algorithm}) will be applied to check whether $x$ is acceptable w.r.t. $S'$ in the resulting AF $\langle \X', \A' \rangle$\footnote{As the \gls{EAF} gets reduced to an \gls{AF} the following is true: $\X' \subseteq \X, \A' \subseteq \A$.}.
 
 
 \begin{algorithm}[!htp]
 	\includegraphics[width=0.8\textwidth]{figures/eaf_algorithm}
-	\caption{Deciding \gls{EAF} Acceptability of $x \in \X$ \gls{w.r.t.} $S' \subseteq \X$ in $\langle \X, \A, \D \rangle$.}
+	\caption{Deciding \gls{EAF} Acceptability of $x \in \X$ w.r.t. $S' \subseteq \X$ in $\langle \X, \A, \D \rangle$.}
 	\label{fig:eaf_algo}
 \end{algorithm}
 
 
-\subsection{\Gls{AF} Algorithm}
+\subsection{Argumentation Framework: Algorithm}
 \label{sub:af_algorithm}
 
 The algorithm presented in \cref{fig:af_algo} is based on an labelling approach proposed in \cite{Modgil2009Proof, rodrigues}. It is supposed to calculate the preferred extensions of an \gls{AF}. \texttt{Cand} holds the possible candidates for a preferred labelling as defined in \cref{def:preferred_extension} and is initialised with \texttt{Cand = $\emptyset$}. The Ruby implementation of this algorithm can be found in \cref{lst:af}. The used class \texttt{Labeling} can be found in the provided source code. 

@@ -1,7 +1,7 @@
 \section{Software Design Process}
 \label{sec:design}
 
-The software design process has been inspired by \Glspl{use_case} 2.0 of Iva Jacobsen \textit{et al.} \cite{jacobson2011usecase}. This approach is an extension of the \gls{UML} definition for \glspl{use_case} and includes a more specific approach how to deal with different layers of abstraction. This helps to guide the requirement analysis in an efficient way and enables easy communication between software engineers and non-coders. A brief overview of the used approach can be found in \autoref{fig:usecase20:flow}.
+The software design process has been inspired by \Glspl{use_case} 2.0 of Iva Jacobsen \textit{et al.} \cite{jacobson2011usecase}. This approach is an extension of the \gls{UML} definition for \glspl{use_case} and includes a more specific approach on how to deal with different layers of abstraction. This helps to guide the requirement analysis in an efficient way and enables easy communication between software engineers and other stakeholders. A brief overview of the used approach can be found in \autoref{fig:usecase20:flow}.
 
 \begin{figure}[!ht]
 \centering
@@ -14,16 +14,16 @@ The software design process has been inspired by \Glspl{use_case} 2.0 of Iva Jac
 \subsection{Use Cases, Use Case Flows and Use Case Slices}
 \Glspl{use_case} are the core concept in Use Case 2.0. In addition to the original \gls{UML} specification, \glspl{use_case} are described as cards including the attributes Priority, Release, Size and Complexity. The MoSCoW scheme \cite{moscow} (Must, Should, Could, Won't) is used for priorisation. After the initial requirement analysis, \glspl{use_case_slice} are generated usually including flows, tests and an estimation of the development. In this step the different \glspl{Actor} are identified and test cases are specified. To do so, the \glspl{use_case_slice} are analysed regarding the interaction of system elements. They are then going to be implemented and tested with the previous defined test scenarios (\glspl{unit_test} and \glspl{integration_test}). Finally the whole system will be tested with \glspl{e2e_test}.
 
-\textbf{\Glspl{use_case}} are the general tasks the system and the actors will perform. They represent a whole feature set, are not thought completely through and do not contain directly implementable tasks.
+\Glspl{use_case} capture and identify the different goals of a system by telling a story on how to achieve a specific goal. This allows an easy communication of requirements of a system. \cite{jacobson2011usecase}
 
-\textbf{\Glspl{use_case_flow}} define, how the interaction between actors and the system proceeds. Usually there is a standard flow, and alternative (error / exception handling) flows. 
+\textbf{\Glspl{use_case_flow}} define how the interaction between actors and the system proceeds. Usually there is a standard flow, and alternative (error / exception handling) flows. 
 
 \textbf{\Glspl{use_case_slice}} are the final development tasks. They will be generated out of the use case flows and can be independently implemented as a single iteration step. They are based on flows and test cases. Further test cases are usually generated during the implementation to react on system specific scenarios and test requirements.
 
 
-\subsection{Test Driven development}
+\subsection{Test Driven Development}
 \label{sec:tdd}
-\Gls{TDD} encourages simple designs and modularity of software products \cite{tdd}. Many companies therefore employ a \gls{TDD} process. This project uses \gls{RoR} which has test driven mechanics build in its core framework (\texttt{rspec}). In combination with the introduced Use Case 2.0 approach, \gls{TDD} can be easily used to ensure correctnes between the specification of a \gls{use_case} and the actual implementation. In general \gls{TDD} is constructed out of following steps which are applied iterative: 
+\Gls{TDD} encourages simple designs and modularity of software products \cite{tdd}. Many companies therefore employ a \gls{TDD} process. This project uses \gls{RoR} which has test driven mechanics build in its core framework (\texttt{rspec}). In combination with the introduced Use Case 2.0 approach, \gls{TDD} can be easily used to ensure correctness between the specification of a \gls{use_case} and the actual implementation. In general \gls{TDD} is constructed out of following steps which are applied iterative: 
 
 \begin{enumerate}
 	\item Adding a test.
