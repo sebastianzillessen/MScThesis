@@ -12,7 +12,7 @@ The underlying database structure of the developed application is mostly influen
 \end{sidewaysfigure*}
 
 
-The most important class is \texttt{Analysis} which is associated with \texttt{Dataset} and \texttt{Research-} \texttt{Question}. It has many answered or open \texttt{QueryAssumptionResults}\footnote{This class stores the answers of a clinician to one particular \texttt{QueryAssumption}} and a list of \texttt{PossibleModels} (including impossible models and their \texttt{Reason} why they got rejected). \texttt{ResearchQuestions} have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for its \texttt{Model}. These \texttt{Assumptions} have different specialisations: 
+The most important class is \texttt{Analysis}, which is associated with \texttt{Dataset} and \texttt{Research-} \texttt{Question}. It has many answered or open \texttt{QueryAssumptionResults}\footnote{This class stores the answers of a clinician to one particular \texttt{QueryAssumption}} and a list of \texttt{PossibleModels} (including impossible models and their \texttt{Reason} why they got rejected). \texttt{ResearchQuestions} have and belong to many \texttt{Models}. Each of these has multiple \texttt{Assumptions} that need to hold for its \texttt{Model}. These \texttt{Assumptions} have different specialisations: 
 
 \bigskip
 
@@ -26,6 +26,6 @@ The most important class is \texttt{Analysis} which is associated with \texttt{D
 \bigskip
 
 
-\texttt{Preferences} have different \texttt{PreferenceArguments} that represent a specific \gls{CD} which are assigned to a particular \texttt{ModelOrder}. This allows the representation of \glspl{CD}, their order and the expressed preferences as described in \autoref{sub:SKB} in a generic way without limiting the triggers for a \gls{CD} to any particular \texttt{Assumption} type. 
+\texttt{Preferences} have different \texttt{PreferenceArguments} that represent a specific \gls{CD}, which are assigned to a particular \texttt{ModelOrder}. This allows the representation of \glspl{CD}, their order and the expressed preferences as described in \autoref{sub:SKB} in a generic way without limiting the triggers for a \gls{CD} to any particular \texttt{Assumption} type. 
 
 The class \texttt{DatasetTestAssumptionResult} stores for each \texttt{TestAssumption} and each \texttt{Dataset} a pre-calculated result to enhance the speed of the evaluation during new \texttt{Analses}. \texttt{PreferenceQueryAssumptionResults} and \texttt{QueryAssumptionResults} store the answers of clinicians to \texttt{(Test)QueryAssumptions} for one particular \texttt{Analysis}.

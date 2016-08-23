@@ -2,11 +2,11 @@
 
 \label{sub:statistical_model_selection}
 
-The goal of this project is to use argumentation theory for statistical model selection in mostly clinical environments. The demand for systems supporting clinicians during analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of data sets available for clinicians, and raising awareness on evidence based decision making). In the following section a short summary on the underlying theory presented by Sassoon \textit{et al.} in \cite{sassoon2014} will be given, which will be extended by the solution to express the order of preferences in different \glspl{CD} \cite{sassoon2016,sassoon2016CD}.
+The goal of this project is to use argumentation theory for statistical model selection in mostly clinical environments. The demand for systems supporting clinicians during analysis of this data in their day-to-day practice is extending (because of increasing availability, growing size of data sets available for clinicians, and raising awareness on evidence based decision-making). In the following section a short summary on the underlying theory presented by Sassoon \textit{et al.} in \cite{sassoon2014} will be given, which will be extended by the solution to express the order of preferences in different \glspl{CD} \cite{sassoon2016,sassoon2016CD}.
 
 During the design of clinical studies, clinicians often struggle with the selection of the right model to analyse the retrieved data as they might not be qualified to perform the statistical model selection required for their research question. The process of implementing models, specifying their requirements, providing the arguments for or against these models and specifying preferences between them should be separated from the actual design process and  done by a statistician. An intelligent model selection system, which is capable of suggesting appropriate model(s), would reduce administrative and demanding workload and empower clinicians to make data driven decisions.
 
-Sassoon \textit{et al.} \cite{sassoon2014} address these problems with a defeasible knowledge base, as the (counter-) arguments for specific models might be contradicting. Furthermore the system, the clinician and the statistician might have different preferences over models which need to be expressed in this  knowledge base. Therefore they propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences, which are reflected by \gls{CD} specific preference orders proposed in later work \cite{sassoon2016,sassoon2016CD} .
+Sassoon \textit{et al.} \cite{sassoon2014} address these problems with a defeasible knowledge base, as the (counter-) arguments for specific models might be contradicting. Furthermore the system, the clinician and the statistician might have different preferences over models that need to be expressed in this knowledge base. Therefore they propose to split the problem into two parts (i) a (defeasible) \textit{knowledge base} that contains the statistical model definitions, the objectives and assumptions of a model; (ii) \textit{argumentation schemes} to guide the model selection process and to represent expressed preferences, which are reflected by \gls{CD} specific preference orders proposed in later work \cite{sassoon2016,sassoon2016CD} .
 
 The \textit{knowledge base} is used to instantiate the \textit{argumentation schemes} and defines how research objectives can be achieved through different statistical models considering their given assumptions. \textit{Research objectives} are defined as different 'families' of analysis (e.g. survival analysis or categorical outcome variable analysis).
 
@@ -167,7 +167,7 @@ These orders over the models (see \autoref{tab:cd1} and \ref{tab:cd2}) can then 
 \begin{figure}[hbtp]
 	\centering
 	\input{figures/cd1heavy_step1}
-	\caption{\gls{EAF} if $CD1_{heavy}$ holds: The attacks $(m_1,m_2)$ and $(m_3,m_2)$ are canceled out and $m_3$ is the only acceptable model w.r.t. to $\S_1' = \{CD1_{heavy}\}$.}
+	\caption{\gls{EAF} if $CD1_{heavy}$ holds: The attacks $(m_1,m_2)$ and $(m_3,m_2)$ are cancelled out and $m_3$ is the only acceptable model w.r.t. to $\S_1' = \{CD1_{heavy}\}$.}
 	\label{fig:cd1_heavy}
 \end{figure}
 
@@ -177,7 +177,7 @@ After evaluating the possible models by using \autoref{as:1} we will generate an
 
 
 \begin{figure}[hbtp]
-	\subfigure[0.45\textwidth][First \gls{CD} applied: $CD1_{light}$ holds. The attacks $(m_3,m_2)$ and $(m_3,m_1)$ are canceled out. $m_3$ is not acceptable w.r.t. $\S_2' = \{CD1_{light}\}$.]{
+	\subfigure[0.45\textwidth][First \gls{CD} applied: $CD1_{light}$ holds. The attacks $(m_3,m_2)$ and $(m_3,m_1)$ are cancelled out. $m_3$ is not acceptable w.r.t. $\S_2' = \{CD1_{light}\}$.]{
 	  	\begin{minipage}{0.45\textwidth}
 		  	\centering
 		  	\input{figures/cd1light_step1}
@@ -185,7 +185,7 @@ After evaluating the possible models by using \autoref{as:1} we will generate an
 		\label{fig:cd1_light}
 	}
 	\hfill
-	\subfigure[0.45\textwidth][Next \gls{CD} applied: $CD2_{predict}$ holds. The attack $(m_1,m_2)$ is canceled out and $m_1$ is not possible anymore. Hence $m_2$ is the recommended model.]{
+	\subfigure[0.45\textwidth][Next \gls{CD} applied: $CD2_{predict}$ holds. The attack $(m_1,m_2)$ is cancelled out and $m_1$ is not possible anymore. Hence $m_2$ is the recommended model.]{
 	  	\begin{minipage}{0.45\textwidth}
 	  		\centering
 			\input{figures/cd1_light}

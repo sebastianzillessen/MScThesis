@@ -24,11 +24,11 @@ This algorithm transforms an \gls{EAF} into an \gls{AF} using a colouring-based 
 \subsection{Argumentation Framework: Algorithm}
 \label{sub:af_algorithm}
 
-The algorithm presented in \cref{fig:af_algo} is based on an labelling approach proposed in \cite{Modgil2009Proof, rodrigues}. It is supposed to calculate the preferred extensions of an \gls{AF}. \texttt{Cand} holds the possible candidates for a preferred labelling as defined in \cref{def:preferred_extension} and is initialised with \texttt{Cand = $\emptyset$}. The Ruby implementation of this algorithm can be found in \cref{lst:af}. The used class \texttt{Labeling} can be found in the provided source code. 
+The algorithm presented in \cref{fig:af_algo} is based on an labelling approach proposed in \cite{Modgil2009Proof, rodrigues}. It is supposed to calculate the preferred extensions of an \gls{AF}. \texttt{Cand} holds the possible candidates for a preferred labelling as defined in \cref{def:preferred_extension} and is initialised with \texttt{Cand = $\emptyset$}. The Ruby implementation of this algorithm can be found in \cref{lst:af}. The used class \texttt{Labelling} can be found in the provided source code. 
 
 \begin{algorithm}[hbtp]
 	\includegraphics[width=0.7\textwidth]{figures/af_labelling}
-	\caption{Algorithm to compute preferred labelings $\lambda \in $ \texttt{Cand} for \glspl{AF} \cite{rodrigues}.}
+	\caption{Algorithm to compute preferred labellings $\lambda \in $ \texttt{Cand} for \glspl{AF} \cite{rodrigues}.}
 	\label{fig:af_algo}
 \end{algorithm}
 
@@ -48,9 +48,9 @@ Accessing the data set of the analysis as an input in the R-script is essential.
 \end{listing}
 
 
-Each script that is executed will have access to the variable \texttt{tabular\_data} which has been initialised with \texttt{tabular\_data=read.csv(file='\#\{filename\}')}. This type of assumption must return its result (whether the assumption holds on this data set or not) in the boolean variable named \texttt{result}. The provided example in \cref{lst:cd_mild} shows, how this \texttt{tabular\_data} and the \texttt{result} variable are used together to perform an assumption check on the data set.
+Each script that is executed will have access to the variable \texttt{tabular\_data}, which has been initialised with \texttt{tabular\_data=read.csv(file='\#\{filename\}')}. This type of assumption must return its result (whether the assumption holds on this data set or not) in the boolean variable named \texttt{result}. The provided example in \cref{lst:cd_mild} shows, how this \texttt{tabular\_data} and the \texttt{result} variable are used together to perform an assumption check on the data set.
 
-A \texttt{QueryTestAssumption} will receive the additional variable \texttt{fileName} which is initialised with an absolute filename to a temporary file. This must be used to store a generated plot during the analysis, as the hosted application does not have read and write access to all folders. For this type of assumption it is necessary to return a valid PNG at the provided file location. Please note, that due to some rendering issues, the Heroku hosted installation only supports PNG generation in R-scripts when the \texttt{type} is set to \texttt{cairo} (see \cref{lst:rcode}).
+A \texttt{QueryTestAssumption} will receive the additional variable \texttt{fileName}, which is initialised with an absolute filename to a temporary file. This must be used to store a generated plot during the analysis, as the hosted application does not have read and write access to all folders. For this type of assumption it is necessary to return a valid PNG at the provided file location. Please note, that due to some rendering issues, the Heroku hosted installation only supports PNG generation in R-scripts when the \texttt{type} is set to \texttt{cairo} (see \cref{lst:rcode}).
 
 To execute the \gls{R}-scripts the gem \texttt{rinruby}\footnote{\url{https://github.com/clbustos/rinruby}} has been used. As the original gem did not provide all required functionalities and features it has been extended and forked at \href{https://github.com/sebastianzillessen/rinruby}{https://github.com/sebastianzillessen/rinruby}. 
 

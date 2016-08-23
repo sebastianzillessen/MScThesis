@@ -1,7 +1,7 @@
 \section{Specification}
 \label{sec:specification}
 
-In accordance with the selected methodology of Use Case 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of \glspl{use_case} has been defined and iterativly refined. These were then reviewed by the client and discussed in detail. All \glspl{use_case} have been described on cards on Trello and \glspl{use_case_slice} have been generated out of those. They are directly reflected by the description in \cite{sassoon2016,sassoon2014, sassoon2016CD}. In general each \gls{use_case} consists of the following attributes: Name, Desired outcome, (Main-)\Glspl{Actor}, Flow to achieve the desired outcome, and Alternative flow (optional).
+In accordance with the selected methodology of Use Case 2.0 (see \autoref{sec:design}) no in-depth specification has been written, however a reasonable amount of \glspl{use_case} has been defined and iteratively refined. These were then reviewed by the client and discussed in detail. All \glspl{use_case} have been described on cards on Trello and \glspl{use_case_slice} have been generated out of those. They are directly reflected by the description in \cite{sassoon2016,sassoon2014, sassoon2016CD}. In general each \gls{use_case} consists of the following attributes: Name, Desired outcome, (Main-)\Glspl{Actor}, Flow to achieve the desired outcome, and Alternative flow (optional).
 
 
 \subsection{Weak Requirements}
@@ -20,7 +20,7 @@ In addition to the described \glspl{use_case} in \autoref{tab:usecases} (derived
 	\item A decent test suite should be provided to ensure the functionality of the system.
 	\item The system must be suitable for different user types (\glspl{Actor}).
 	\item The system has to provide different levels of access for different user groups.
-	\item The system has to execute test scripts as \gls{R}-Scripts.
+	\item The system has to execute test scripts as \gls{R}-scripts.
 	\item The system should be hosted on a free accessible hosting provider.
 \end{itemize}
 
@@ -45,7 +45,7 @@ During the requirements analysis the following actors have been identified and a
 \label{sub:use_cases}
 \autoref{tab:usecases} shows an overview over the major \glspl{use_case} being generated during the requirements analysis. For the sake of simplicity they have not been integrated into this thesis. However, they are available on the \href{https://trello.com/b/ywCkicpc}{Trello-Board}\footnote{\url{https://trello.com/b/ywCkicpc}}.
 
-The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, deriving requirements have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach. Close feedback loops to the author of \cite{sassoon2016,sassoon2014,sassoon2016CD} (\gls{product owner} or client) ensured the correctness of these implementations. As the software was developed in a test driven approach (see \autoref{sec:tdd}), all features were implemented by designing tests first. This is reflected by the final test suite (see \autoref{sub:test_suit}) which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall test coverage of $ \geq 85\%$\footnote{\url{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}}. \autoref{uc:121} shows an exemplary, detailed description of one \gls{use_case}.
+The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined, deriving requirements have been generated as \glspl{use_case_slice} and were implemented by applying an iterative approach. Close feedback loops to the author of \cite{sassoon2016,sassoon2014,sassoon2016CD} (\gls{product owner} or client) ensured the correctness of these implementations. As the software was developed in a test driven approach (see \autoref{sec:tdd}), all features were implemented by designing tests first. This is reflected by the final test suite (see \autoref{sub:test_suit}), which contains a decent amount of \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} and has an overall test coverage of $ \geq 85\%$\footnote{\url{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage}}. \autoref{uc:121} shows an exemplary, detailed description of one \gls{use_case}.
 
 \begin{landscape}
 	\begin{longtable}{ l l p{11cm} l l p{3cm} }
@@ -53,7 +53,7 @@ The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined
 		\href{https://trello.com/c/KEOokZp9}{UC1}   & 	- & 	Enter two default models into the system as code without user interface including definition of assumptions & RC1 & Must &  For initial testing purposes  \\
 		\href{https://trello.com/c/ebVrFdA5}{UC2}   & 	C & 	Get models that are appropriate for a research question & RC1	& Must &	   \\
 		\href{https://trello.com/c/ORRBjISQ}{UC2-1} & 	C & 	Store finished analyses & RC2 & Should &  see \autoref{as:1} \\
-		\href{https://trello.com/c/qKLAoWRj}{UC3} 	&  	S & 	Define assumptions for models & - & - & obsolet \\
+		\href{https://trello.com/c/qKLAoWRj}{UC3} 	&  	S & 	Define assumptions for models & - & - & obsolete \\
 		\href{https://trello.com/c/7NINsfz8}{UC4}   & 	C & 	Check that a data set meets the set of assumptions of a model and that the queries to the clinician regarding the research question's  assumptions are met as well & RC1 & Must   &   \\
 		\href{https://trello.com/c/22JGne3r}{UC5}   & 	C & 	Select a research question & RC1 & Must &   \\
 		\href{https://trello.com/c/CVGBVWID}{UC6}   &   C, S, A & 	Login into the system and be authenticated with your role & RC2 & Should &	 \\
@@ -97,7 +97,7 @@ The \glspl{use_case} defined in \autoref{tab:usecases} were then further defined
 
 As the system should be accessible by multiple users and from different departments (e.g. clinicians and statisticians), it will be developed as a web-application in \gls{RoR}\footnote{\url{http://rubyonrails.org}} and will be hosted on Heroku\footnote{\url{https://www.heroku.com}} as this will provide an easy-to-use and easy-to-deploy environment. In addition it allows us to host the demo application for free. To provide a \gls{CI} environment, the project code is hosted on \texttt{github}\footnote{\url{https://github.com/sebastianzillessen/small-data-analyst}} and a \texttt{Travis CI}\footnote{\url{https://travis-ci.org/sebastianzillessen/small-data-analyst}} instance has been setup that runs all the implemented tests of the project.
 
-The used data sets are anonymised, so data protection issues are reduced to a minimum and the data sets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{\url{http://www.postgresql.org}} will be used as a database, as it is well integrated on Heroku and provides high scalability. Generated plots are stored in an Amazon Web Services S3 Storage\footnote{\url{https://aws.amazon.com/s3}, a simple storage service.}.
+The used data sets are anonymized, so data protection issues are reduced to a minimum and the data sets can be hosted in the cloud. \texttt{PostgreSQL}\footnote{\url{http://www.postgresql.org}} will be used as a database, as it is well integrated on Heroku and provides high scalability. Generated plots are stored in an Amazon Web Services S3 Storage\footnote{\url{https://aws.amazon.com/s3}, a simple storage service.}.
 
 The assumption tests for the statistical models will be performed in \gls{R}, as this is a common used language for statistical calculations and well known by statisticians. In addition many assumption-checks already exist in \gls{R}. These scripts (externally provided) will be executed in the \gls{RoR} application with the help of third party gems. A detailed description of this process can be found in \autoref{sec:r_code}.
 
