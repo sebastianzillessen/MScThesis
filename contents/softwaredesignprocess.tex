@@ -18,7 +18,7 @@ The software design process has been inspired by \Glspl{use_case} 2.0 of Iva Jac
 
 \textbf{\Glspl{use_case_flow}} define how the interaction between actors and the system proceeds. Usually there is a standard flow, and alternative (error / exception handling) flows. 
 
-\textbf{\Glspl{use_case_slice}} are the final development tasks. They will be generated out of the use case flows and can be independently implemented as a single iteration step. They are based on flows and test cases. Further test cases are usually generated during the implementation to react on system specific scenarios and test requirements.
+\textbf{\Glspl{use_case_slice}} are the final development tasks. They will be generated out of the \glspl{use_case_flow} and can be independently implemented as a single iteration step. They are based on flows and test cases. Further test cases are usually generated during the implementation to react on system specific scenarios and test requirements.
 
 
 \subsection{Test Driven Development}
@@ -34,7 +34,7 @@ The software design process has been inspired by \Glspl{use_case} 2.0 of Iva Jac
 \end{enumerate}
 
 
-One key component in \gls{TDD} is to keep it short and simple (KISS principle), which results in small, testable and reusable modules in a software and usually leads to better code quality. As the software will be developed in iterative steps, the progress is easily trackable and although changes are made to already existing features, the integrated tests for the previously implemented functionality ensures the continuous integrity of the overall system.  
+One key component in \gls{TDD} is to \gls{KISS}, which results in small, testable and reusable modules in a software and usually leads to better code quality. As the software will be developed in iterative steps, the progress is easily trackable and although changes are made to already existing features, the integrated tests for the previously implemented functionality ensures the continuous integrity of the overall system.  
 
 In our case \glspl{unit_test}, \glspl{integration_test} and \glspl{e2e_test} have been used to test the overall system. As described in \autoref{sub:technical} a \gls{CI} system has been set up to ensure the integrity of the system. The implemented \glspl{e2e_test} are basically described by the standard- and alternative-flows that are attached to each \gls{use_case} as defined in \autoref{sub:use_cases}. The individual tests that were executed can be found in \autoref{sub:test_suit} in the appendix.
 

@@ -14,8 +14,8 @@ An algorithm to solve \glspl{EAF} was presented in \cite{Dunne10computationin} (
 This algorithm transforms an \gls{EAF} into an \gls{AF} using a colouring-based approach. To do so, it eliminates the attack-on-attacks relation $\D$ by removing elements from $\A$ according to the provided subset $S'$. In addition, \cref{fig:af_algo} (see \cref{sub:af_algorithm}) will be applied to check whether $x$ is acceptable w.r.t. $S'$ in the resulting AF $\langle \X', \A' \rangle$\footnote{As the \gls{EAF} gets reduced to an \gls{AF} the following is true: $\X' \subseteq \X, \A' \subseteq \A$.}.
 
 
-\begin{algorithm}[!htp]
-	\includegraphics[width=0.8\textwidth]{figures/eaf_algorithm}
+\begin{algorithm}[htbp]
+	\includegraphics[width=0.7\textwidth]{figures/eaf_algorithm}
 	\caption{Deciding \gls{EAF} Acceptability of $x \in \X$ w.r.t. $S' \subseteq \X$ in $\langle \X, \A, \D \rangle$.}
 	\label{fig:eaf_algo}
 \end{algorithm}
@@ -26,22 +26,22 @@ This algorithm transforms an \gls{EAF} into an \gls{AF} using a colouring-based 
 
 The algorithm presented in \cref{fig:af_algo} is based on an labelling approach proposed in \cite{Modgil2009Proof, rodrigues}. It is supposed to calculate the preferred extensions of an \gls{AF}. \texttt{Cand} holds the possible candidates for a preferred labelling as defined in \cref{def:preferred_extension} and is initialised with \texttt{Cand = $\emptyset$}. The Ruby implementation of this algorithm can be found in \cref{lst:af}. The used class \texttt{Labeling} can be found in the provided source code. 
 
-\begin{algorithm}[!htp]
-	\includegraphics[width=0.8\textwidth]{figures/af_labelling}
+\begin{algorithm}[hbtp]
+	\includegraphics[width=0.7\textwidth]{figures/af_labelling}
 	\caption{Algorithm to compute preferred labelings $\lambda \in $ \texttt{Cand} for \glspl{AF} \cite{rodrigues}.}
 	\label{fig:af_algo}
 \end{algorithm}
 
 
 
-\subsection{R-Code and \texttt{rinruby} gem}
+\subsection{R-Code and \texttt{rinruby} Gem}
 \label{sec:r_code}
 
 To test if a \texttt{TestAssumption} holds or not, statisticians have to upload \gls{R}-scripts that verify these assumptions on the selected data set. This is done by executing the script in \gls{R} and returning the result back to the \gls{RoR} application. Therefore the scripts have to fulfil certain criteria to be able to communicate correctly with the rest of the agent. The provided scripts are executed using regular R-Syntax. In addition to the by default loaded libraries, the \texttt{survival} library will be installed on the executing systems, as it is often used during analyses related to statistical model selection.
 
 Accessing the data set of the analysis as an input in the R-script is essential. The application supports only uploads of CSV files. Thereby the selected format of providing the data sets to the scripts was chosen to be a tabular representation as \gls{R} has an excellent support of loading CSV files.
 
-\begin{listing}[htbp]
+\begin{listing}[tbp]
 	\rcode{figures/mild_censoring.r}
 	\caption{R-script to evaluate a \texttt{TestAssumption} on a data set to check whether the underlying data set has been mild censored or not. The performance measurement of CD1 relies on this check (see \autoref{tab:cd1}). }
 	\label{lst:cd_mild}

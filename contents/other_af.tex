@@ -1,4 +1,4 @@
-\subsection{Other Approaches to work with Preferences in $AF$}
+\subsection{Other Approaches for Preferences in Argumentation Frameworks}
 \label{app:other_afs}
 \label{sub:paf}
 Other approaches to deal with preferences in argumentation frameworks have been proposed by \cite{amgoud,amgoud1998,Bench2003,pollock1987, prakken1997}. A \gls{PAF} defined in \cite{amgoud1998} is  a triple $\langle \S, \R, Pref \rangle$ where $Pref$ is a (partial of complete) order preordering on $\S \times \S$. The difference between this approach and the one we use is mostly the requirement of a strict ordering that has to be associated with $Pref$ and must be explicitly defined.
@@ -9,6 +9,6 @@ Modgil \textit{et al.} introduce in \cite{Modgil2009} the concept of a special c
 
 \Glspl{VAF} as proposed in \cite{Bench2003} define an argumentation framework as a 5-tuple: $\langle \S, \R, V, val, P \rangle$ ($\S$: Arguments, $\R$: Attack relation, $V$: nonempty set of values, $val(\cdot): \S \rightarrow V$: value mapping function, $P$: set of audiences $\{a_1, ..., a_n\}$ where each audience names a total ordering $>_{a_i}$ on $V \times V$). By referring to one specific audience we retrieve a \gls{aVAF}. The set of audiences $P$ is introduced to be able to make use of preferences between values in $V$, so we might have as many audiences as there are orderings on $V$. The new definition of an argument that defeats another argument takes into account the audience $a$ and the $val(\cdot)$ of both arguments to define successful attacks. This approach requires a value mapping function $val(\cdot)$ and doesn't argue with preferences in a natural way. 
 
-However \cite{Modgil2009} proves, that an \gls{aVAF} can be transferred to an \textit{equivalent} \gls{EAF} by representing the \gls{aVAF} with three layers, the outer layer expressing the audience, the second layer expressing the pairwise orderings on values in $V$. The inner layer is based the actual arguments and attacks in the \gls{aVAF}.
+However, \cite{Modgil2009} proves that an \gls{aVAF} can be transferred to an \textit{equivalent} \gls{EAF} by representing the \gls{aVAF} with three layers: The outer layer expressing the audience, the second layer expressing the pairwise orderings on values in $V$, and the inner layer based on the actual arguments and attacks in the \gls{aVAF}.
 
 Defeasible reasoning and preferences and their impact on argumentation frameworks are formalised as logical formalism by \cite{pollock1987, prakken1997} in the underlying logical formalism which will be used to instantiate a regular Dung framework.
