@@ -16,21 +16,23 @@ The report is concluded by a critical evaluation (see \autoref{sec:evaluation}) 
 \subsection{Project Goals and Objectives} 
 \label{sub:aims}
 
-The goals of this project can be divided into a list of primary and secondary. For a successful project progression the following primary objectives have to be reached:
+The goals of this project can be divided into a list of primary and secondary. In the following lists the endings of an item ([$\cdots $]) represent, whether this goal could be achieved or not. A reference to a chapter indicates, where further details can be found. Achieved goals are marked by an \checkmark, not achieved tasks are marked with $\times$ and partly achieved goals are marked with $\sim$. For a successful project progression the following primary objectives have to be reached:
+
+
 \begin{itemize}
-	\item General explanation and summary of \glspl{AF}, \glspl{EAF}, statistical model selection and the definition of preferences between models related to \glspl{CD}.
-	\item Development of an \gls{RoR} web application that implements the requirements proposed in \cite{sassoon2014,sassoon2016CD} including but not limited to:
+	\item General explanation and summary of \glspl{AF}, \glspl{EAF}, statistical model selection and the definition of preferences between models related to \glspl{CD}. \hfill\mbox{[\cref{sec:background} \checkmark]}
+	\item Development of an \gls{RoR} web application that implements the requirements proposed in \cite{sassoon2014,sassoon2016CD} including but not limited to: \hfill\mbox{[\cref{sec:implementation} \checkmark]}
 	\begin{itemize}
-		\item An approach to instantiate and solve \glspl{AF} and \glspl{EAF}.
-		\item The ability to store, manage and reuse research questions, analysis and preferences for statistical models on different data sets.
-		\item An easy to use user interface to upload data collected during clinical studies and run analyses in an interactive way.
-		\item The ability to deal with preferences between models on a meta-level using \glspl{EAF} while taking into account global and personal (end user) preferences. The approach proposed in \cite{sassoon2016CD} involving \glspl{CD} will be used.
-		\item A user rights management to allow the system to be used by clinicians, statisticians and super-users (admins).
-		\item A small set of statistical models and their assumptions integrated in the system (provided by Sassoon in \cite{sassoon2016CD}).
-		\item A comprehensive set of unit and integration tests of the system.
-		\item Hosting of this web application at a public accessible provider.
+		\item An approach to instantiate and solve \glspl{AF} and \glspl{EAF}. \hfill\mbox{[\cref{sub:eaf_algorithm} and \ref{sub:af_algorithm} \checkmark]}
+		\item The ability to store, manage and reuse research questions, analysis and preferences for statistical models on different data sets. \hfill\mbox{[\cref{sub:db} \checkmark]}
+		\item An easy to use user interface to upload data collected during clinical studies and run analyses in an interactive way. \hfill\mbox{[\cref{sub:walk} \checkmark]}
+		\item The ability to deal with preferences between models using \glspl{EAF} while taking into account global and personal (end user) preferences. The approach proposed in \cite{sassoon2016CD} involving \glspl{CD} will be used. \hfill\mbox{[\cref{sub:process} \checkmark]}
+		\item A user rights management to allow the system to be used by clinicians, statisticians and super-users (admins).\hfill\mbox{[\cref{sec:implementation} \checkmark]}
+		\item A small set of statistical models and their assumptions integrated in the system (provided by Sassoon in \cite{sassoon2016CD}).\hfill\mbox{[\cref{sec:app,app:dataset} \checkmark]}
+		\item A comprehensive set of unit and integration tests. \hfill\mbox{[\cref{app:rspec} \checkmark]}
+		\item Hosting at a public accessible provider. \hfill\mbox{[\cref{sub:technical} \checkmark]}
 	\end{itemize}	
-	\item The system should provide the end user with an explanation why a statistical model should be used, and why one model might be preferred over another one.
+	\item Providing the user with an explanation why a statistical model should be used, and why one model might be preferred over another. \hfill[\cref{sub:walk} \checkmark]
 \end{itemize}
 
 \bigskip
@@ -38,11 +40,11 @@ The goals of this project can be divided into a list of primary and secondary. F
 The secondary goals are desired to be achieved but do not influence the successful finalisation of the project. These objectives are the following:
 
 \begin{itemize}
-	\item A documentation of the developed system providing information on how to use it and an overview over the key components of the application.
-	\item A reusable implementation to solve standard \glspl{AF} in Ruby as a \texttt{gem} including documentation and a comprehensive set of unit tests.
-	\item A reusable implementation to solve \glspl{EAF} in Ruby as a \texttt{gem} including documentation and a comprehensive set of unit tests.
-	\item Extended sets of statistical models and their assumptions.
-	\item A graphical representation of the arguments explaining the actual analysis outcome of the system.
+	\item A documentation providing information on how to use it and an overview over the key components of the application. \hfill\mbox{[\cref{sub:db,app:installation} \checkmark]}
+	\item A reusable implementation to solve standard \glspl{AF} in Ruby as a \texttt{gem} including documentation and a comprehensive set of unit tests. \hfill\mbox{[$\times$]}
+	\item A reusable implementation to solve \glspl{EAF} in Ruby as a \texttt{gem} including documentation and a comprehensive set of unit tests. \hfill\mbox{[$\times$]}
+	\item Extended sets of statistical models and their assumptions. \hfill\mbox{[$\sim$]}
+	\item A graphical representation of the arguments explaining the actual analysis outcome of the system. \hfill\mbox{[\autoref{sub:ui} \checkmark]}
 \end{itemize}
 
 
@@ -63,4 +65,3 @@ As a project communication and management tool Trello\footnote{\url{http://www.t
 \subsection{Supplementary Resources}
 
 During this Masters Project a web-application was developed, which is publicly available on \href{http://small-data-analyst.herokuapp.com}{http://small-data-analyst.herokuapp.com}. Users can sign-up (approval of an administrator required, please reach out to the author if you have any questions related to that) and upload their own data sets. Some of the existing research questions are shared between all users of the application. However -- if required -- the source code is available on \href{https://github.com/sebastianzillessen/small-data-analyst}{Github}\footnote{\url{https://github.com/sebastianzillessen/small-data-analyst}} and an installation instruction can be found in the appendix \autoref{app:installation}. A detailed list of used third-party applications is attached in \autoref{app:3rdparty}.
-

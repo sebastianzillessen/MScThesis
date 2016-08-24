@@ -8,7 +8,7 @@
 
 \ProcessOptions*% process options it the order the user provides them
 
-\LoadClass[11pt,a4paper]{article}
+\LoadClass[11pt,a4paper,twoside,openright]{article}
 
 \ifkclthesis@isdraft
 	\RequirePackage{draftwatermark}
@@ -168,17 +168,6 @@
 \newcommand{\explainindetail}[1]{\todo[color=red!40]{Explain: #1}}
 \newcommand{\askfeedback}[1]{\todo[color=blue!40]{Feedback Required: #1}}
 
-
-
-\fancyhead{}
-\fancyfoot[]{}
-\pagestyle{fancy} 
-%\fancyhead{\sffamily\small \thepage}
-%\fancyhead{\sffamily\small \nouppercase{\rightmark}}
-\fancyhead[RO,LE]{\sffamily\small \thepage}
-\fancyhead[LO,RE]{\sffamily\small \nouppercase{\rightmark}}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.0pt}
 
 
 \renewcommand*{\maketitle}{

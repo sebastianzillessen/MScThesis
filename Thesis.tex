@@ -1,4 +1,4 @@
-\documentclass[isdraft]{kclthesis}  % notes see below
+\documentclass[]{kclthesis}  % notes see below
 									% [releaseproject] will check release,
 							 		% [notreleaseproject] will check not release.
 							 		% [isdraft] provides background water mark "DRAFT"
@@ -12,7 +12,6 @@
 % Define macro \wordcountsum for including the counts
 \newcommand\wordcountsum{\input{\jobname.sum}}
 
-
 \newenvironment{markdown}%
     {\VerbatimEnvironment\begin{VerbatimOut}{tmp.markdown}}%
     {\end{VerbatimOut}%
@@ -24,7 +23,7 @@
 \usepackage{listings}
 \usepackage[cache=false,outputdir=.texpadtmp]{minted}
 \lstloadlanguages{ruby}
-
+\usepackage{emptypage}
 
 \newmintedfile[rubycode]{ruby}{
 fontfamily=tt,
@@ -103,24 +102,33 @@ breaklines=true
 %TC:ignore
 %%%%%% depends what you like, might try out the other frontpage as well
 \maketitle 		% official styled layout
+\cleardoublepage
 \maketitleTwo 	% adapted layout which looks nicer from my point of view.
+\cleardoublepage
+
+\pagestyle{fancy} 
+\fancyhead[RO,LE]{\sffamily\small \thepage}
+\fancyhead[LO,RE]{\sffamily\small \nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.0pt}
 
 %%%%%% empty page after main page.
-\newpage
-\thispagestyle{empty}
-\mbox{}
-\newpage
+
 %%%%%% Abstract
 %TC:endignore
 
 %TC:break Abstract
+
 \include{contents/abstract}
 \include{structure/acknowledgements}
 
 %%%%%% Table of contents
+\cleardoublepage
 
 \pagenumbering{roman}
 \setcounter{tocdepth}{4}
+\newpage
+\cleardoublepage
 \tableofcontents
 \newpage
 
@@ -135,26 +143,32 @@ breaklines=true
 
 \include{contents/introduction}
 \include{contents/background}
+\cleardoublepage
 \include{contents/projectplan}
+\cleardoublepage
 \include{contents/softwaredesignprocess}
+\cleardoublepage
 \include{contents/specification}
+\cleardoublepage
 \include{contents/main_result}
-
+\cleardoublepage
 \include{contents/implementation}
-
+\cleardoublepage
 \include{contents/evaluation} 
-
+\cleardoublepage
 %\include{contents/main}
 \include{contents/conclusion}
 
 
 %TC:ignore
-
+\cleardoublepage
 \include{contents/bibs}
 
 %%%%% Declaration
+\cleardoublepage
 \include{structure/declaration}
 %%%%% Appendix
+\cleardoublepage
 \appendix
 \include{appendix/app_1}
 

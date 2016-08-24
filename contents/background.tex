@@ -3,7 +3,7 @@
 
 A lot of medical data is collected nowadays on a routine basis by clinicians and could play a critical role to support evidence based decision-making. However, the process of analysing the data and selecting the "correct" statistical model is often a demanding process for clinicians. A system helping them to select and apply appropriate models on these clinical data sets would empower them -- even with minimal or no statistical knowledge -- to make data driven decisions. 
 
-It has been shown in \cite{sassoon2014}, that a system based on argumentation schemes and a statistical knowledge base could close the gap between the clinician performing analysis and the statistician having the in-depth knowledge of the underlying theory. The relevant theoretical elements will be explained in the following sections.
+It has been shown in \cite{sassoon2014}, that a system based on argumentation schemes and a \gls{SKB} could close the gap between the clinician performing analysis and the statistician having in-depth knowledge of the underlying theory. Following this suggestion, the presented project will employ an argumentation system to analyse the \gls{SKB}. First, the data set and the input of the user are evaluated. Second, an \gls{AF} is initiated based on this result to validate the usage of particular statistical models. Finally, an \gls{EAF} is used to argue about preferences between these models. The relevant theoretical elements for this approach will be explained in the following sections.
 
 
 \subsection{Structure of the Background Research}
@@ -13,7 +13,7 @@ The approach for a statistical model selection proposed in \cite{sassoon2014} is
 Non-monotonic argumentation (as proposed in \cite{dung1995,liao}) and monotonic (classic) logic (as proposed in \cite{Reiter1980}) are in general different approaches to deal with reasoning. However, recent research is focusing on dialogue based approaches, which are mostly based on non-monotonic argumentation \cite{parsons2000,Walton1995}. 
 Nevertheless Sassoon \textit{et al.} propose to employ preferences by using \glspl{EAF} to reason about the order of applicable models and to deliver a final statistical model that should be used. 
 
-To understand this approach, an extension to the standard framework to reason over preferences is presented later in this section (see \autoref{sub:eaf}). Other possible solutions to argue over preferences are explained in \autoref{sub:paf}.
+To understand this approach, an extension to the standard framework to reason over preferences is presented later in this section (see \autoref{sub:eaf}). 
 
 Finally, \autoref{sub:statistical_model_selection} provides a summary of Sassoon \textit{et al.} \cite{sassoon2014} on the problem of finding applicable and choosing preferred models by clinicians for a given research question. In our application we focused on the approach described by the most recent papers \cite{sassoon2016,sassoon2016CD}, which will be summarised as well.
 
