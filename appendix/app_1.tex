@@ -31,7 +31,7 @@
 
 \begin{listing}[H]
 	\centering
-	\rubycode{figures/eaf_to_af.rb}	
+	\rubycode[fontsize=\tiny]{figures/eaf_to_af.rb}	
 	\caption{Ruby Code to implement \autoref{fig:eaf_algo}.}
 	\label{lst:eaf}
 \end{listing}
@@ -98,7 +98,7 @@ Figures \ref{fig:usecase:clinician}, \ref{fig:usecase:statistician} and \ref{fig
 \label{app:d}
 \label{app:rspec}
 \sloppy
-\autoref{sub:test_suit} provides an impression on the developed \texttt{rspec} tests. Only the first two pages have been generated. The whole report can be found on \url{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}. 
+\Cref{sub:test_suit}-\ref{sub:test_suit_6} provide an impression on the developed \texttt{rspec} tests. The whole report can be as well found on \url{https://github.com/sebastianzillessen/small-data-analyst/blob/master/report.html}. 
 
 The test suite, which is made out of $\approx 350$ specs, results in a resonable test coverage of $\geq 85\%$ (see \url{https://codeclimate.com/github/sebastianzillessen/small-data-analyst/coverage} for in depth code climate details and coverage report).
 
@@ -107,10 +107,50 @@ The test suite, which is made out of $\approx 350$ specs, results in a resonable
 \begin{sidewaysfigure}[!h]
 	\includegraphics[page=1,width=0.5\textwidth]{appendix/RSpec}
 	\includegraphics[page=2,width=0.5\textwidth]{appendix/RSpec}
-	\caption{RSpec test suite export (example of the first two pages).}
+	\caption{RSpec test suite export (Pages 1-2).}
 	\label{sub:test_suit}
 \end{sidewaysfigure}
 
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=3,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=4,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (Pages 3-4).}
+	\label{sub:test_suit_2}
+\end{sidewaysfigure}
 
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=5,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=6,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (Pages 5-6).}
+	\label{sub:test_suit_3}
+\end{sidewaysfigure}
 
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=7,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=8,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (Pages 7-8).}
+	\label{sub:test_suit_4}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=9,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=10,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (Pages 9-10).}
+	\label{sub:test_suit_5}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}[!h]
+	\includegraphics[page=11,width=0.5\textwidth]{appendix/RSpec}
+	\includegraphics[page=12,width=0.5\textwidth]{appendix/RSpec}
+	\caption{RSpec test suite export (Pages 11-12).}
+	\label{sub:test_suit_6}
+\end{sidewaysfigure}
+
+\newpage
+\cleardoublepage
+
+\section{Source Code}
+
+The core source code (without any configuration files and without any additional required scripts) of this project contains around 5000 lines of code, spread over $\approx 200$ files. Representing this in an PDF will not really help the reader to understand the project structure and its files. Hence, these files have not been included into the project. However, the source code is available on \url{https://github.com/sebastianzillessen/small-data-analyst/tree/Release} and has been tagged with "Release". This tag will not be changed anymore after the submission of the thesis. The uniq SHA1 identifier for the last commit is "\#ae5e3fff2cb1cf3ad7b23afdb39e7ea432cce69c".
+%\input{appendix/source_code}
 

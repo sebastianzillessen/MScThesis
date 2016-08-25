@@ -25,8 +25,10 @@
 \lstloadlanguages{ruby}
 \usepackage{emptypage}
 
-\newmintedfile[rubycode]{ruby}{
-fontfamily=tt,
+
+
+
+\newmintedfile[rcode]{r}{fontfamily=tt,
 linenos=true,
 numbersep=5pt,
 gobble=0,
@@ -42,10 +44,9 @@ showtabs =false,
 texcl=false,
 stepnumber=5,
 breaklines=true,
-fontsize=\tiny
-}
-\newmintedfile[rcode]{r}{
-fontfamily=tt,
+fontsize=\small}
+
+\newmintedfile[rubycode]{ruby}{fontfamily=tt,
 linenos=true,
 numbersep=5pt,
 gobble=0,
@@ -60,10 +61,13 @@ showspaces=false,
 showtabs =false,
 texcl=false,
 stepnumber=5,
-breaklines=true
-}
+breaklines=true,
+fontsize=\small}
 
 \newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}<!---->}
+
+
+
 
 
 \usetikzlibrary{shapes}
@@ -134,7 +138,7 @@ breaklines=true
 
 \include{contents/nomenclature}
 \include{structure/figures_tables}
-
+\cleardoublepage
 %TC:endignore
 %TC:break _main_
 %%%%%% Main content
