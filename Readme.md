@@ -1,22 +1,29 @@
-# Disclaimer
-This is an unofficial LaTeX template for KCL MSc Projects for the Informatics Department. 
+# Abstract
 
-How ever it has been approved by the supervisor for the MSc Projects for 2015/16 of the Informatics Department Hak-Keung Lam (hak-keung.lam@kcl.ac.uk).
+Data collection has seen a dramatic increase over the last years and researchers agree
+exploiting the collected data to create data driven decision processes is crucial to generate
+valuable insights for clinical studies. This generates the requirement to assist clinicians
+during the design process of their studies with an intelligent support agent performing
+these analyses for them.
+This project implements an existing approach to apply argumentation on this prob-
+lem, by representing the statistical models and their assumptions as a statistical knowl-
+edge base and implementing the process into a user-friendly web application. The model
+selection is in
+uenced by expressing preferences applying on dierent context domains
+and the close integration of the clinician and insights she/he can give related to the pro-
+cess. This will enable clinicians { even without a background in statistics or informatics
+{ to answer their research questions in an appropriate way and to make evidence based
+decisions.
 
-It is derived from the Imperial College London Thesis template (which can be found [here](https://www.imperial.ac.uk/media/imperial-college/faculty-of-natural-sciences/department-of-mathematics/public/study/admissions/pg/msc/math-fin/MScThesisTemplate.zip)).
 
-Unfortunately it has no Licence given, therefore I publish this under the MIT License.
+*Keywords:* application of argumentation, automated statistical analysis, statistical
+model selection, argumentation theory, intelligent agent.
 
-Changes have been made by Sebastian Zillessen (sebastian.zillessen@kcl.ac.uk) to adapt it to KCL.
+# Acknowledgements
+The author would like to thank Isabel Sassoon for her generous and prompt support
+during this project and the enormous amount of time she spent in discussing her papers,
+our thoughts and the progress of the project. In addition, many thanks to Jeroen
+Keppens, who had the time to meet on a regular basis to discuss the progress of the
+project.
 
 The front page and the bibliography style of King's Harvard V1 have been adapted from the official resources of KCL which were ported to LaTex by [Andre Müller](https://github.com/mueller-andre) (andre.mueller@kcl.ac.uk). Many thanks!
-
-Feel free to modify it or adapt it to your requirements, just make sure that you share your wisdom with everyone else by submitting a merge request.
-
-I do not give any guarantee on this template that it fullfils the KCL regulations or any other regulations.
-
-## How to contribute
-
-Feel free to use the layout for your own projects. If you're making changes that could be useful to other users as well, 
-please contribute by creating a pull request and state what you changed. 
-The repository can be found here: https://github.com/sebastianzillessen/KCLInformaticsMScProjectLayout
