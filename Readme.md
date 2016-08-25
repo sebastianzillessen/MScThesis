@@ -9,10 +9,10 @@ This project implements an existing approach to apply argumentation on this prob
 lem, by representing the statistical models and their assumptions as a statistical knowl-
 edge base and implementing the process into a user-friendly web application. The model
 selection is in
-uenced by expressing preferences applying on dierent context domains
+uenced by expressing preferences applying on different context domains
 and the close integration of the clinician and insights she/he can give related to the pro-
-cess. This will enable clinicians { even without a background in statistics or informatics
-{ to answer their research questions in an appropriate way and to make evidence based
+cess. This will enable clinicians -- even without a background in statistics or informatics
+-- to answer their research questions in an appropriate way and to make evidence based
 decisions.
 
 
